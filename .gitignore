@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.db
+*.xlsx
+logs/
+backups/
+data/raw/
