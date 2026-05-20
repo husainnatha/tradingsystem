@@ -1,4 +1,0 @@
-symbol,sell_transaction_id,buy_transaction_id,matched_quantity,rule
-AAPL,12,14,30.0,THIRTY_DAY
-TSLA,17,18,5.0,THIRTY_DAY
-GSK,20,21,25.0,THIRTY_DAY

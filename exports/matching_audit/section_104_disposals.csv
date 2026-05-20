@@ -1,4 +1,0 @@
-symbol,sell_transaction_id,matched_quantity,average_cost,matched_cost,rule
-AAPL,12,30.0,83.03333333333333,2491.0,SECTION_104
-AAPL,15,40.0,83.03333333333333,3321.333333333333,SECTION_104
-GSK,20,25.0,15.0,375.0,SECTION_104
