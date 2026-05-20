@@ -1,0 +1,2 @@
+symbol,trade_date,sell_transaction_id,buy_transaction_id,matched_quantity,rule
+AAPL,2026-02-01,12,13,20.0,SAME_DAY
