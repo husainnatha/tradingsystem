@@ -1,3 +1,9 @@
+import pandas as pd
+
+from app.engine.holdings_service import (
+    calculate_holdings
+)
+
 from app.engine.disposal_ledger import (
     build_disposal_ledger
 )
@@ -5,7 +11,6 @@ from app.engine.disposal_ledger import (
 from app.config.tax_config import (
     get_tax_config
 )
-
 
 def build_tax_dashboard():
 
@@ -91,4 +96,116 @@ def build_tax_dashboard():
                 round(estimated_cgt, 2)
         })
 
-    return summary_rows
+    summary_df = pd.DataFrame(
+        summary_rows
+    )
+
+    return summary_df
+
+# -----------------------------------
+# EXPORT TAX DASHBOARD
+# -----------------------------------
+
+def export_tax_dashboard_to_excel():
+
+    # -----------------------------------
+    # BUILD DATAFRAMES
+    # -----------------------------------
+
+    summary_df = build_tax_dashboard()
+
+    disposal_df = build_disposal_ledger()
+
+    # -----------------------------------
+    # HOLDINGS DATAFRAME
+    # -----------------------------------
+
+    holdings = calculate_holdings()
+
+    holdings_rows = []
+
+    for symbol, data in holdings.items():
+
+        holdings_rows.append({
+
+            "symbol":
+                symbol,
+
+            "quantity":
+                round(
+                    data["quantity"],
+                    2
+                ),
+
+            "pool_cost_gbp":
+                round(
+                    data["pool_cost"],
+                    2
+                ),
+
+            "average_cost_gbp":
+                round(
+                    data["avg_cost"],
+                    2
+                ),
+
+            "realised_pnl_gbp":
+                round(
+                    data["realised_pnl"],
+                    2
+                )
+        })
+
+    holdings_df = pd.DataFrame(
+        holdings_rows
+    )
+
+    # -----------------------------------
+    # EXPORT TO EXCEL
+    # -----------------------------------
+
+    output_path = (
+
+        "dashboard/"
+        "tax_dashboard.xlsx"
+    )
+
+    with pd.ExcelWriter(
+
+        output_path,
+
+        engine="openpyxl"
+    ) as writer:
+
+        summary_df.to_excel(
+
+            writer,
+
+            sheet_name="TAX_SUMMARY",
+
+            index=False
+        )
+
+        disposal_df.to_excel(
+
+            writer,
+
+            sheet_name="DISPOSAL_LEDGER",
+
+            index=False
+        )
+
+        holdings_df.to_excel(
+
+            writer,
+
+            sheet_name="HOLDINGS",
+
+            index=False
+        )
+
+    print(
+
+        f"\nTax dashboard exported:\n"
+        f"{output_path}\n"
+    )
