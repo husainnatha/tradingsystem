@@ -5,3 +5,5 @@ __pycache__/
 logs/
 backups/
 data/raw/
+data/macro_data/
+data_market_data/
