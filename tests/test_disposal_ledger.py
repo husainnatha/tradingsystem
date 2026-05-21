@@ -2,17 +2,19 @@ from app.engine.disposal_ledger import (
     build_disposal_ledger
 )
 
-ledger = build_disposal_ledger()
+df = build_disposal_ledger()
 
 print("\nDISPOSAL LEDGER:\n")
 
-for row in ledger:
+for _, row in df.iterrows():
 
     print(
 
         f"{row['symbol']} | "
 
         f"{row['disposal_date']} | "
+
+        f"{row['tax_year']} | "
 
         f"{row['rule']} | "
 

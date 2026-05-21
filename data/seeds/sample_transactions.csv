@@ -1,0 +1,17 @@
+trade_date,account,symbol,action,quantity,trade_currency,trade_price,fees,fx_rate_to_gbp,notes
+10/01/2024,IWEB,POET,BUY,100,USD,5.00,5.00,0.79,Initial buy only position
+15/02/2024,IWEB,POET,BUY,100,USD,7.00,5.00,0.79,Second buy for Section104 pooling
+01/03/2024,IWEB,POET,SELL,50,USD,10.00,5.00,0.78,Partial disposal against Section104 pool
+10/04/2024,IWEB,META,BUY,20,USD,400.00,5.00,0.80,Same day matching test buy
+10/04/2024,IWEB,META,SELL,20,USD,420.00,5.00,0.80,Same day matching test sell
+01/05/2024,IBKR,NVDA,SELL,10,USD,850.00,1.00,0.79,Bed and breakfast disposal
+20/05/2024,IBKR,NVDA,BUY,10,USD,820.00,1.00,0.79,Rebuy within 30 days
+15/06/2024,IWEB,TSLA,BUY,50,USD,200.00,5.00,0.78,Loss carry forward setup
+01/11/2024,IWEB,TSLA,SELL,50,USD,150.00,5.00,0.77,Realised capital loss
+10/02/2025,IBKR,AMZN,BUY,30,USD,160.00,1.00,0.79,Partial holdings setup
+15/03/2025,IBKR,AMZN,SELL,15,USD,180.00,1.00,0.78,Partial disposal
+10/04/2025,IWEB,POET,SELL,50,USD,3.00,5.00,0.80,Realised loss for carried losses
+01/05/2025,IBKR,GOOG,BUY,10,USD,150.00,1.00,0.79,Short term trade
+02/05/2025,IBKR,GOOG,SELL,10,USD,170.00,1.00,0.79,Short term realised gain
+15/01/2026,IBKR,PLTR,BUY,100,USD,20.00,1.00,0.80,Future tax year gain setup
+20/02/2026,IBKR,PLTR,SELL,100,USD,35.00,1.00,0.80,Future tax year realised gain

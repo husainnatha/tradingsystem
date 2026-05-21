@@ -1,12 +1,18 @@
 from app.database.db import SessionLocal
 from app.database.models import Transaction
+import pandas as pd
+
+from app.config.tax_config import (
+    get_tax_year
+)
 
 from app.engine.matching_engine import (
     get_section_104_pool
 )
 
-
 def build_disposal_ledger():
+
+    disposals = []
 
     session = SessionLocal()
 
@@ -80,6 +86,11 @@ def build_disposal_ledger():
 
             "disposal_date":
                 sell_tx.trade_date,
+            
+            "tax_year":
+                get_tax_year(
+                    sell_tx.trade_date
+                ),
 
             "rule":
                 "SAME_DAY",
@@ -160,6 +171,11 @@ def build_disposal_ledger():
 
             "disposal_date":
                 sell_tx.trade_date,
+            
+            "tax_year":
+                get_tax_year(
+                    sell_tx.trade_date
+                ),
 
             "rule":
                 "THIRTY_DAY",
@@ -227,6 +243,11 @@ def build_disposal_ledger():
             "disposal_date":
                 sell_tx.trade_date,
 
+            "tax_year":
+                get_tax_year(
+                    sell_tx.trade_date
+                ),
+
             "rule":
                 "SECTION_104",
 
@@ -245,4 +266,8 @@ def build_disposal_ledger():
 
     session.close()
 
-    return ledger
+    disposals_df = pd.DataFrame(
+        ledger
+    )
+
+    return disposals_df
