@@ -2,17 +2,13 @@ from app.services.technical_indicator_service import (
     get_technical_indicators
 )
 
-symbols = [
-
-    "NVDA",
-    "TSLA",
-    "META",
-    "POET"
-]
+from app.config.watchlist import (
+    WATCHLIST
+)
 
 print("\nTECHNICAL INDICATORS:\n")
 
-for symbol in symbols:
+for symbol in WATCHLIST:
 
     result = get_technical_indicators(
         symbol
