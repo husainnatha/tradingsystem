@@ -20,13 +20,9 @@ for _, row in df.iterrows():
 
         f"SellQty={row['sell_quantity']} | "
 
-        f"Proceeds=£{row['estimated_proceeds']} | "
+        f"Gain=£{row['estimated_gain']} \n"
 
-        f"Gain=£{row['estimated_gain']} | "
+        f"Explanation: "
 
-        f"Tax={row['tax_score']} | "
-
-        f"Risk={row['risk_score']} | "
-
-        f"Hold={row['holding_score']}"
+        f"{row['explanation']}\n"
     )

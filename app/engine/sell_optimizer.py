@@ -1,5 +1,9 @@
 import pandas as pd
 
+from app.engine.explainability_engine import (
+    explain_position
+)
+
 from app.engine.ranking_engine import (
     build_ranked_inventory
 )
@@ -179,7 +183,9 @@ def optimise_sale_strategy(
                         "holding_period_score"
                     ],
                     4
-                )
+                ),
+            "explanation":
+                explain_position(row)
         })
 
         cash_remaining -= (
