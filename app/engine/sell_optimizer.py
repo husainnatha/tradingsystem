@@ -1,7 +1,7 @@
 import pandas as pd
 
-from app.engine.inventory_engine import (
-    build_inventory_state
+from app.engine.ranking_engine import (
+    build_ranked_inventory
 )
 
 # -----------------------------------
@@ -10,10 +10,13 @@ from app.engine.inventory_engine import (
 
 def optimise_sale_strategy(
 
-    target_cash
+    target_cash,
+    strategy="growth"
 ):
 
-    inventory_df = build_inventory_state()
+    inventory_df = build_ranked_inventory(
+    strategy=strategy
+)
 
     # -----------------------------------
     # FILTER AVAILABLE INVENTORY
@@ -27,22 +30,14 @@ def optimise_sale_strategy(
     ]
 
     # -----------------------------------
-    # CALCULATE TAX EFFICIENCY
+    # SORT BEST AI CANDIDATES
     # -----------------------------------
 
-    inventory_df[
-        "gain_per_share"
-    ] = (
+    inventory_df = inventory_df.sort_values(
 
-        inventory_df[
-            "unrealised_gain_gbp"
-        ]
+        by="ai_score",
 
-        /
-
-        inventory_df[
-            "remaining_quantity"
-        ]
+        ascending=False
     )
 
     # -----------------------------------
@@ -154,6 +149,36 @@ def optimise_sale_strategy(
                         "gain_per_share"
                     ],
                     2
+                ),
+            
+            "ai_score":
+                round(
+                    row["ai_score"],
+                    4
+                ),
+
+            "tax_score":
+                round(
+                    row[
+                        "tax_efficiency_score"
+                    ],
+                    4
+                ),
+
+            "risk_score":
+                round(
+                    row[
+                        "position_risk_score"
+                    ],
+                    4
+                ),
+
+            "holding_score":
+                round(
+                    row[
+                        "holding_period_score"
+                    ],
+                    4
                 )
         })
 
