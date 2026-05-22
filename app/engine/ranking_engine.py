@@ -10,6 +10,10 @@ from app.config.strategy_profiles import (
     get_strategy_profile
 )
 
+from app.services.technical_indicator_service import (
+    get_technical_indicators
+)
+
 # -----------------------------------
 # NORMALISE SCORE
 # -----------------------------------
@@ -70,6 +74,50 @@ def build_ranked_inventory(
             "remaining_quantity"
         ] > 0
     ].copy()
+
+        # -----------------------------------
+    # LOAD TECHNICAL INDICATORS
+    # -----------------------------------
+
+    inventory_df[
+        "technical_data"
+    ] = inventory_df[
+        "symbol"
+    ].apply(
+        get_technical_indicators
+    )
+
+    inventory_df[
+        "bullish_trend"
+    ] = inventory_df[
+        "technical_data"
+    ].apply(
+
+        lambda x:
+
+        x.get(
+            "bullish_trend",
+            False
+        )
+
+        if x else False
+    )
+
+    inventory_df[
+        "rsi"
+    ] = inventory_df[
+        "technical_data"
+    ].apply(
+
+        lambda x:
+
+        x.get(
+            "rsi",
+            50
+        )
+
+        if x else 50
+    )
 
     # -----------------------------------
     # HOLDING PERIOD
@@ -157,6 +205,38 @@ def build_ranked_inventory(
         ]
     )
 
+        # -----------------------------------
+    # MOMENTUM SCORE
+    # -----------------------------------
+
+    inventory_df[
+        "momentum_score"
+    ] = 0
+
+    inventory_df.loc[
+
+        inventory_df[
+            "bullish_trend"
+        ] == True,
+
+        "momentum_score"
+
+    ] = 1
+
+    # -----------------------------------
+    # RSI PENALTY
+    # OVERBOUGHT = LESS ATTRACTIVE SELL
+    # -----------------------------------
+
+    inventory_df[
+        "rsi_score"
+    ] = 1 - (
+
+        inventory_df[
+            "rsi"
+        ] / 100
+    )
+
     # -----------------------------------
     # TOTAL AI SCORE
     # -----------------------------------
@@ -200,6 +280,18 @@ def build_ranked_inventory(
             profile[
                 "holding_period_weight"
             ]
+
+            +
+
+            inventory_df[
+                "momentum_score"
+            ] * 0.2
+
+            +
+
+            inventory_df[
+                "rsi_score"
+            ] * 0.1
         ),
 
         4
