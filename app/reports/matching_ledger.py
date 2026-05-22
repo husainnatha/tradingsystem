@@ -103,8 +103,17 @@ def build_matching_ledger():
             "buy_transaction_id":
                 buy_tx.transaction_id,
 
+            "original_buy_quantity":
+                buy_tx.quantity,
+
             "matched_quantity":
                 qty,
+
+            "remaining_quantity":
+                round(
+                    buy_tx.quantity - qty,
+                    2
+                ),
 
             "proceeds_gbp":
                 round(proceeds, 2),
@@ -113,7 +122,45 @@ def build_matching_ledger():
                 round(cost_basis, 2),
 
             "gain_loss_gbp":
-                round(gain_loss, 2)
+                round(gain_loss, 2),
+            
+            "buy_price":
+                buy_tx.trade_price,
+
+            "sell_price":
+                sell_tx.trade_price,
+
+            "buy_fx_rate":
+                buy_tx.fx_rate_to_gbp,
+
+            "sell_fx_rate":
+                sell_tx.fx_rate_to_gbp,
+
+            "buy_price_gbp":
+                round(
+                    buy_tx.trade_price *
+                    buy_tx.fx_rate_to_gbp,
+                    4
+                ),
+
+            "sell_price_gbp":
+                round(
+                    sell_tx.trade_price *
+                    sell_tx.fx_rate_to_gbp,
+                    4
+                ),
+
+            "gain_loss_per_share_gbp":
+                round(
+                    gain_loss / qty,
+                    4
+                ),
+
+            "holding_period_days":
+                (
+                    sell_tx.trade_date
+                    - buy_tx.trade_date
+                ).days
         })
 
     # -----------------------------------
@@ -192,8 +239,17 @@ def build_matching_ledger():
             "buy_transaction_id":
                 buy_tx.transaction_id,
 
+            "original_buy_quantity":
+                buy_tx.quantity,
+
             "matched_quantity":
                 qty,
+
+            "remaining_quantity":
+                round(
+                    buy_tx.quantity - qty,
+                    2
+                ),
 
             "proceeds_gbp":
                 round(proceeds, 2),
@@ -202,7 +258,45 @@ def build_matching_ledger():
                 round(cost_basis, 2),
 
             "gain_loss_gbp":
-                round(gain_loss, 2)
+                round(gain_loss, 2),
+            
+            "buy_price":
+                buy_tx.trade_price,
+
+            "sell_price":
+                sell_tx.trade_price,
+
+            "buy_fx_rate":
+                buy_tx.fx_rate_to_gbp,
+
+            "sell_fx_rate":
+                sell_tx.fx_rate_to_gbp,
+
+            "buy_price_gbp":
+                round(
+                    buy_tx.trade_price *
+                    buy_tx.fx_rate_to_gbp,
+                    4
+                ),
+
+            "sell_price_gbp":
+                round(
+                    sell_tx.trade_price *
+                    sell_tx.fx_rate_to_gbp,
+                    4
+                ),
+
+            "gain_loss_per_share_gbp":
+                round(
+                    gain_loss / qty,
+                    4
+                ),
+
+            "holding_period_days":
+                (
+                    sell_tx.trade_date
+                    - buy_tx.trade_date
+                ).days
         })
 
     session.close()

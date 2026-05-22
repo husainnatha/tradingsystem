@@ -6,4 +6,19 @@ df = build_matching_ledger()
 
 print("\nMATCHING LEDGER:\n")
 
-print(df)
+for _, row in df.iterrows():
+
+    print(
+
+        f"{row['rule']} | "
+
+        f"{row['symbol']} | "
+
+        f"Buy=£{row['buy_price_gbp']} | "
+
+        f"Sell=£{row['sell_price_gbp']} | "
+
+        f"Gain/Share=£{row['gain_loss_per_share_gbp']} | "
+
+        f"DaysHeld={row['holding_period_days']}"
+    )
