@@ -22,3 +22,20 @@ for _, row in df.iterrows():
 
         f"Rule={row['match_rule']}"
     )
+    
+for _, row in df.iterrows():
+
+    print(
+
+        f"{row['symbol']} | "
+
+        f"Remaining={row['remaining_quantity']} | "
+
+        f"Market=£{row['market_value_gbp']} | "
+
+        f"Cost=£{row['remaining_cost_gbp']} | "
+
+        f"UPnL=£{row['unrealised_gain_gbp']} | "
+
+        f"UPnL%={row['unrealised_gain_pct']}"
+    )

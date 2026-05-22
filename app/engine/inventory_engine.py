@@ -12,6 +12,10 @@ from app.engine.matching_engine import (
     get_section_104_pool
 )
 
+from app.config.market_prices import (
+    get_market_price
+)
+
 # -----------------------------------
 # BUILD INVENTORY STATE
 # -----------------------------------
@@ -302,6 +306,99 @@ def build_inventory_state():
             qty_remaining_to_match -= (
                 consume_qty
             )
+
+    # -----------------------------------
+    # ADD MARKET VALUATION
+    # -----------------------------------
+
+    inventory_df[
+        "current_price"
+    ] = inventory_df[
+        "symbol"
+    ].apply(
+        get_market_price
+    )
+
+    inventory_df[
+        "market_value_gbp"
+    ] = round(
+
+        inventory_df[
+            "remaining_quantity"
+        ]
+
+        *
+
+        inventory_df[
+            "current_price"
+        ],
+
+        2
+    )
+
+    inventory_df[
+        "remaining_cost_gbp"
+    ] = round(
+
+        (
+            inventory_df[
+                "remaining_quantity"
+            ]
+
+            /
+
+            inventory_df[
+                "original_quantity"
+            ]
+        )
+
+        *
+
+        inventory_df[
+            "cost_gbp"
+        ],
+
+        2
+    )
+
+    inventory_df[
+        "unrealised_gain_gbp"
+    ] = round(
+
+        inventory_df[
+            "market_value_gbp"
+        ]
+
+        -
+
+        inventory_df[
+            "remaining_cost_gbp"
+        ],
+
+        2
+    )
+
+    inventory_df[
+        "unrealised_gain_pct"
+    ] = round(
+
+        (
+
+            inventory_df[
+                "unrealised_gain_gbp"
+            ]
+
+            /
+
+            inventory_df[
+                "remaining_cost_gbp"
+            ]
+        )
+
+        * 100,
+
+        2
+    )
 
     session.close()
 
