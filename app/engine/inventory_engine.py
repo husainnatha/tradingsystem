@@ -201,6 +201,108 @@ def build_inventory_state():
 
         ] = "THIRTY_DAY"
 
+    # -----------------------------------
+    # APPLY SECTION 104 DISPOSALS
+    # -----------------------------------
+
+    s104_disposals = (
+
+        results[
+            "section_104_disposals"
+        ]
+    )
+
+    for disposal in s104_disposals:
+
+        symbol = disposal[
+            "symbol"
+        ]
+
+        matched_quantity = disposal[
+            "matched_quantity"
+        ]
+
+        # -----------------------------------
+        # FIND AVAILABLE INVENTORY
+        # -----------------------------------
+
+        available_rows = (
+
+            inventory_df[
+
+                (
+                    inventory_df[
+                        "symbol"
+                    ] == symbol
+                )
+
+                &
+
+                (
+                    inventory_df[
+                        "remaining_quantity"
+                    ] > 0
+                )
+            ]
+
+            .sort_values(
+                by="trade_date"
+            )
+        )
+
+        qty_remaining_to_match = (
+            matched_quantity
+        )
+
+        # -----------------------------------
+        # CONSUME INVENTORY
+        # -----------------------------------
+
+        for idx, row in available_rows.iterrows():
+
+            if qty_remaining_to_match <= 0:
+
+                break
+
+            available_qty = row[
+                "remaining_quantity"
+            ]
+
+            consume_qty = min(
+
+                available_qty,
+
+                qty_remaining_to_match
+            )
+
+            inventory_df.loc[
+
+                idx,
+
+                "matched_quantity"
+
+            ] += consume_qty
+
+            inventory_df.loc[
+
+                idx,
+
+                "remaining_quantity"
+
+            ] -= consume_qty
+
+            inventory_df.loc[
+
+                idx,
+
+                "match_rule"
+
+            ] = "SECTION_104"
+
+            qty_remaining_to_match -= (
+                consume_qty
+            )
+
     session.close()
 
     return inventory_df
