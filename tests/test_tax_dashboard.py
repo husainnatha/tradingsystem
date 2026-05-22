@@ -6,7 +6,7 @@ dashboard = build_tax_dashboard()
 
 print("\nTAX DASHBOARD:\n")
 
-for row in dashboard:
+for _, row in dashboard.iterrows():
 
     print(
 
