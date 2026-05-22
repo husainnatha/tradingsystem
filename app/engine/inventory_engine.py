@@ -12,8 +12,8 @@ from app.engine.matching_engine import (
     get_section_104_pool
 )
 
-from app.config.market_prices import (
-    get_market_price
+from app.services.live_price_service import (
+    get_live_price
 )
 
 # -----------------------------------
@@ -316,8 +316,18 @@ def build_inventory_state():
     ] = inventory_df[
         "symbol"
     ].apply(
-        get_market_price
+        get_live_price
     )
+
+    # -----------------------------------
+    # HANDLE MISSING LIVE PRICES
+    # -----------------------------------
+
+    inventory_df[
+            "current_price"
+        ] = inventory_df[
+            "current_price"
+        ].fillna(0)
 
     inventory_df[
         "market_value_gbp"
@@ -379,26 +389,26 @@ def build_inventory_state():
     )
 
     inventory_df[
-        "unrealised_gain_pct"
-    ] = round(
+            "unrealised_gain_pct"
+        ] = round(
 
-        (
+            (
 
-            inventory_df[
-                "unrealised_gain_gbp"
-            ]
+                inventory_df[
+                    "unrealised_gain_gbp"
+                ]
 
-            /
+                /
 
-            inventory_df[
-                "remaining_cost_gbp"
-            ]
+                inventory_df[
+                    "remaining_cost_gbp"
+                ].replace(0, 1)
+            )
+
+            * 100,
+
+            2
         )
-
-        * 100,
-
-        2
-    )
 
     session.close()
 
