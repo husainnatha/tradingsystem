@@ -4,6 +4,14 @@ from app.services.technical_indicator_service import (
     get_technical_indicators
 )
 
+from app.engine.sector_intelligence import (
+    build_sector_exposure
+)
+
+from app.config.sector_map import (
+    get_sector
+)
+
 # -----------------------------------
 # BUILD MARKET INTELLIGENCE
 # -----------------------------------
@@ -13,9 +21,44 @@ def build_market_intelligence(
     symbols
 ):
 
+    # -----------------------------------
+    # LOAD PORTFOLIO SECTOR EXPOSURE
+    # -----------------------------------
+
+    sector_df = build_sector_exposure()
+
+    sector_lookup = dict(
+
+        zip(
+
+            sector_df[
+                "sector"
+            ],
+
+            sector_df[
+                "exposure_pct"
+            ]
+        )
+    )
+
     rows = []
 
+    # -----------------------------------
+    # PROCESS WATCHLIST
+    # -----------------------------------
+
     for symbol in symbols:
+
+        sector = get_sector(
+            symbol
+        )
+
+        current_exposure = sector_lookup.get(
+
+            sector,
+
+            0
+        )
 
         data = get_technical_indicators(
             symbol
@@ -47,6 +90,18 @@ def build_market_intelligence(
         )
 
         # -----------------------------------
+        # PORTFOLIO FIT SCORE
+        # LOWER EXPOSURE = BETTER FIT
+        # -----------------------------------
+
+        portfolio_fit_score = 1 - min(
+
+            current_exposure / 100,
+
+            1
+        )
+
+        # -----------------------------------
         # AI SCORE
         # -----------------------------------
 
@@ -54,11 +109,15 @@ def build_market_intelligence(
 
             (
 
-                momentum_score * 0.6
+                momentum_score * 0.4
 
                 +
 
-                rsi_score * 0.4
+                rsi_score * 0.2
+
+                +
+
+                portfolio_fit_score * 0.4
             ),
 
             4
@@ -68,7 +127,13 @@ def build_market_intelligence(
         # WATCHLIST RATING
         # -----------------------------------
 
-        if ai_score >= 0.8:
+        if (
+            ai_score >= 0.8
+
+            and
+
+            portfolio_fit_score >= 0.6
+        ):
 
             rating = "STRONG"
 
@@ -114,7 +179,22 @@ def build_market_intelligence(
                 ai_score,
 
             "rating":
-                rating
+                rating,
+            
+            "sector":
+                sector,
+
+            "portfolio_exposure":
+                round(
+                    current_exposure,
+                    2
+                ),
+
+            "portfolio_fit_score":
+                round(
+                    portfolio_fit_score,
+                    4
+                )
         })
 
     df = pd.DataFrame(rows)
@@ -124,6 +204,22 @@ def build_market_intelligence(
         by="ai_score",
 
         ascending=False
+    )
+
+    sector_df = build_sector_exposure()
+
+    sector_lookup = dict(
+
+        zip(
+
+            sector_df[
+                "sector"
+            ],
+
+            sector_df[
+                "exposure_pct"
+            ]
+        )
     )
 
     return df
