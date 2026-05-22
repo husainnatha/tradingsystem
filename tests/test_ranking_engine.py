@@ -14,11 +14,11 @@ for _, row in df.iterrows():
 
         f"AI={row['ai_score']} | "
 
-        f"Tax={round(row['tax_efficiency_score'],2)} | "
+        f"Trend={row['bullish_trend']} | "
 
-        f"Risk={round(row['position_risk_score'],2)} | "
+        f"RSI={row['rsi']} | "
 
-        f"Hold={round(row['holding_period_score'],2)} | "
+        f"Momentum={row['momentum_score']} | "
 
         f"UPnL=£{round(row['unrealised_gain_gbp'],2)}"
     )
