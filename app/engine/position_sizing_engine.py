@@ -4,6 +4,10 @@ from app.engine.buy_recommendation_engine import (
     build_buy_recommendations
 )
 
+from app.engine.macro_regime_engine import (
+    build_macro_regime
+)
+
 # -----------------------------------
 # BUILD POSITION SIZING
 # -----------------------------------
@@ -18,6 +22,16 @@ def build_position_sizing(
     df = build_buy_recommendations(
         watchlist
     )
+
+    # -----------------------------------
+    # LOAD MACRO REGIME
+    # -----------------------------------
+
+    macro = build_macro_regime()
+
+    regime = macro[
+        "regime"
+    ]
 
     sizing_rows = []
 
@@ -39,7 +53,7 @@ def build_position_sizing(
         )
 
         # -----------------------------------
-        # RISK ADJUSTMENT
+        # BASE CONVICTION MULTIPLIER
         # -----------------------------------
 
         if row["rating"] == "STRONG_BUY":
@@ -58,11 +72,37 @@ def build_position_sizing(
 
             multiplier = 0.1
 
+        # -----------------------------------
+        # MACRO REGIME ADJUSTMENT
+        # -----------------------------------
+
+        if regime == "RISK_ON":
+
+            macro_multiplier = 1.2
+
+        elif regime == "RISK_OFF":
+
+            macro_multiplier = 0.6
+
+        else:
+
+            macro_multiplier = 1.0
+
+        multiplier *= macro_multiplier
+
+        # -----------------------------------
+        # CALCULATE ALLOCATION %
+        # -----------------------------------
+
         suggested_pct = round(
 
-            allocation_score *
+            allocation_score
 
-            multiplier *
+            *
+
+            multiplier
+
+            *
 
             10,
 
@@ -86,7 +126,9 @@ def build_position_sizing(
 
         suggested_value = round(
 
-            portfolio_value *
+            portfolio_value
+
+            *
 
             (
 
@@ -95,6 +137,21 @@ def build_position_sizing(
 
             2
         )
+
+        # -----------------------------------
+        # CAP MAX POSITION
+        # -----------------------------------
+
+        suggested_pct = min(
+
+            suggested_pct,
+
+            15
+        )
+
+        # -----------------------------------
+        # SUGGESTED CAPITAL
+        # -----------------------------------
 
         sizing_rows.append({
 
@@ -130,7 +187,16 @@ def build_position_sizing(
                 ),
 
             "explanation":
-                row["explanation"]
+                row["explanation"],
+
+                        "macro_regime":
+                regime,
+
+            "macro_multiplier":
+                round(
+                    macro_multiplier,
+                    2
+                )
         })
 
     result_df = pd.DataFrame(

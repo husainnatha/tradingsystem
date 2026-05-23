@@ -151,14 +151,14 @@ def build_macro_regime():
         )
 
     # -----------------------------------
-    # REGIME
+    # DETERMINE REGIME
     # -----------------------------------
 
-    if score >= 2:
+    if score >= 1:
 
         regime = "RISK_ON"
 
-    elif score <= -2:
+    elif score <= -1:
 
         regime = "RISK_OFF"
 

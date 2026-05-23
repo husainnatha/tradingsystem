@@ -1,4 +1,5 @@
 import yfinance as yf
+import pandas as pd
 
 # -----------------------------------
 # MACRO TICKERS
@@ -38,7 +39,7 @@ def get_macro_data():
             )
 
             data = ticker.history(
-                period="5d"
+                period="3mo"
             )
 
             if data.empty:
@@ -70,21 +71,47 @@ def get_macro_data():
                 2
             )
 
-            ma20 = data[
-                "Close"
-            ].rolling(
-                20
-            ).mean()
+            ma20 = (
 
-            trend = (
+                data["Close"]
 
-                latest["Close"]
+                .rolling(20)
 
-                >
-
-                ma20.iloc[-1]
-
+                .mean()
             )
+
+            ma50 = (
+
+                data["Close"]
+
+                .rolling(50)
+
+                .mean()
+            )
+
+            trend = False
+
+            if (
+
+                not pd.isna(
+                    ma20.iloc[-1]
+                )
+
+                and
+
+                not pd.isna(
+                    ma50.iloc[-1]
+                )
+            ):
+
+                trend = (
+
+                    ma20.iloc[-1]
+
+                    >
+
+                    ma50.iloc[-1]
+                )
 
             results[name] = {
 

@@ -16,6 +16,10 @@ from app.engine.macro_regime_engine import (
     build_macro_regime
 )
 
+from app.config.macro_sector_preferences import (
+    get_sector_bias
+)
+
 # -----------------------------------
 # BUILD MARKET INTELLIGENCE
 # -----------------------------------
@@ -114,6 +118,17 @@ def build_market_intelligence(
             1
         )
 
+                # -----------------------------------
+        # SECTOR MACRO BIAS
+        # -----------------------------------
+
+        sector_bias = get_sector_bias(
+
+            regime,
+
+            sector
+        )
+
         # -----------------------------------
         # MACRO SCORE
         # -----------------------------------
@@ -150,19 +165,23 @@ def build_market_intelligence(
 
             (
 
-                momentum_score * 0.30
+                momentum_score*0.25
 
                 +
 
-                rsi_score * 0.20
+                rsi_score*0.15
 
                 +
 
-                portfolio_fit_score * 0.30
+                portfolio_fit_score*0.25
 
                 +
 
-                macro_score * 0.20
+                macro_score*0.15
+
+                +
+
+                sector_bias*0.20
 
             ),
 
@@ -273,7 +292,10 @@ def build_market_intelligence(
                 regime,
 
             "macro_score":
-                macro_score
+                macro_score,
+            
+            "sector_bias":
+                sector_bias
         })
 
     df = pd.DataFrame(rows)

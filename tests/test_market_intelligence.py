@@ -15,17 +15,15 @@ print("\nMARKET INTELLIGENCE:\n")
 
 for _, row in df.iterrows():
 
-    print(
+   print(
 
-        f"{row['symbol']} | "
+    f"{row['symbol']} | "
 
-        f"AI={row['ai_score']} | "
+    f"Sector={row['sector']} | "
 
-        f"Macro={row['macro_regime']} | "
+    f"Bias={row['sector_bias']} | "
 
-        f"MacroScore={row['macro_score']} | "
+    f"Macro={row['macro_regime']} | "
 
-        f"Fit={row['portfolio_fit_score']} | "
-
-        f"Rating={row['rating']}"
-    )
+    f"AI={row['ai_score']}"
+)
