@@ -12,6 +12,14 @@ from app.config.sector_map import (
     get_sector
 )
 
+from app.engine.macro_regime_engine import (
+    build_macro_regime
+)
+
+from app.config.macro_sector_preferences import (
+    get_sector_bias
+)
+
 # -----------------------------------
 # BUILD MARKET INTELLIGENCE
 # -----------------------------------
@@ -20,6 +28,15 @@ def build_market_intelligence(
 
     symbols
 ):
+        # -----------------------------------
+    # LOAD MACRO REGIME
+    # -----------------------------------
+
+    macro = build_macro_regime()
+
+    regime = macro[
+        "regime"
+    ]
 
     # -----------------------------------
     # LOAD PORTFOLIO SECTOR EXPOSURE
@@ -101,6 +118,45 @@ def build_market_intelligence(
             1
         )
 
+                # -----------------------------------
+        # SECTOR MACRO BIAS
+        # -----------------------------------
+
+        sector_bias = get_sector_bias(
+
+            regime,
+
+            sector
+        )
+
+        # -----------------------------------
+        # MACRO SCORE
+        # -----------------------------------
+
+        macro_score = 0.5
+
+        if regime == "RISK_ON":
+
+            macro_score = (
+
+                1
+
+                if momentum_score
+
+                else 0.25
+            )
+
+        elif regime == "RISK_OFF":
+
+            macro_score = (
+
+                0.2
+
+                if momentum_score
+
+                else 0.8
+            )
+
         # -----------------------------------
         # AI SCORE
         # -----------------------------------
@@ -109,19 +165,55 @@ def build_market_intelligence(
 
             (
 
-                momentum_score * 0.4
+                momentum_score*0.25
 
                 +
 
-                rsi_score * 0.2
+                rsi_score*0.15
 
                 +
 
-                portfolio_fit_score * 0.4
+                portfolio_fit_score*0.25
+
+                +
+
+                macro_score*0.15
+
+                +
+
+                sector_bias*0.20
+
             ),
 
             4
         )
+
+        # -----------------------------------
+        # RATING
+        # -----------------------------------
+
+        if (
+
+            ai_score >= 0.8
+
+            and
+
+            portfolio_fit_score >= 0.6
+        ):
+
+            rating = "STRONG"
+
+        elif ai_score >= 0.6:
+
+            rating = "BUY"
+
+        elif ai_score >= 0.4:
+
+            rating = "WATCH"
+
+        else:
+
+            rating = "AVOID"
 
         # -----------------------------------
         # WATCHLIST RATING
@@ -194,7 +286,16 @@ def build_market_intelligence(
                 round(
                     portfolio_fit_score,
                     4
-                )
+                ),
+            
+            "macro_regime":
+                regime,
+
+            "macro_score":
+                macro_score,
+            
+            "sector_bias":
+                sector_bias
         })
 
     df = pd.DataFrame(rows)

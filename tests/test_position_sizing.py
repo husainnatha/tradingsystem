@@ -23,11 +23,15 @@ for _, row in df.iterrows():
 
         f"{row['rating']} | "
 
+        f"Macro={row['macro_regime']} | "
+
+        f"Multiplier={row['macro_multiplier']} | "
+
         f"Allocation={row['suggested_allocation_pct']}% | "
 
         f"Value=£{row['suggested_position_value']} | "
 
-        f"Shares={row['suggested_shares']} \n"
+        f"Shares={row['suggested_shares']}\n"
 
         f"Why: {row['explanation']}\n"
     )
