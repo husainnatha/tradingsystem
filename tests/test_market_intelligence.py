@@ -19,13 +19,13 @@ for _, row in df.iterrows():
 
         f"{row['symbol']} | "
 
-        f"Sector={row['sector']} | "
+        f"AI={row['ai_score']} | "
 
-        f"Exposure={row['portfolio_exposure']}% | "
+        f"Macro={row['macro_regime']} | "
+
+        f"MacroScore={row['macro_score']} | "
 
         f"Fit={row['portfolio_fit_score']} | "
-
-        f"AI={row['ai_score']} | "
 
         f"Rating={row['rating']}"
     )
