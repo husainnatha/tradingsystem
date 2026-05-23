@@ -44,6 +44,10 @@ from app.config.watchlist import (
     WATCHLIST
 )
 
+from app.reports.documentation_generator import (
+    generate_system_documentation
+)
+
 # -----------------------------------
 # RUN FULL PIPELINE
 # -----------------------------------
@@ -155,6 +159,7 @@ def run_pipeline():
     )
 
     export_intelligence_report()
+    generate_system_documentation()
 
     print(
         "\nPipeline complete.\n"
