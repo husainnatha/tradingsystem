@@ -51,7 +51,7 @@ def generate_system_documentation():
 content = f"""
 # TradingSystem Architecture Snapshot
 
-Generated: 
+Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")} 
 
 ---
 
