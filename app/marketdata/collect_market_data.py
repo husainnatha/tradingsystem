@@ -5,6 +5,10 @@ import logging
 import pandas as pd
 import yfinance as yf
 
+from app.config.watchlist import (
+    WATCHLIST
+)
+
 # -----------------------------------
 # BASE PATHS
 # -----------------------------------
@@ -139,26 +143,30 @@ if not csv_path.exists():
 # LOAD WATCHLIST
 # -----------------------------------
 
-watchlist_df = pd.read_excel(
-    excel_path,
-    sheet_name="watchlist"
+from app.config.watchlist import (
+    WATCHLIST
 )
 
-symbols = (
+symbols = [
 
-    watchlist_df["symbol"]
+    symbol.upper()
 
-    .dropna()
+    for symbol in WATCHLIST
 
-    .astype(str)
-
-    .str.upper()
-
-    .unique()
-)
+    if symbol
+]
 
 logging.info(
-    f"Symbols loaded | Count={len(symbols)}"
+
+    f"Symbols loaded | "
+    f"Count={len(symbols)}"
+)
+
+print(
+
+    "\nWatchlist loaded:\n"
+
+    f"{symbols}\n"
 )
 
 # -----------------------------------
