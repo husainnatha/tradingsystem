@@ -20,6 +20,10 @@ from app.config.macro_sector_preferences import (
     get_sector_bias
 )
 
+from app.engine.correlation_engine import (
+    build_correlation_engine
+)
+
 # -----------------------------------
 # BUILD MARKET INTELLIGENCE
 # -----------------------------------
@@ -28,7 +32,7 @@ def build_market_intelligence(
 
     symbols
 ):
-        # -----------------------------------
+    # -----------------------------------
     # LOAD MACRO REGIME
     # -----------------------------------
 
@@ -56,6 +60,29 @@ def build_market_intelligence(
                 "exposure_pct"
             ]
         )
+    )
+
+    # -----------------------------------
+    # LOAD CORRELATION DATA
+    # -----------------------------------
+
+    correlation_df = (
+
+        build_correlation_engine()
+    )
+
+    correlation_lookup = (
+
+        correlation_df
+
+        .set_index(
+
+            "symbol"
+        )[
+            "diversification_score"
+        ]
+
+        .to_dict()
     )
 
     rows = []
@@ -118,7 +145,7 @@ def build_market_intelligence(
             1
         )
 
-                # -----------------------------------
+        # -----------------------------------
         # SECTOR MACRO BIAS
         # -----------------------------------
 
@@ -156,64 +183,78 @@ def build_market_intelligence(
 
                 else 0.8
             )
-
+        
         # -----------------------------------
-        # AI SCORE
+        # TECHNICAL SCORE
         # -----------------------------------
 
-        ai_score = round(
+        technical_score = round(
 
             (
 
-                momentum_score*0.25
+                momentum_score
 
                 +
 
-                rsi_score*0.15
+                rsi_score
 
-                +
+            )
 
-                portfolio_fit_score*0.25
-
-                +
-
-                macro_score*0.15
-
-                +
-
-                sector_bias*0.20
-
-            ),
+            / 2,
 
             4
         )
 
         # -----------------------------------
-        # RATING
+        # AI SCORE
         # -----------------------------------
 
-        if (
+        # -----------------------------------
+        # CORRELATION ADJUSTMENT
+        # -----------------------------------
 
-            ai_score >= 0.8
+        diversification_score = (
 
-            and
+            correlation_lookup.get(
 
-            portfolio_fit_score >= 0.6
-        ):
+                symbol,
 
-            rating = "STRONG"
+                0.5
+            )
+        )
 
-        elif ai_score >= 0.6:
+        ai_score = round(
 
-            rating = "BUY"
+            technical_score
 
-        elif ai_score >= 0.4:
+            * 0.30
 
-            rating = "WATCH"
+            +
 
-        else:
+            macro_score
 
-            rating = "AVOID"
+            * 0.20
+
+            +
+
+            portfolio_fit_score
+
+            * 0.15
+
+            +
+
+            diversification_score
+
+            * 0.15
+
+            +
+
+            sector_bias
+
+            * 0.20,
+
+            4
+        )
 
         # -----------------------------------
         # WATCHLIST RATING
@@ -263,6 +304,9 @@ def build_market_intelligence(
 
             "momentum_score":
                 momentum_score,
+            
+            "technical_score":
+                technical_score,
 
             "rsi_score":
                 round(rsi_score, 4),
@@ -292,10 +336,22 @@ def build_market_intelligence(
                 regime,
 
             "macro_score":
-                macro_score,
-            
+                round(
+                    macro_score,
+                    4
+                ),
+
             "sector_bias":
-                sector_bias
+                round(
+                    sector_bias,
+                    4
+                ),
+
+            "diversification_score":
+                round(
+                    diversification_score,
+                    4
+                )
         })
 
     df = pd.DataFrame(rows)
@@ -305,22 +361,6 @@ def build_market_intelligence(
         by="ai_score",
 
         ascending=False
-    )
-
-    sector_df = build_sector_exposure()
-
-    sector_lookup = dict(
-
-        zip(
-
-            sector_df[
-                "sector"
-            ],
-
-            sector_df[
-                "exposure_pct"
-            ]
-        )
     )
 
     return df
