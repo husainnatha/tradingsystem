@@ -13,9 +13,16 @@ def generate_system_documentation():
         exist_ok=True
     )
 
-    timestamp = datetime.now().strftime(
-        "%Y-%m-%d_%H-%M"
-    )
+    from app.config.environment import (
+
+    get_timestamp,
+
+    get_output_suffix
+)
+
+    timestamp = get_timestamp()
+
+    env = get_output_suffix()
 
     file_path = (
 
@@ -25,7 +32,7 @@ def generate_system_documentation():
 
         /
 
-        f"{timestamp}_system_snapshot.md"
+        f"{env}_{timestamp}_system_snapshot.md"
     )
 
     with open(
