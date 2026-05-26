@@ -1,9 +1,5 @@
 from pathlib import Path
 
-from scripts.import_transactions import (
-    import_transactions
-)
-
 from app.engine.inventory_engine import (
     build_inventory_state
 )
@@ -54,6 +50,18 @@ from app.database.models import (
 
 from app.database.db import (
     engine
+)
+
+from app.engine.action_engine import (
+    build_actions
+)
+
+from app.engine.portfolio_risk_engine import (
+    build_portfolio_risk
+)
+
+from app.engine.rebalancing_engine import (
+    build_rebalancing
 )
 
 # -----------------------------------
@@ -134,10 +142,6 @@ def run_pipeline():
     # MARKET INTELLIGENCE
     # -----------------------------------
 
-    # -----------------------------------
-    # MARKET INTELLIGENCE
-    # -----------------------------------
-
     print(
         "Building market intelligence..."
     )
@@ -174,6 +178,30 @@ def run_pipeline():
         )
     )
 
+    portfolio_risk_df = (
+
+        build_portfolio_risk()
+    )
+
+    rebalancing_df = (
+
+        build_rebalancing(
+            portfolio_value=100000
+        )
+    )
+
+    action_df = (
+
+    build_actions(
+
+        rebalance_df=rebalancing_df,
+
+        position_df=position_df,
+
+        risk_df=portfolio_risk_df
+    )
+)
+
     # -----------------------------------
     # EXPORT
     # -----------------------------------
@@ -190,15 +218,18 @@ def run_pipeline():
 
         position_df=position_df,
 
-        sale_df=sale_df
+        sale_df=sale_df,
+
+        action_df=action_df
     )
-    
+
     generate_system_documentation()
 
     print(
         "\nPipeline complete.\n"
     )
 
+    
 
 if __name__ == "__main__":
 

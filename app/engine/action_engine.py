@@ -22,38 +22,16 @@ from app.config.watchlist import (
 
 def build_actions(
 
-    portfolio_value=100000
+    rebalance_df,
+
+    position_df,
+
+    risk_df
 ):
 
     print(
 
         "\nBuilding portfolio actions...\n"
-    )
-
-    # -----------------------------------
-    # LOAD DATA
-    # -----------------------------------
-
-    rebalance_df = (
-
-        build_rebalancing(
-            portfolio_value
-        )
-    )
-
-    position_df = (
-
-        build_position_sizing(
-
-            watchlist=WATCHLIST,
-
-            portfolio_value=portfolio_value
-        )
-    )
-
-    risk_df = (
-
-        build_portfolio_risk()
     )
 
     # -----------------------------------

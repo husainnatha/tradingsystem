@@ -1,3 +1,5 @@
+from tokenize import group
+
 import pandas as pd
 
 from app.database.db import (
@@ -50,14 +52,14 @@ def build_tax_dashboard():
 
         total_gains = (
 
-            group[
-                group[
-                    "gain_loss_gbp"
-                ] > 0
-            ][
-                "gain_loss_gbp"
-            ].sum()
-        )
+    group[
+        group[
+            "gain_loss_gbp"
+        ] > 0
+    ][
+        "gain_loss_gbp"
+    ].sum()
+)
 
         total_losses = (
 
@@ -67,13 +69,16 @@ def build_tax_dashboard():
                 ] < 0
             ][
                 "gain_loss_gbp"
-            ].sum()
+            ].abs().sum()
         )
 
-        net_gain = group[
-            "gain_loss_gbp"
-        ].sum()
+        net_gain = (
 
+            group[
+                "gain_loss_gbp"
+            ].sum()
+        )
+        
         cgt_allowance = config[
             "cgt_allowance"
         ]
