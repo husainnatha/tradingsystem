@@ -134,28 +134,44 @@ def run_pipeline():
     # MARKET INTELLIGENCE
     # -----------------------------------
 
+    # -----------------------------------
+    # MARKET INTELLIGENCE
+    # -----------------------------------
+
     print(
         "Building market intelligence..."
     )
 
-    build_market_intelligence(
-        WATCHLIST
+    market_df = (
+
+        build_market_intelligence(
+            WATCHLIST
+        )
     )
 
-    build_buy_recommendations(
-        WATCHLIST
+    recommendation_df = (
+
+        build_buy_recommendations(
+            WATCHLIST
+        )
     )
 
-    build_position_sizing(
+    position_df = (
 
-        watchlist=WATCHLIST,
+        build_position_sizing(
 
-        portfolio_value=100000
+            watchlist=WATCHLIST,
+
+            portfolio_value=100000
+        )
     )
 
-    optimise_sale_strategy(
+    sale_df = (
 
-        target_cash=5000
+        optimise_sale_strategy(
+
+            target_cash=5000
+        )
     )
 
     # -----------------------------------
@@ -166,7 +182,17 @@ def run_pipeline():
         "Exporting workbook..."
     )
 
-    export_intelligence_report()
+    export_intelligence_report(
+
+        market_df=market_df,
+
+        recommendation_df=recommendation_df,
+
+        position_df=position_df,
+
+        sale_df=sale_df
+    )
+    
     generate_system_documentation()
 
     print(

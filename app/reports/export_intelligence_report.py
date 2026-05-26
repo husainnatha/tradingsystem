@@ -33,14 +33,6 @@ from app.engine.market_intelligence_engine import (
     build_market_intelligence
 )
 
-from app.engine.buy_recommendation_engine import (
-    build_buy_recommendations
-)
-
-from app.engine.position_sizing_engine import (
-    build_position_sizing
-)
-
 from app.engine.sector_intelligence import (
     build_sector_exposure
 )
@@ -49,9 +41,6 @@ from app.engine.strategy_comparator import (
     compare_strategies
 )
 
-from app.config.watchlist import (
-    WATCHLIST
-)
 
 from app.config.environment import (
 
@@ -68,7 +57,16 @@ from app.config.environment import (
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
 
-def export_intelligence_report():
+def export_intelligence_report(
+
+    market_df,
+
+    recommendation_df,
+
+    position_df,
+
+    sale_df
+):
 
     env = get_output_suffix()
 
@@ -133,30 +131,24 @@ def export_intelligence_report():
 
     inventory_df = build_inventory_state()
 
-    sell_df = optimise_sale_strategy(
+    # -----------------------------------
+    # USE PIPELINE RESULTS
+    # -----------------------------------
 
-        target_cash=5000
+    buy_df = (
+
+        recommendation_df
     )
 
-    market_df = build_market_intelligence(
-        WATCHLIST
-    )
+    sizing_df = (
 
-    buy_df = build_buy_recommendations(
-        WATCHLIST
-    )
-
-    sizing_df = build_position_sizing(
-
-        watchlist=WATCHLIST,
-
-        portfolio_value=100000
+        position_df
     )
 
     sector_df = build_sector_exposure()
 
     strategy_df = compare_strategies(
-        target_cash=5000
+            target_cash=5000
     )
 
     # -----------------------------------
@@ -277,7 +269,7 @@ def export_intelligence_report():
             index=False
         )
 
-        sell_df.to_excel(
+        sale_df.to_excel(
 
             writer,
 
