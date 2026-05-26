@@ -12,6 +12,10 @@ from app.engine.risk_engine import (
     build_risk_engine
 )
 
+from app.engine.portfolio_risk_engine import (
+    build_portfolio_risk
+)
+
 # -----------------------------------
 # BUILD POSITION SIZING
 # -----------------------------------
@@ -27,9 +31,13 @@ def build_position_sizing(
         watchlist
     )
 
+    # -----------------------------------
+    # LOAD RISK DATA
+    # -----------------------------------
+
     risk_df = (
 
-    build_risk_engine()
+        build_risk_engine()
     )
 
     if risk_df.empty:
@@ -42,6 +50,19 @@ def build_position_sizing(
     risk_lookup = (
 
         risk_df.set_index(
+
+            "symbol"
+        )
+    )
+
+    portfolio_risk_df = (
+
+        build_portfolio_risk()
+    )
+
+    portfolio_risk_lookup = (
+
+        portfolio_risk_df.set_index(
 
             "symbol"
         )
@@ -59,32 +80,11 @@ def build_position_sizing(
 
     sizing_rows = []
 
-    risk_df = (
-
-    build_risk_engine()
-)
-
-    # Safety check
-
-    if risk_df.empty:
-
-        raise Exception(
-
-            "Risk engine returned no data"
-        )
-
-    risk_lookup = (
-
-        risk_df.set_index(
-            "symbol"
-        )
-    )
+    # -----------------------------------
+    # BUILD POSITIONS
+    # -----------------------------------
 
     for _, row in df.iterrows():
-
-        # -----------------------------------
-        # BASE ALLOCATION
-        # -----------------------------------
 
         allocation_score = (
 
@@ -98,7 +98,7 @@ def build_position_sizing(
         )
 
         # -----------------------------------
-        # BASE CONVICTION MULTIPLIER
+        # CONVICTION
         # -----------------------------------
 
         if row["rating"] == "STRONG_BUY":
@@ -118,7 +118,7 @@ def build_position_sizing(
             multiplier = 0.1
 
         # -----------------------------------
-        # MACRO REGIME ADJUSTMENT
+        # MACRO
         # -----------------------------------
 
         if regime == "RISK_ON":
@@ -136,7 +136,7 @@ def build_position_sizing(
         multiplier *= macro_multiplier
 
         # -----------------------------------
-        # CALCULATE ALLOCATION %
+        # BASE POSITION
         # -----------------------------------
 
         suggested_pct = round(
@@ -155,6 +155,8 @@ def build_position_sizing(
         )
 
         # -----------------------------------
+        # RISK LOOKUPS
+        # -----------------------------------
 
         risk_score = (
 
@@ -163,38 +165,50 @@ def build_position_sizing(
                 "risk_score"
             ]
 
-            if row["symbol"] in risk_lookup.index
+            if row["symbol"]
+            in risk_lookup.index
 
             else 0.5
         )
 
+        portfolio_risk = (
+
+            portfolio_risk_lookup.loc[
+                row["symbol"],
+                "portfolio_risk"
+            ]
+
+            if row["symbol"]
+            in portfolio_risk_lookup.index
+
+            else 0
+        )
+
         # -----------------------------------
-        # RISK ADJUSTMENT
+        # FINAL ADJUSTMENT
         # -----------------------------------
 
         adjusted_pct = round(
 
             suggested_pct
 
-            * (1 - risk_score),
+            *
+
+            (1 - risk_score)
+
+            *
+
+            (1 - portfolio_risk),
 
             2
         )
 
-        # -----------------------------------
-        # CAP MAX POSITION
-        # -----------------------------------
+        adjusted_pct = min(
 
-        suggested_pct = min(
-
-            suggested_pct,
+            adjusted_pct,
 
             15
         )
-
-        # -----------------------------------
-        # SUGGESTED CAPITAL
-        # -----------------------------------
 
         suggested_value = round(
 
@@ -209,41 +223,27 @@ def build_position_sizing(
 
             2
         )
+        
+        if adjusted_pct <= 0:
 
-        # -----------------------------------
-        # CAP MAX POSITION
-        # -----------------------------------
-
-        suggested_pct = min(
-
-            suggested_pct,
-
-            15
-        )
-
-        # -----------------------------------
-        # SUGGESTED CAPITAL
-        # -----------------------------------
+            continue
 
         sizing_rows.append({
 
             "symbol":
                 row["symbol"],
-            
-            "suggested_pct":
-                suggested_pct,
-            
-            "risk_score":
-                risk_score,
-
-            "adjusted_pct":
-                adjusted_pct,
 
             "rating":
                 row["rating"],
 
             "ai_score":
                 row["ai_score"],
+
+            "risk_score":
+                risk_score,
+
+            "portfolio_risk":
+                portfolio_risk,
 
             "suggested_allocation_pct":
                 adjusted_pct,
@@ -267,20 +267,21 @@ def build_position_sizing(
                     2
                 ),
 
-            "explanation":
-                row["explanation"],
-
-                        "macro_regime":
+            "macro_regime":
                 regime,
 
             "macro_multiplier":
                 round(
                     macro_multiplier,
                     2
-                )
+                ),
+
+            "explanation":
+                row["explanation"]
         })
 
     result_df = pd.DataFrame(
+
         sizing_rows
     )
 

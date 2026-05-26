@@ -15,15 +15,31 @@ df = build_position_sizing(
 
 print(
 
-    f"{row['symbol']} | "
-
-    f"{row['rating']} | "
-
-    f"Risk={row['risk_score']} | "
-
-    f"Macro={row['macro_regime']} | "
-
-    f"Multiplier={row['macro_multiplier']} | "
-
-    f"Allocation={row['suggested_allocation_pct']}%"
+    "\nPOSITION SIZING:\n"
 )
+
+for _, row in df.iterrows():
+
+    print(
+
+        f"{row['symbol']} | "
+
+        f"{row['rating']} | "
+
+        f"Risk={row['risk_score']} | "
+
+        f"PortfolioRisk={row['portfolio_risk']:.4f} | "
+
+        f"Macro={row['macro_regime']} | "
+
+        f"Allocation={row['suggested_allocation_pct']}% | "
+
+        f"Value=£{row['suggested_position_value']} | "
+
+        f"Shares={row['suggested_shares']}"
+    )
+
+    print(
+
+        f"Why: {row['explanation']}\n"
+    )
