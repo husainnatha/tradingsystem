@@ -91,6 +91,19 @@ def build_inventory_state():
         inventory_rows
     )
 
+    # -----------------------------------
+    # HANDLE EMPTY INVENTORY
+    # -----------------------------------
+
+    if inventory_df.empty:
+
+        print(
+
+            "\nNo inventory positions found\n"
+        )
+
+        return pd.DataFrame()
+
         # -----------------------------------
     # APPLY SAME-DAY MATCHES
     # -----------------------------------
