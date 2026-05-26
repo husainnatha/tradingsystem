@@ -1,4 +1,4 @@
-from app.database.database import (
+from app.database.db import (
     engine
 )
 
@@ -10,10 +10,7 @@ print(
     "\nCreating database tables...\n"
 )
 
-Base.metadata.create_all(
-
-    bind=engine
-)
+Base.metadata.create_all(bind=engine)
 
 print(
     "\nDatabase initialized.\n"
