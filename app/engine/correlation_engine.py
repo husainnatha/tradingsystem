@@ -32,32 +32,40 @@ def build_correlation_engine(
         return _cached_correlation_df
 
     print(
-
         "\nLoading price history once...\n"
     )
 
-    prices = pd.DataFrame()
+    # -----------------------------------
+    # DOWNLOAD ALL SYMBOLS AT ONCE
+    # -----------------------------------
 
-    # -----------------------------------
-    # DOWNLOAD DATA
-    # -----------------------------------
+    symbols_string = " ".join(
+
+        symbols
+    )
+
+    data = yf.download(
+
+        symbols_string,
+
+        period="6mo",
+
+        group_by="ticker",
+
+        progress=False
+    )
+
+    prices = pd.DataFrame()
 
     for symbol in symbols:
 
         try:
 
-            data = yf.download(
-
-                symbol,
-
-                period="6mo",
-
-                progress=False
-            )
-
             prices[symbol] = (
 
                 data[
+                    symbol
+                ][
                     "Close"
                 ]
             )
@@ -142,10 +150,9 @@ def build_correlation_engine(
         ascending=False
     )
 
-    # -----------------------------------
-    # STORE CACHE
-    # -----------------------------------
+    _cached_correlation_df = (
 
-    _cached_correlation_df = result
+        result
+    )
 
     return result
