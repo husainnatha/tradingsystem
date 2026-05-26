@@ -8,6 +8,10 @@ from app.engine.macro_regime_engine import (
     build_macro_regime
 )
 
+from app.engine.risk_engine import (
+    build_risk_engine
+)
+
 # -----------------------------------
 # BUILD POSITION SIZING
 # -----------------------------------
@@ -23,6 +27,26 @@ def build_position_sizing(
         watchlist
     )
 
+    risk_df = (
+
+    build_risk_engine()
+    )
+
+    if risk_df.empty:
+
+        raise Exception(
+
+            "Risk engine returned no data"
+        )
+
+    risk_lookup = (
+
+        risk_df.set_index(
+
+            "symbol"
+        )
+    )
+
     # -----------------------------------
     # LOAD MACRO REGIME
     # -----------------------------------
@@ -34,6 +58,27 @@ def build_position_sizing(
     ]
 
     sizing_rows = []
+
+    risk_df = (
+
+    build_risk_engine()
+)
+
+    # Safety check
+
+    if risk_df.empty:
+
+        raise Exception(
+
+            "Risk engine returned no data"
+        )
+
+    risk_lookup = (
+
+        risk_df.set_index(
+            "symbol"
+        )
+    )
 
     for _, row in df.iterrows():
 
@@ -110,6 +155,33 @@ def build_position_sizing(
         )
 
         # -----------------------------------
+
+        risk_score = (
+
+            risk_lookup.loc[
+                row["symbol"],
+                "risk_score"
+            ]
+
+            if row["symbol"] in risk_lookup.index
+
+            else 0.5
+        )
+
+        # -----------------------------------
+        # RISK ADJUSTMENT
+        # -----------------------------------
+
+        adjusted_pct = round(
+
+            suggested_pct
+
+            * (1 - risk_score),
+
+            2
+        )
+
+        # -----------------------------------
         # CAP MAX POSITION
         # -----------------------------------
 
@@ -132,7 +204,7 @@ def build_position_sizing(
 
             (
 
-                suggested_pct / 100
+                adjusted_pct / 100
             ),
 
             2
@@ -157,6 +229,15 @@ def build_position_sizing(
 
             "symbol":
                 row["symbol"],
+            
+            "suggested_pct":
+                suggested_pct,
+            
+            "risk_score":
+                risk_score,
+
+            "adjusted_pct":
+                adjusted_pct,
 
             "rating":
                 row["rating"],
@@ -165,7 +246,7 @@ def build_position_sizing(
                 row["ai_score"],
 
             "suggested_allocation_pct":
-                suggested_pct,
+                adjusted_pct,
 
             "suggested_position_value":
                 suggested_value,
