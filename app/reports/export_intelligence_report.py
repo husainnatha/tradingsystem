@@ -25,14 +25,6 @@ from app.engine.inventory_engine import (
     build_inventory_state
 )
 
-from app.engine.sell_optimizer import (
-    optimise_sale_strategy
-)
-
-from app.engine.market_intelligence_engine import (
-    build_market_intelligence
-)
-
 from app.engine.sector_intelligence import (
     build_sector_exposure
 )
@@ -41,18 +33,13 @@ from app.engine.strategy_comparator import (
     compare_strategies
 )
 
-
-from app.config.environment import (
-
-    get_output_suffix
-)
-
 from app.config.environment import (
 
     EXPORT_DIR,
 
     get_output_suffix
 )
+
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
@@ -65,7 +52,9 @@ def export_intelligence_report(
 
     position_df,
 
-    sale_df
+    sale_df,
+
+    action_df
 ):
 
     env = get_output_suffix()
@@ -78,11 +67,7 @@ def export_intelligence_report(
     )
 
     # -----------------------------------
-    # BUILD DATAFRAMES
-    # -----------------------------------
-
-        # -----------------------------------
-    # HOLDINGS DATAFRAME
+    # HOLDINGS
     # -----------------------------------
 
     holdings_data = calculate_holdings()
@@ -122,18 +107,40 @@ def export_intelligence_report(
         })
 
     holdings_df = pd.DataFrame(
+
         holdings_rows
     )
 
-    disposal_df = build_disposal_ledger()
-
-    tax_df = build_tax_dashboard()
-
-    inventory_df = build_inventory_state()
-
     # -----------------------------------
-    # USE PIPELINE RESULTS
+    # OTHER DATA
     # -----------------------------------
+
+    disposal_df = (
+
+        build_disposal_ledger()
+    )
+
+    tax_df = (
+
+        build_tax_dashboard()
+    )
+
+    inventory_df = (
+
+        build_inventory_state()
+    )
+
+    sector_df = (
+
+        build_sector_exposure()
+    )
+
+    strategy_df = (
+
+        compare_strategies(
+            target_cash=5000
+        )
+    )
 
     buy_df = (
 
@@ -145,10 +152,14 @@ def export_intelligence_report(
         position_df
     )
 
-    sector_df = build_sector_exposure()
+    sell_df = (
 
-    strategy_df = compare_strategies(
-            target_cash=5000
+        sale_df
+    )
+
+    actions_df = (
+
+        action_df
     )
 
     # -----------------------------------
@@ -158,7 +169,9 @@ def export_intelligence_report(
     session = SessionLocal()
 
     transactions = session.query(
+
         Transaction
+
     ).all()
 
     transaction_rows = []
@@ -193,20 +206,21 @@ def export_intelligence_report(
         })
 
     transactions_df = pd.DataFrame(
+
         transaction_rows
     )
 
     session.close()
 
-        # -----------------------------------
-    # ENSURE EXPORT DIRECTORY EXISTS
+    # -----------------------------------
+    # ENSURE DIRECTORY
     # -----------------------------------
 
-    export_dir = Path(
-        "data/exports"
-    )
+    Path(
 
-    export_dir.mkdir(
+        EXPORT_DIR
+
+    ).mkdir(
 
         parents=True,
 
@@ -214,7 +228,7 @@ def export_intelligence_report(
     )
 
     # -----------------------------------
-    # EXPORT EXCEL
+    # EXPORT
     # -----------------------------------
 
     with pd.ExcelWriter(
@@ -222,6 +236,7 @@ def export_intelligence_report(
         output_file,
 
         engine="openpyxl"
+
     ) as writer:
 
         transactions_df.to_excel(
@@ -269,15 +284,6 @@ def export_intelligence_report(
             index=False
         )
 
-        sale_df.to_excel(
-
-            writer,
-
-            sheet_name="SELL_OPTIMISER",
-
-            index=False
-        )
-
         market_df.to_excel(
 
             writer,
@@ -301,6 +307,24 @@ def export_intelligence_report(
             writer,
 
             sheet_name="POSITION_SIZING",
+
+            index=False
+        )
+
+        sell_df.to_excel(
+
+            writer,
+
+            sheet_name="SELL_OPTIMISER",
+
+            index=False
+        )
+
+        actions_df.to_excel(
+
+            writer,
+
+            sheet_name="ACTIONS",
 
             index=False
         )

@@ -34,71 +34,66 @@ def get_uk_tax_year(
 
 
 def generate_tax_year_summary(
+
     tax_year
 ):
 
-    ledger = build_disposal_ledger()
+    ledger = (
 
-    filtered_rows = []
+        build_disposal_ledger()
+    )
 
-    for row in ledger:
+    if ledger.empty:
 
-        row_tax_year = (
-            get_uk_tax_year(
-                row[
-                    "disposal_date"
-                ]
-            )
-        )
+        return {}
 
-        if row_tax_year == tax_year:
+    filtered = (
 
-            filtered_rows.append(
-                row
-            )
+        ledger[
+            ledger["tax_year"]
 
-    total_proceeds = sum(
+            == tax_year
+        ]
+    )
 
-        row[
+    if filtered.empty:
+
+        return {}
+
+    total_proceeds = (
+
+        filtered[
             "proceeds_gbp"
-        ]
-
-        for row in filtered_rows
+        ].sum()
     )
 
-    total_gains = sum(
+    total_gains = (
 
-        row[
+        filtered[
+            filtered[
+                "gain_loss_gbp"
+            ] > 0
+        ][
             "gain_loss_gbp"
-        ]
-
-        for row in filtered_rows
-
-        if row[
-            "gain_loss_gbp"
-        ] > 0
+        ].sum()
     )
 
-    total_losses = sum(
+    total_losses = (
 
-        row[
+        filtered[
+            filtered[
+                "gain_loss_gbp"
+            ] < 0
+        ][
             "gain_loss_gbp"
-        ]
-
-        for row in filtered_rows
-
-        if row[
-            "gain_loss_gbp"
-        ] < 0
+        ].abs().sum()
     )
 
-    net_gain = sum(
+    net_gain = (
 
-        row[
+        filtered[
             "gain_loss_gbp"
-        ]
-
-        for row in filtered_rows
+        ].sum()
     )
 
     return {
@@ -107,7 +102,9 @@ def generate_tax_year_summary(
             tax_year,
 
         "disposal_count":
-            len(filtered_rows),
+            len(
+                filtered
+            ),
 
         "total_proceeds_gbp":
             round(
