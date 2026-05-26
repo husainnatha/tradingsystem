@@ -1,20 +1,5 @@
 import pandas as pd
 
-from app.engine.rebalancing_engine import (
-    build_rebalancing
-)
-
-from app.engine.position_sizing_engine import (
-    build_position_sizing
-)
-
-from app.engine.portfolio_risk_engine import (
-    build_portfolio_risk
-)
-
-from app.config.watchlist import (
-    WATCHLIST
-)
 
 # -----------------------------------
 # BUILD ACTION ENGINE
@@ -26,7 +11,9 @@ def build_actions(
 
     position_df,
 
-    risk_df
+    risk_df,
+
+    portfolio_value=100000
 ):
 
     print(
@@ -55,12 +42,19 @@ def build_actions(
     rows = []
 
     # -----------------------------------
-    # ACTIONS
+    # PROCESS ACTIONS
     # -----------------------------------
 
     for _, row in rebalance_df.iterrows():
 
         symbol = row["symbol"]
+
+        difference = abs(
+
+            row[
+                "difference"
+            ]
+        )
 
         portfolio_risk = (
 
@@ -96,37 +90,51 @@ def build_actions(
         # DECISION RULES
         # -----------------------------------
 
-        rebalance_action = row["action"]
+        rebalance_action = (
 
-        reason = ""
+            row["action"]
+        )
 
-        # High risk → reduce
-
-        if portfolio_risk > 0.25:
+        if rebalance_action == "REDUCE":
 
             action = "REDUCE"
 
-            reason = (
-                "High portfolio concentration and risk"
-            )
+            if difference > 30:
 
-        # Meaningful opportunity
+                reason = (
 
-        elif value >= 1000:
+                    "Severely overweight position"
+                )
+
+            elif difference > 10:
+
+                reason = (
+
+                    "Moderately overweight position"
+                )
+
+            else:
+
+                reason = (
+
+                    "Slightly overweight position"
+                )
+
+        elif value > 0:
 
             action = "BUY"
 
             reason = (
+
                 "Meaningful allocation opportunity"
             )
-
-        # Small adjustment only
 
         else:
 
             action = "HOLD"
 
             reason = (
+
                 "Near target allocation"
             )
 
@@ -136,11 +144,25 @@ def build_actions(
 
         if action == "REDUCE":
 
-            priority = "HIGH"
+            if difference > 30:
+
+                priority = "HIGH"
+
+            elif difference > 10:
+
+                priority = "MEDIUM"
+
+            else:
+
+                priority = "LOW"
 
         elif action == "BUY":
 
-            if portfolio_risk > 0.10:
+            if value > 2000:
+
+                priority = "HIGH"
+
+            elif value > 500:
 
                 priority = "MEDIUM"
 
@@ -153,12 +175,44 @@ def build_actions(
             priority = "LOW"
 
         # -----------------------------------
-        # SKIP EMPTY
+        # SKIP EMPTY HOLDS
         # -----------------------------------
 
-        if action == "HOLD" and value == 0:
+        if (
+
+            action == "HOLD"
+
+            and value <= 0
+
+            and portfolio_risk <= 0
+
+        ):
 
             continue
+
+        # -----------------------------------
+        # EXECUTION VALUE
+        # -----------------------------------
+
+        trade_value = 0
+
+        if action == "REDUCE":
+
+            trade_value = round(
+
+                portfolio_value
+
+                * (
+
+                    difference / 100
+                ),
+
+                2
+            )
+
+        elif action == "BUY":
+
+            trade_value = value
 
         rows.append({
 
@@ -171,11 +225,12 @@ def build_actions(
             "priority":
                 priority,
 
-            "value":
-                value,
+            "trade_value":
+                trade_value,
 
             "reason":
                 reason
+
         })
 
     # -----------------------------------
