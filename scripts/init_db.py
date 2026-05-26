@@ -10,6 +10,14 @@ print(
     "\nCreating database tables...\n"
 )
 
+print(
+    "Dropping existing tables..."
+)
+
+Base.metadata.drop_all(
+    bind=engine
+)
+
 Base.metadata.create_all(bind=engine)
 
 print(

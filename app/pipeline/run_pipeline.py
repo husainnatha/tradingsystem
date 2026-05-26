@@ -115,16 +115,6 @@ def run_pipeline():
         )
 
     # -----------------------------------
-    # IMPORT TRANSACTIONS
-    # -----------------------------------
-
-    print(
-        "Importing transactions..."
-    )
-
-    import_transactions()
-
-    # -----------------------------------
     # REBUILD STATE
     # -----------------------------------
 
