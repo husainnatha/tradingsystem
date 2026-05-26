@@ -13,25 +13,17 @@ df = build_position_sizing(
     portfolio_value=100000
 )
 
-print("\nPOSITION SIZING:\n")
+print(
 
-for _, row in df.iterrows():
+    f"{row['symbol']} | "
 
-    print(
+    f"{row['rating']} | "
 
-        f"{row['symbol']} | "
+    f"Risk={row['risk_score']} | "
 
-        f"{row['rating']} | "
+    f"Macro={row['macro_regime']} | "
 
-        f"Macro={row['macro_regime']} | "
+    f"Multiplier={row['macro_multiplier']} | "
 
-        f"Multiplier={row['macro_multiplier']} | "
-
-        f"Allocation={row['suggested_allocation_pct']}% | "
-
-        f"Value=£{row['suggested_position_value']} | "
-
-        f"Shares={row['suggested_shares']}\n"
-
-        f"Why: {row['explanation']}\n"
-    )
+    f"Allocation={row['suggested_allocation_pct']}%"
+)
