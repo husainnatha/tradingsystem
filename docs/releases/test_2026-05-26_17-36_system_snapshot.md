@@ -1,7 +1,7 @@
 
 # TradingSystem Architecture Snapshot
 
-Generated: 2026-05-26 14:04:50 
+Generated: 2026-05-26 17:35:46 
 
 ---
 

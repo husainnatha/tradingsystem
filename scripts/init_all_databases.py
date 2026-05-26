@@ -1,5 +1,6 @@
 import os
-import importlib
+import sys
+import subprocess
 
 environments = [
 
@@ -8,98 +9,90 @@ environments = [
     "prod"
 ]
 
+python_exe = sys.executable
+
 for env in environments:
 
     print(
-        f"\n{'='*40}"
+        "\n========================================"
     )
 
     print(
-        f"\nInitializing {env.upper()}"
+        f"\nInitializing {env.upper()}\n"
     )
 
     print(
-        f"\n{'='*40}"
+        "========================================\n"
     )
 
     # -----------------------------------
     # SET ENVIRONMENT
     # -----------------------------------
 
-    os.environ[
-        "APP_ENV"
-    ] = env
+    os.environ["APP_ENV"] = env
 
     # -----------------------------------
-    # RELOAD ENV MODULES
+    # INIT DB
     # -----------------------------------
 
-    import app.config.environment
-    import app.database.db
+    subprocess.run(
 
-    importlib.reload(
-        app.config.environment
-    )
+        [
 
-    importlib.reload(
-        app.database.db
-    )
+            python_exe,
+            "-m",
+            "scripts.init_db"
 
-    # -----------------------------------
-    # INITIALIZE DB
-    # -----------------------------------
+        ],
 
-    from app.database.models import (
-        Base
-    )
-
-    from app.database.db import (
-        engine
-    )
-
-    Base.metadata.create_all(
-
-        bind=engine
-    )
-
-    print(
-        "\nDatabase initialized"
+        env=os.environ.copy()
     )
 
     # -----------------------------------
     # IMPORT DATA
     # -----------------------------------
 
-    from scripts.import_transactions import (
-        import_transactions
-    )
+    subprocess.run(
 
-    import_transactions()
+        [
 
-    print(
-        "\nTransactions imported"
+            python_exe,
+            "-m",
+            "scripts.import_transactions"
+
+        ],
+
+        env=os.environ.copy()
     )
 
     # -----------------------------------
     # RUN PIPELINE
     # -----------------------------------
 
-    from app.pipeline.run_pipeline import (
-        run_pipeline
-    )
+    subprocess.run(
 
-    run_pipeline()
+        [
 
-    print(
-        "\nPipeline complete"
+            python_exe,
+            "-m",
+            "app.pipeline.run_pipeline"
+
+        ],
+
+        env=os.environ.copy()
     )
 
 print(
 
-    f"\n{'='*40}"
-
+    "\n========================================"
 )
 
 print(
+
     "\nSystem initialization complete\n"
+)
+
+print(
+
+    "========================================"
 )
