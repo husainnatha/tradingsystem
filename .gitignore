@@ -1,8 +1,8 @@
 venv/
 __pycache__/
-*.db
+// *.db
 *.pyc
-*.xlsx
+// *.xlsx
 logs/
 backups/
 data/raw/

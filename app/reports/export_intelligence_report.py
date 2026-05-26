@@ -53,16 +53,30 @@ from app.config.watchlist import (
     WATCHLIST
 )
 
+from app.config.environment import (
+
+    get_output_suffix
+)
+
+from app.config.environment import (
+
+    EXPORT_DIR,
+
+    get_output_suffix
+)
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
 
 def export_intelligence_report():
 
-    output_path = (
+    env = get_output_suffix()
 
-        "data/exports/"
-        "portfolio_intelligence.xlsx"
+    output_file = (
+
+        EXPORT_DIR
+
+        / f"{env}-portfolio_intelligence.xlsx"
     )
 
     # -----------------------------------
@@ -213,7 +227,7 @@ def export_intelligence_report():
 
     with pd.ExcelWriter(
 
-        output_path,
+        output_file,
 
         engine="openpyxl"
     ) as writer:
@@ -320,5 +334,5 @@ def export_intelligence_report():
     print(
 
         f"\nPortfolio intelligence report "
-        f"exported:\n{output_path}\n"
+        f"exported:\n{output_file}\n"
     )

@@ -6,6 +6,13 @@ from app.config.watchlist import (
 )
 
 # -----------------------------------
+# CACHE
+# -----------------------------------
+
+_cached_correlation_df = None
+
+
+# -----------------------------------
 # BUILD CORRELATION ENGINE
 # -----------------------------------
 
@@ -14,8 +21,19 @@ def build_correlation_engine(
     symbols=WATCHLIST
 ):
 
+    global _cached_correlation_df
+
+    # -----------------------------------
+    # USE CACHE
+    # -----------------------------------
+
+    if _cached_correlation_df is not None:
+
+        return _cached_correlation_df
+
     print(
-        "\nLoading price history...\n"
+
+        "\nLoading price history once...\n"
     )
 
     prices = pd.DataFrame()
@@ -44,7 +62,7 @@ def build_correlation_engine(
                 ]
             )
 
-        except:
+        except Exception:
 
             print(
                 f"Failed: {symbol}"
@@ -74,10 +92,6 @@ def build_correlation_engine(
         .corr()
     )
 
-    # -----------------------------------
-    # BUILD SCORES
-    # -----------------------------------
-
     rows = []
 
     for symbol in correlation.columns:
@@ -94,14 +108,6 @@ def build_correlation_engine(
 
             .mean()
         )
-
-        # -----------------------------------
-        # NORMALISE
-        # Correlation range:
-        #
-        # -1 = excellent diversification
-        # +1 = poor diversification
-        # -----------------------------------
 
         diversification_score = round(
 
@@ -125,7 +131,7 @@ def build_correlation_engine(
                 diversification_score
         })
 
-    return pd.DataFrame(
+    result = pd.DataFrame(
 
         rows
 
@@ -135,3 +141,11 @@ def build_correlation_engine(
 
         ascending=False
     )
+
+    # -----------------------------------
+    # STORE CACHE
+    # -----------------------------------
+
+    _cached_correlation_df = result
+
+    return result
