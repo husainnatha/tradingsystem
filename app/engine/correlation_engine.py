@@ -1,5 +1,8 @@
 import pandas as pd
-import yfinance as yf
+
+from app.services.market_data_service import (
+    load_market_prices
+)
 
 from app.config.watchlist import (
     WATCHLIST
@@ -11,7 +14,6 @@ from app.config.watchlist import (
 
 _cached_correlation_df = None
 
-
 # -----------------------------------
 # BUILD CORRELATION ENGINE
 # -----------------------------------
@@ -21,41 +23,27 @@ def build_correlation_engine(
     symbols=WATCHLIST
 ):
 
-    global _cached_correlation_df
-
-    # -----------------------------------
-    # USE CACHE
-    # -----------------------------------
-
-    if _cached_correlation_df is not None:
-
-        return _cached_correlation_df
-
     print(
-        "\nLoading price history once...\n"
-    )
+    "\nRequesting market prices...\n"
+)
 
     # -----------------------------------
-    # DOWNLOAD ALL SYMBOLS AT ONCE
+    # LOAD CACHED / DOWNLOADED DATA
     # -----------------------------------
 
-    symbols_string = " ".join(
+    market_data = (
 
-        symbols
-    )
+        load_market_prices(
 
-    data = yf.download(
-
-        symbols_string,
-
-        period="6mo",
-
-        group_by="ticker",
-
-        progress=False
+            symbols
+        )
     )
 
     prices = pd.DataFrame()
+
+    # -----------------------------------
+    # EXTRACT CLOSE PRICES
+    # -----------------------------------
 
     for symbol in symbols:
 
@@ -63,17 +51,18 @@ def build_correlation_engine(
 
             prices[symbol] = (
 
-                data[
+                market_data[
                     symbol
                 ][
                     "Close"
                 ]
             )
 
-        except Exception:
+        except Exception as e:
 
             print(
-                f"Failed: {symbol}"
+
+                f"Failed: {symbol}: {e}"
             )
 
     # -----------------------------------
@@ -89,15 +78,9 @@ def build_correlation_engine(
         .dropna()
     )
 
-    # -----------------------------------
-    # CORRELATION MATRIX
-    # -----------------------------------
-
     correlation = (
 
-        returns
-
-        .corr()
+        returns.corr()
     )
 
     rows = []
@@ -139,7 +122,7 @@ def build_correlation_engine(
                 diversification_score
         })
 
-    result = pd.DataFrame(
+    return pd.DataFrame(
 
         rows
 
@@ -149,10 +132,3 @@ def build_correlation_engine(
 
         ascending=False
     )
-
-    _cached_correlation_df = (
-
-        result
-    )
-
-    return result

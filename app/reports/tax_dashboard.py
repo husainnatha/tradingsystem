@@ -25,6 +25,19 @@ def build_tax_dashboard():
 
     df = build_disposal_ledger()
 
+    # -----------------------------------
+    # HANDLE EMPTY DATA
+    # -----------------------------------
+
+    if df.empty:
+
+        print(
+
+            "\nNo tax data available\n"
+        )
+
+        return pd.DataFrame()
+
     summary_rows = []
 
     grouped = df.groupby("tax_year")
