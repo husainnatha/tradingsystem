@@ -48,11 +48,29 @@ from app.reports.documentation_generator import (
     generate_system_documentation
 )
 
+from app.database.models import (
+    Base
+)
+
+from app.database.db import (
+    engine
+)
+
 # -----------------------------------
 # RUN FULL PIPELINE
 # -----------------------------------
 
 def run_pipeline():
+
+    print(
+
+    "\nInitializing database...\n"
+    )
+
+    Base.metadata.create_all(
+
+        bind=engine
+    )
 
     print(
         "\nStarting Trading System Pipeline...\n"

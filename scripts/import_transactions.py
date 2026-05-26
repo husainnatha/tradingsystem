@@ -5,18 +5,13 @@ from app.engine.transaction_service import (
     add_transaction
 )
 
-# -----------------------------------
-# BASE DIRECTORY
-# -----------------------------------
+from app.config.environment import (
 
-BASE_DIR = Path(__file__).resolve().parents[1]
+    get_app_env,
 
-excel_path = (
-
-    BASE_DIR
-    / "dashboard"
-    / "trading_system.xlsx"
+    get_input_source
 )
+
 
 # -----------------------------------
 # IMPORT TRANSACTIONS
@@ -24,25 +19,44 @@ excel_path = (
 
 def import_transactions():
 
-    print(
-        f"\nLoading workbook:\n"
-        f"{excel_path}\n"
-    )
+    app_env = get_app_env()
 
-    # -----------------------------------
-    # LOAD WORKBOOK
-    # -----------------------------------
+    input_source = (
 
-    df = pd.read_excel(
-
-        excel_path,
-
-        sheet_name="INPUT_TRANSACTIONS"
+        get_input_source()
     )
 
     print(
-        "Workbook loaded successfully.\n"
+
+        f"\nEnvironment: {app_env}"
     )
+
+    print(
+
+        f"\nLoading:\n"
+
+        f"{input_source}\n"
+    )
+
+    # -----------------------------------
+    # LOAD INPUT
+    # -----------------------------------
+
+    if app_env == "prod":
+
+        df = pd.read_excel(
+
+            input_source,
+
+            sheet_name="INPUT_TRANSACTIONS"
+        )
+
+    else:
+
+        df = pd.read_csv(
+
+            input_source
+        )
 
     # -----------------------------------
     # VALIDATE COLUMNS
@@ -76,10 +90,12 @@ def import_transactions():
         raise Exception(
 
             f"Missing columns: "
+
             f"{missing_columns}"
         )
 
     print(
+
         "Column validation passed.\n"
     )
 
@@ -93,26 +109,22 @@ def import_transactions():
 
             trade_date = pd.to_datetime(
 
-                row["trade_date"]
+                row["trade_date"],
+
+                dayfirst=True
 
             ).date()
 
             account = str(
-
                 row["account"]
-
             ).upper()
 
             symbol = str(
-
                 row["symbol"]
-
             ).upper()
 
             action = str(
-
                 row["action"]
-
             ).upper()
 
             quantity = float(
@@ -120,9 +132,7 @@ def import_transactions():
             )
 
             trade_currency = str(
-
                 row["trade_currency"]
-
             ).upper()
 
             trade_price = float(
@@ -175,7 +185,8 @@ def import_transactions():
             print(
 
                 f"Importing row "
-                f"{index + 2}: "
+
+                f"{index+2}: "
 
                 f"{account} | "
 
@@ -214,10 +225,12 @@ def import_transactions():
             print(
 
                 f"Error processing row "
-                f"{index + 2}: {e}"
+
+                f"{index+2}: {e}"
             )
 
     print(
+
         "\nImport complete.\n"
     )
 

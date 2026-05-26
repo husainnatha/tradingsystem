@@ -1,39 +1,33 @@
-from pathlib import Path
-
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
-# -----------------------------------
-# DATABASE PATH
-# -----------------------------------
+from sqlalchemy.orm import (
 
-BASE_DIR = Path(__file__).resolve().parents[2]
-
-db_path = (
-    BASE_DIR
-    / "data"
-    / "database"
-    / "portfolio.db"
+    sessionmaker
 )
 
-DATABASE_URL = f"sqlite:///{db_path}"
+from app.config.environment import (
+
+    get_database_file
+)
 
 # -----------------------------------
-# SQLALCHEMY ENGINE
+# ENGINE
 # -----------------------------------
 
 engine = create_engine(
 
-    DATABASE_URL,
-
-    echo=False
+    f"sqlite:///{get_database_file()}"
 )
 
 # -----------------------------------
-# SESSION FACTORY
+# SESSION
 # -----------------------------------
 
 SessionLocal = sessionmaker(
+
+    autocommit=False,
+
+    autoflush=False,
 
     bind=engine
 )
