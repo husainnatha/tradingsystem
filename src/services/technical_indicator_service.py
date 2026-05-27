@@ -94,9 +94,6 @@ class TechnicalIndicatorService:
     def apply_all(
         df: pd.DataFrame
     ):
-
-        print("Applying indicators...")
-
         df = (
             TechnicalIndicatorService
             .add_moving_averages(df)
