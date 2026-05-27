@@ -192,15 +192,17 @@ def run_pipeline():
 
     action_df = (
 
-    build_actions(
+        build_actions(
 
-        rebalance_df=rebalancing_df,
+            rebalance_df=rebalancing_df,
 
-        position_df=position_df,
+            position_df=position_df,
 
-        risk_df=portfolio_risk_df
+            risk_df=portfolio_risk_df,
+
+            portfolio_value=100000
+        )
     )
-)
 
     # -----------------------------------
     # EXPORT
