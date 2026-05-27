@@ -173,7 +173,9 @@ class SystemPipeline:
 
         portfolio_risk_df = (
 
-            build_portfolio_risk()
+            build_portfolio_risk(
+                market_context
+            )
         )
 
         rebalancing_df = (

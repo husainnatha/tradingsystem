@@ -55,7 +55,9 @@ def build_position_sizing(
 
     portfolio_risk_df = (
 
-        build_portfolio_risk()
+        build_portfolio_risk(
+            market_context
+        )
     )
 
     portfolio_risk_lookup = (

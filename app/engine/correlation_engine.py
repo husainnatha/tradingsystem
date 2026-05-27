@@ -1,13 +1,5 @@
 import pandas as pd
 
-from app.services.market_data_service import (
-    load_market_prices
-)
-
-from app.config.watchlist import (
-    WATCHLIST
-)
-
 # -----------------------------------
 # CACHE
 # -----------------------------------
@@ -19,43 +11,28 @@ _cached_correlation_df = None
 # -----------------------------------
 
 def build_correlation_engine(
-
-    symbols=WATCHLIST
+    market_context
 ):
 
-    print(
-    "\nRequesting market prices...\n"
-)
-
-    # -----------------------------------
-    # LOAD CACHED / DOWNLOADED DATA
-    # -----------------------------------
-
-    market_data = (
-
-        load_market_prices(
-
-            symbols
-        )
-    )
-
-    prices = pd.DataFrame()
-
+    
     # -----------------------------------
     # EXTRACT CLOSE PRICES
     # -----------------------------------
 
-    for symbol in symbols:
+    prices = pd.DataFrame()
+
+    for symbol, df in (
+        market_context
+        .get_all()
+        .items()
+    ):
 
         try:
 
             prices[symbol] = (
 
-                market_data[
-                    symbol
-                ][
-                    "Close"
-                ]
+                df["Close"]
+                .squeeze()
             )
 
         except Exception as e:
@@ -64,7 +41,6 @@ def build_correlation_engine(
 
                 f"Failed: {symbol}: {e}"
             )
-
     # -----------------------------------
     # DAILY RETURNS
     # -----------------------------------

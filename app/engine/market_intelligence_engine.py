@@ -63,8 +63,10 @@ def build_market_intelligence(
 
     correlation_df = (
 
-        build_correlation_engine()
+    build_correlation_engine(
+        market_context
     )
+)
 
     correlation_lookup = (
 

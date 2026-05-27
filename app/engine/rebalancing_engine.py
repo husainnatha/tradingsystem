@@ -27,7 +27,9 @@ def build_rebalancing(
 
     current_df = (
 
-        build_portfolio_risk()
+        build_portfolio_risk(
+            market_context
+        )
     )
 
     current_lookup = (
