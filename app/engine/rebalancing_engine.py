@@ -17,8 +17,8 @@ from app.config.watchlist import (
 # -----------------------------------
 
 def build_rebalancing(
-
-    portfolio_value=100000
+    market_context,
+    portfolio_value
 ):
 
     # -----------------------------------
@@ -45,7 +45,7 @@ def build_rebalancing(
 
         build_position_sizing(
 
-            watchlist=WATCHLIST,
+            market_context=market_context,
 
             portfolio_value=portfolio_value
         )

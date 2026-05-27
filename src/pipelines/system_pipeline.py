@@ -142,22 +142,22 @@ class SystemPipeline:
         market_df = (
 
             build_market_intelligence(
-                WATCHLIST
+                market_context
             )
         )
 
         recommendation_df = (
 
             build_buy_recommendations(
-                WATCHLIST
+                market_context
             )
-        )
+                    )
 
         position_df = (
 
             build_position_sizing(
 
-                watchlist=WATCHLIST,
+                market_context=market_context,
 
                 portfolio_value=100000
             )
@@ -179,6 +179,9 @@ class SystemPipeline:
         rebalancing_df = (
 
             build_rebalancing(
+
+                market_context=market_context,
+
                 portfolio_value=100000
             )
         )

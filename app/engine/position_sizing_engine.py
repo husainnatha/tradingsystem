@@ -21,14 +21,12 @@ from app.engine.portfolio_risk_engine import (
 # -----------------------------------
 
 def build_position_sizing(
-
-    watchlist,
-
+    market_context,
     portfolio_value
 ):
 
     df = build_buy_recommendations(
-        watchlist
+        market_context
     )
 
     # -----------------------------------

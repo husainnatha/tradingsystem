@@ -9,12 +9,11 @@ from app.engine.market_intelligence_engine import (
 # -----------------------------------
 
 def build_buy_recommendations(
-
-    watchlist
+    market_context
 ):
 
     df = build_market_intelligence(
-        watchlist
+        market_context
     )
 
     recommendations = []
