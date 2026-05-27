@@ -1,5 +1,9 @@
 import pandas as pd
 
+from src.utils.dataframe_utils import (
+    DataFrameUtils
+)
+
 
 class TechnicalIndicatorService:
 
@@ -8,14 +12,19 @@ class TechnicalIndicatorService:
         df: pd.DataFrame
     ):
 
+        close = (
+            DataFrameUtils
+            .get_close_series(df)
+        )
+
         df["MA50"] = (
-            df["Close"]
+            close
             .rolling(window=50)
             .mean()
         )
 
         df["MA200"] = (
-            df["Close"]
+            close
             .rolling(window=200)
             .mean()
         )
@@ -28,8 +37,8 @@ class TechnicalIndicatorService:
     ):
 
         df["Daily_Return"] = (
-            df["Close"]
-            .pct_change()
+            DataFrameUtils
+            .calculate_returns(df)
         )
 
         return df
@@ -54,7 +63,12 @@ class TechnicalIndicatorService:
         period: int = 14
     ):
 
-        delta = df["Close"].diff()
+        close = (
+            DataFrameUtils
+            .get_close_series(df)
+        )
+
+        delta = close.diff()
 
         gain = delta.clip(lower=0)
 
@@ -72,6 +86,32 @@ class TechnicalIndicatorService:
 
         df["RSI"] = (
             100 - (100 / (1 + rs))
+        )
+
+        return df
+
+    @staticmethod
+    def apply_all(
+        df: pd.DataFrame
+    ):
+        df = (
+            TechnicalIndicatorService
+            .add_moving_averages(df)
+        )
+
+        df = (
+            TechnicalIndicatorService
+            .add_returns(df)
+        )
+
+        df = (
+            TechnicalIndicatorService
+            .add_volatility(df)
+        )
+
+        df = (
+            TechnicalIndicatorService
+            .add_rsi(df)
         )
 
         return df
