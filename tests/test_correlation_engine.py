@@ -1,20 +1,47 @@
-from app.engine.correlation_engine import (
-    build_correlation_engine
+from src.data.loaders.watchlist_loader import (
+    WatchlistLoader
 )
 
-df = build_correlation_engine()
+from src.data.loaders.market_data_loader import (
+    MarketDataLoader
+)
+
+from src.services.correlation_service import (
+    CorrelationService
+)
+
+
+watchlist = WatchlistLoader.load(
+    "core_macro"
+)
+
+loader = MarketDataLoader()
+
+market_data = {}
+
+
+for ticker in watchlist:
+
+    print(f"Loading: {ticker}")
+
+    df = loader.load(
+        ticker=ticker,
+        period="2y"
+    )
+
+    market_data[ticker] = df
+
+
+correlation_matrix = (
+    CorrelationService
+    .correlation_matrix(
+        market_data
+    )
+)
+
+
+print("\nCorrelation Matrix:\n")
 
 print(
-    "\nCORRELATION INTELLIGENCE:\n"
+    correlation_matrix.round(2)
 )
-
-for _, row in df.iterrows():
-
-    print(
-
-        f"{row['symbol']} | "
-
-        f"Correlation={row['avg_correlation']} | "
-
-        f"Diversification={row['diversification_score']}"
-    )
