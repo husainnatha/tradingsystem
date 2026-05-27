@@ -64,6 +64,14 @@ from app.engine.rebalancing_engine import (
     build_rebalancing
 )
 
+from app.engine.transition_engine import (
+    build_transition_plan
+)
+
+from app.engine.decision_engine import (
+    build_decisions
+)
+
 # -----------------------------------
 # RUN FULL PIPELINE
 # -----------------------------------
@@ -205,6 +213,36 @@ def run_pipeline():
     )
 
     # -----------------------------------
+    # DECISIONS
+    # -----------------------------------
+
+    decision_df = (
+
+        build_decisions(
+
+            action_df=action_df,
+
+            risk_df=portfolio_risk_df,
+
+            tax_df=build_tax_dashboard()
+        )
+    )
+
+    # -----------------------------------
+    # TRANSITION PLAN
+    # -----------------------------------
+
+    transition_df = (
+
+        build_transition_plan(
+
+            decision_df=decision_df,
+
+            position_df=position_df
+        )
+    )
+
+    # -----------------------------------
     # EXPORT
     # -----------------------------------
 
@@ -222,7 +260,9 @@ def run_pipeline():
 
         sale_df=sale_df,
 
-        action_df=action_df
+        action_df=action_df,
+
+        transition_df=transition_df
     )
 
     generate_system_documentation()
