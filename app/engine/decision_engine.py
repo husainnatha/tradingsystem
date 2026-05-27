@@ -1,16 +1,9 @@
 import pandas as pd
 
-from app.engine.action_engine import (
-    build_actions
-)
 
-from app.engine.portfolio_risk_engine import (
-    build_portfolio_risk
-)
-
-from app.reports.tax_dashboard import (
-    build_tax_dashboard
-)
+# -----------------------------------
+# BUILD DECISION ENGINE
+# -----------------------------------
 
 def build_decisions(
 
@@ -25,25 +18,25 @@ def build_decisions(
 
     for _, row in action_df.iterrows():
 
-        decision = row["action"]
-
-        reason = row["reason"]
-
         rows.append({
 
             "symbol":
                 row["symbol"],
 
             "decision":
-                decision,
+                row["action"],
 
             "priority":
                 row["priority"],
 
+            "trade_value":
+                row["trade_value"],
+
             "reason":
-                reason
+                row["reason"]
         })
 
     return pd.DataFrame(
+
         rows
     )

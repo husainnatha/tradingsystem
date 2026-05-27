@@ -134,5 +134,24 @@ print(
 )
 
 print(
-    df
+
+    "\nFINAL DECISIONS:\n"
+)
+
+print(
+
+    df[
+        [
+
+            "symbol",
+
+            "decision",
+
+            "priority",
+
+            "trade_value",
+
+            "reason"
+        ]
+    ]
 )
