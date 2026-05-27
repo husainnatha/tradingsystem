@@ -10,8 +10,9 @@ results = pipeline.run_watchlist(
 )
 
 
-for ticker, df in results.items():
-
+for ticker, df in (
+    results.get_all().items()
+):
     print(f"\n{ticker}")
 
     print(

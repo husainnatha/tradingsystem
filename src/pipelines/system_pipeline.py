@@ -64,8 +64,18 @@ from app.engine.decision_engine import (
     build_decisions
 )
 
+from src.pipelines.market_pipeline import (
+    MarketPipeline
+)
+
 
 class SystemPipeline:
+
+    def __init__(self):
+
+        self.market_pipeline = (
+            MarketPipeline()
+        )
 
     def ensure_directories(self):
 
@@ -122,25 +132,32 @@ class SystemPipeline:
             "Building market intelligence..."
         )
 
+        market_context = (
+            self.market_pipeline
+            .run_watchlist(
+                "core_macro"
+            )
+        )
+
         market_df = (
 
             build_market_intelligence(
-                WATCHLIST
+                market_context
             )
         )
 
         recommendation_df = (
 
             build_buy_recommendations(
-                WATCHLIST
+                market_context
             )
-        )
+                    )
 
         position_df = (
 
             build_position_sizing(
 
-                watchlist=WATCHLIST,
+                market_context=market_context,
 
                 portfolio_value=100000
             )
@@ -156,12 +173,17 @@ class SystemPipeline:
 
         portfolio_risk_df = (
 
-            build_portfolio_risk()
+            build_portfolio_risk(
+                market_context
+            )
         )
 
         rebalancing_df = (
 
             build_rebalancing(
+
+                market_context=market_context,
+
                 portfolio_value=100000
             )
         )

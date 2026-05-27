@@ -6,6 +6,10 @@ from src.services.market_data_service import (
     MarketDataService
 )
 
+from src.models.market_context import (
+    MarketContext
+)
+
 
 class MarketPipeline:
 
@@ -27,7 +31,7 @@ class MarketPipeline:
             .load(watchlist_name)
         )
 
-        results = {}
+        context = MarketContext()
 
         for ticker in watchlist:
 
@@ -44,6 +48,9 @@ class MarketPipeline:
                 )
             )
 
-            results[ticker] = df
+            context.add_dataset(
+                ticker,
+                df
+            )
 
-        return results
+        return context

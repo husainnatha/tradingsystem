@@ -21,14 +21,12 @@ from app.engine.portfolio_risk_engine import (
 # -----------------------------------
 
 def build_position_sizing(
-
-    watchlist,
-
+    market_context,
     portfolio_value
 ):
 
     df = build_buy_recommendations(
-        watchlist
+        market_context
     )
 
     # -----------------------------------
@@ -57,7 +55,9 @@ def build_position_sizing(
 
     portfolio_risk_df = (
 
-        build_portfolio_risk()
+        build_portfolio_risk(
+            market_context
+        )
     )
 
     portfolio_risk_lookup = (

@@ -1,9 +1,5 @@
 import pandas as pd
 
-from app.services.technical_indicator_service import (
-    get_technical_indicators
-)
-
 from app.engine.sector_intelligence import (
     build_sector_exposure
 )
@@ -29,8 +25,7 @@ from app.engine.correlation_engine import (
 # -----------------------------------
 
 def build_market_intelligence(
-
-    symbols
+    market_context
 ):
     # -----------------------------------
     # LOAD MACRO REGIME
@@ -68,8 +63,10 @@ def build_market_intelligence(
 
     correlation_df = (
 
-        build_correlation_engine()
+    build_correlation_engine(
+        market_context
     )
+)
 
     correlation_lookup = (
 
@@ -91,8 +88,11 @@ def build_market_intelligence(
     # PROCESS WATCHLIST
     # -----------------------------------
 
-    for symbol in symbols:
-
+    for symbol, df in (
+        market_context
+        .get_all()
+        .items()
+    ):
         sector = get_sector(
             symbol
         )
@@ -104,13 +104,50 @@ def build_market_intelligence(
             0
         )
 
-        data = get_technical_indicators(
-            symbol
+        close = (
+            df["Close"]
+            .squeeze()
         )
 
-        if not data:
+        latest = df.iloc[-1]
 
-            continue
+        price = float(
+            close.iloc[-1]
+        )
+
+        ma50 = float(
+            latest["MA50"].squeeze()
+        )
+
+        ma200 = float(
+            latest["MA200"].squeeze()
+        )
+
+        rsi = float(
+            latest["RSI"].squeeze()
+        )
+
+        bullish_trend = (
+            ma50 > ma200
+        )
+
+        data = {
+
+            "price":
+                price,
+
+            "ma50":
+                ma50,
+
+            "ma200":
+                ma200,
+
+            "rsi":
+                rsi,
+
+            "bullish_trend":
+                bullish_trend
+        }
 
         # -----------------------------------
         # MOMENTUM SCORE

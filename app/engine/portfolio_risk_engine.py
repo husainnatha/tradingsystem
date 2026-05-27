@@ -9,7 +9,9 @@ from app.engine.correlation_engine import (
 )
 
 
-def build_portfolio_risk():
+def build_portfolio_risk(
+    market_context
+):
 
     inventory = (
 
@@ -45,7 +47,9 @@ def build_portfolio_risk():
 
     correlation = (
 
-        build_correlation_engine()
+        build_correlation_engine(
+            market_context
+        )
     )
 
     rows = []
