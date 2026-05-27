@@ -1,9 +1,5 @@
-from src.data.loaders.watchlist_loader import (
-    WatchlistLoader
-)
-
-from src.data.loaders.market_data_loader import (
-    MarketDataLoader
+from src.pipelines.market_pipeline import (
+    MarketPipeline
 )
 
 from src.services.correlation_service import (
@@ -11,26 +7,11 @@ from src.services.correlation_service import (
 )
 
 
-watchlist = WatchlistLoader.load(
+pipeline = MarketPipeline()
+
+market_data = pipeline.run_watchlist(
     "core_macro"
 )
-
-loader = MarketDataLoader()
-
-market_data = {}
-
-
-for ticker in watchlist:
-
-    print(f"Loading: {ticker}")
-
-    df = loader.load(
-        ticker=ticker,
-        period="2y"
-    )
-
-    market_data[ticker] = df
-
 
 correlation_matrix = (
     CorrelationService
@@ -39,9 +20,4 @@ correlation_matrix = (
     )
 )
 
-
-print("\nCorrelation Matrix:\n")
-
-print(
-    correlation_matrix.round(2)
-)
+print(correlation_matrix.round(2))
