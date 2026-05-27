@@ -54,7 +54,9 @@ def export_intelligence_report(
 
     sale_df,
 
-    action_df
+    action_df,
+
+    transition_df
 ):
 
     env = get_output_suffix()
@@ -343,6 +345,15 @@ def export_intelligence_report(
             writer,
 
             sheet_name="STRATEGY_COMPARISON",
+
+            index=False
+        )
+
+        transition_df.to_excel(
+
+            writer,
+
+            sheet_name="TRANSITIONS",
 
             index=False
         )
