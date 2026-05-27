@@ -1,11 +1,5 @@
 venv/
 __pycache__/
-// *.db
 *.pyc
-// *.xlsx
-logs/
-backups/
-data/raw/
-data/macro_data/
-data_market_data/
-.env
+cache/
+.vscode/

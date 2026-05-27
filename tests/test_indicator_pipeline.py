@@ -1,72 +1,34 @@
-from src.data.loaders.market_data_loader import (
-    MarketDataLoader
+from src.services.market_data_service import (
+    MarketDataService
 )
 
-from src.services.technical_indicator_service import (
-    TechnicalIndicatorService
-)
-
-from src.data.cache.processed_cache_manager import (
-    ProcessedCacheManager
-)
-
-loader = MarketDataLoader()
-
-df = loader.load(
-    ticker="GC=F",
-    period="2y"
+from src.data.loaders.watchlist_loader import (
+    WatchlistLoader
 )
 
 
-df = (
-    TechnicalIndicatorService
-    .add_moving_averages(df)
+watchlist = WatchlistLoader.load(
+    "core_macro"
 )
 
-df = (
-    TechnicalIndicatorService
-    .add_returns(df)
-)
+service = MarketDataService()
 
-df = (
-    TechnicalIndicatorService
-    .add_volatility(df)
-)
 
-df = (
-    TechnicalIndicatorService
-    .add_rsi(df)
-)
+for ticker in watchlist:
 
-processed_path = (
-    ProcessedCacheManager
-    .get_processed_path(
-        ticker="GC=F",
-        interval="1d"
+    print(f"\nProcessing: {ticker}")
+
+    df = service.build_processed_dataset(
+        ticker=ticker
     )
-)
 
-processed_path.parent.mkdir(
-    parents=True,
-    exist_ok=True
-)
-
-df.to_parquet(processed_path)
-
-print(
-    f"\nSaved processed indicators:"
-    f"\n{processed_path}"
-)
-
-print(
-    df[
-        [
-            "Close",
-            "MA50",
-            "MA200",
-            "Daily_Return",
-            "Volatility",
-            "RSI"
-        ]
-    ].tail()
-)
+    print(
+        df[
+            [
+                "Close",
+                "MA50",
+                "MA200",
+                "RSI"
+            ]
+        ].tail(2)
+    )
