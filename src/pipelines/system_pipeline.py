@@ -64,8 +64,18 @@ from app.engine.decision_engine import (
     build_decisions
 )
 
+from src.pipelines.market_pipeline import (
+    MarketPipeline
+)
+
 
 class SystemPipeline:
+
+    def __init__(self):
+
+        self.market_pipeline = (
+            MarketPipeline()
+        )
 
     def ensure_directories(self):
 
@@ -120,6 +130,13 @@ class SystemPipeline:
 
         print(
             "Building market intelligence..."
+        )
+
+        market_context = (
+            self.market_pipeline
+            .run_watchlist(
+                "core_macro"
+            )
         )
 
         market_df = (
