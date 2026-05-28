@@ -20,6 +20,10 @@ from app.engine.correlation_engine import (
     build_correlation_engine
 )
 
+from src.utils.market_data_accessor import (
+    MarketDataAccessor
+)
+
 # -----------------------------------
 # BUILD MARKET INTELLIGENCE
 # -----------------------------------
@@ -115,16 +119,28 @@ def build_market_intelligence(
             close.iloc[-1]
         )
 
-        ma50 = float(
-            latest["MA50"].squeeze()
+        ma50 = (
+            MarketDataAccessor
+            .get_latest_value(
+                df,
+                "MA50"
+            )
         )
 
-        ma200 = float(
-            latest["MA200"].squeeze()
+        ma200 = (
+            MarketDataAccessor
+            .get_latest_value(
+                df,
+                "MA200"
+            )
         )
 
-        rsi = float(
-            latest["RSI"].squeeze()
+        rsi = (
+            MarketDataAccessor
+            .get_latest_value(
+                df,
+                "RSI"
+            )
         )
 
         bullish_trend = (

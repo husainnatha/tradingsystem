@@ -1,5 +1,9 @@
 import pandas as pd
 
+from src.utils.market_data_accessor import (
+    MarketDataAccessor
+)
+
 # -----------------------------------
 # CACHE
 # -----------------------------------
@@ -31,8 +35,10 @@ def build_correlation_engine(
 
             prices[symbol] = (
 
-                df["Close"]
-                .squeeze()
+                MarketDataAccessor.get_series(
+                    df,
+                    "Close"
+                )
             )
 
         except Exception as e:

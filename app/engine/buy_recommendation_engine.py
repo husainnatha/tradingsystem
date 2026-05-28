@@ -114,6 +114,10 @@ def build_buy_recommendations(
 
             "ai_score":
                 row["ai_score"],
+            
+            "ma50": row["ma50"],
+            "ma200": row["ma200"],
+            "bullish_trend": row["bullish_trend"],
 
             "rating":
                 recommendation,
