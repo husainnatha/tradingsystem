@@ -1,0 +1,31 @@
+^VIX:
+  asset_type: VOLATILITY
+  regime_behavior: RISK_OFF
+
+DX-Y.NYB:
+  asset_type: CURRENCY
+  regime_behavior: DEFENSIVE
+
+GC=F:
+  asset_type: METAL
+  regime_behavior: DEFENSIVE
+
+SI=F:
+  asset_type: METAL
+  regime_behavior: DEFENSIVE
+
+CL=F:
+  asset_type: ENERGY
+  regime_behavior: CYCLICAL
+
+BZ=F:
+  asset_type: ENERGY
+  regime_behavior: CYCLICAL
+
+NG=F:
+  asset_type: ENERGY
+  regime_behavior: CYCLICAL
+
+HG=F:
+  asset_type: INDUSTRIAL_METAL
+  regime_behavior: GROWTH

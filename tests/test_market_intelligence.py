@@ -1,29 +1,22 @@
+from src.pipelines.market_pipeline import (
+    MarketPipeline
+)
+
 from app.engine.market_intelligence_engine import (
     build_market_intelligence
 )
 
-from app.config.watchlist import (
-    WATCHLIST
+
+pipeline = MarketPipeline()
+
+market_context = (
+    pipeline.run_watchlist(
+        "core_macro"
+    )
 )
 
 df = build_market_intelligence(
-
-    WATCHLIST
+    market_context
 )
 
-print("\nMARKET INTELLIGENCE:\n")
-
-for _, row in df.iterrows():
-
-   print(
-
-    f"{row['symbol']} | "
-
-    f"Sector={row['sector']} | "
-
-    f"Bias={row['sector_bias']} | "
-
-    f"Macro={row['macro_regime']} | "
-
-    f"AI={row['ai_score']}"
-)
+print(df.head())
