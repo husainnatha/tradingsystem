@@ -20,3 +20,6 @@ python -m scripts.import_transactions
 tradingsystem\dashboard\trading_system.xlsx
 tradingsystem\data\exports\prod-portfolio_intelligence.xlsx
 
+# testing ...
+python -m pytest tests/test_recommendation_mapper.py -v
+

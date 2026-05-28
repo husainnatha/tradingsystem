@@ -16,6 +16,48 @@ from app.engine.portfolio_risk_engine import (
     build_portfolio_risk
 )
 
+from src.models.recommendation import (
+    Recommendation
+)
+
+from src.utils.market_data_accessor import (
+    MarketDataAccessor
+)
+
+class RecommendationMapper:
+
+    @staticmethod
+    def from_dataframe_row(
+        row
+    ):
+
+        return Recommendation(
+
+            symbol=row["symbol"],
+
+            price=row["price"],
+
+            ai_score=row["ai_score"],
+
+            rating=row["rating"],
+
+            sector=row["sector"],
+
+            rsi=row["rsi"],
+
+            ma50=row["ma50"],
+
+            ma200=row["ma200"],
+
+            bullish_trend=row[
+                "bullish_trend"
+            ],
+
+            portfolio_fit_score=row[
+                "portfolio_fit_score"
+            ]
+        )
+
 # -----------------------------------
 # BUILD POSITION SIZING
 # -----------------------------------
@@ -86,30 +128,34 @@ def build_position_sizing(
 
     for _, row in df.iterrows():
 
+        recommendation = (
+            RecommendationMapper
+            .from_dataframe_row(row)
+        )
+
         allocation_score = (
 
-            row["ai_score"]
+            recommendation.ai_score
 
             *
 
-            row[
-                "portfolio_fit_score"
-            ]
+            recommendation.portfolio_fit_score
+            
         )
 
         # -----------------------------------
         # CONVICTION
         # -----------------------------------
 
-        if row["rating"] == "STRONG_BUY":
+        if recommendation.rating == "STRONG_BUY":
 
             multiplier = 1.0
 
-        elif row["rating"] == "BUY":
+        elif recommendation.rating == "BUY":
 
             multiplier = 0.7
 
-        elif row["rating"] == "WATCH":
+        elif recommendation.rating == "WATCH":
 
             multiplier = 0.4
 
