@@ -24,6 +24,10 @@ from src.utils.market_data_accessor import (
     MarketDataAccessor
 )
 
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
+
 class RecommendationMapper:
 
     @staticmethod
@@ -225,7 +229,7 @@ def build_position_sizing(
             ]
 
             if row["symbol"]
-            in portfolio_risk_lookup.index
+                in portfolio_risk_lookup.index
 
             else 0
         )

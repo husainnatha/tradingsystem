@@ -1,0 +1,9 @@
+capital:
+
+  emergency_reserve: 5000
+
+  target_cash_reserve: 5000
+
+  monthly_contributions: 1000
+
+  max_deployment_percent: 50

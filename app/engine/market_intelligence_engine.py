@@ -24,6 +24,14 @@ from src.utils.market_data_accessor import (
     MarketDataAccessor
 )
 
+from src.config.asset_metadata_loader import (
+    AssetMetadataLoader
+)
+
+metadata = (
+    AssetMetadataLoader
+    .load()
+)
 # -----------------------------------
 # BUILD MARKET INTELLIGENCE
 # -----------------------------------
@@ -69,8 +77,8 @@ def build_market_intelligence(
 
     build_correlation_engine(
         market_context
+        )
     )
-)
 
     correlation_lookup = (
 
@@ -147,6 +155,48 @@ def build_market_intelligence(
             ma50 > ma200
         )
 
+        contextual_signal = "NEUTRAL"
+
+        asset_info = metadata.get(
+            symbol,
+            {}
+        )
+
+        asset_type = asset_info.get(
+            "asset_type",
+            "UNKNOWN"
+        )
+
+        regime_behavior = asset_info.get(
+            "regime_behavior",
+            "NEUTRAL"
+        )
+
+        if (
+            asset_type == "VOLATILITY"
+            and bullish_trend
+        ):
+
+            contextual_signal = (
+                "MARKET_STRESS"
+            )
+
+        elif (
+            regime_behavior
+            == "DEFENSIVE"
+            and bullish_trend
+        ):
+
+            contextual_signal = (
+                "DEFENSIVE_STRENGTH"
+            )
+
+        elif bullish_trend:
+
+            contextual_signal = (
+                "RISK_ON"
+            )
+
         data = {
 
             "price":
@@ -162,7 +212,13 @@ def build_market_intelligence(
                 rsi,
 
             "bullish_trend":
-                bullish_trend
+                bullish_trend,
+
+            "asset_type":
+                asset_type,
+
+            "contextual_signal":
+                contextual_signal
         }
 
         # -----------------------------------
