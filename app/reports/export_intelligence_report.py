@@ -40,6 +40,10 @@ from app.config.environment import (
     get_output_suffix
 )
 
+from app.engine.capital_engine import (
+    build_capital_summary
+)
+
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
@@ -56,7 +60,11 @@ def export_intelligence_report(
 
     action_df,
 
-    transition_df
+    transition_df,
+
+    capital_df = (
+        build_capital_summary()
+    )
 ):
 
     env = get_output_suffix()
@@ -356,7 +364,16 @@ def export_intelligence_report(
             sheet_name="TRANSITIONS",
 
             index=False
-        )
+        ),
+    
+        capital_df.to_excel(
+
+        writer,
+
+        sheet_name="PORTFOLIO",
+
+        index=False
+    )
 
     print(
 
