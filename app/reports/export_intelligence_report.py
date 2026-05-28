@@ -245,7 +245,7 @@ def export_intelligence_report(
 
         output_file,
 
-        engine="openpyxl"
+        engine="xlsxwriter"
 
     ) as writer:
 
@@ -374,6 +374,26 @@ def export_intelligence_report(
 
         index=False
     )
+        portfolio_sheet = (
+            writer.sheets[
+                "PORTFOLIO"
+            ]
+        )
+
+        portfolio_sheet.set_column(
+            "A:A",
+            20
+        )
+
+        portfolio_sheet.set_column(
+            "B:B",
+            30
+        )
+
+        portfolio_sheet.set_column(
+            "C:C",
+            20
+        )
 
     print(
 
