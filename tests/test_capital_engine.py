@@ -9,6 +9,9 @@ def test_capital_engine():
         build_capital_summary()
     )
 
+    print(
+        "\nCAPITAL SUMMARY:\n"
+    )   
     print(df)
 
     assert not df.empty
