@@ -60,152 +60,78 @@ def build_capital_summary():
 
     rows = [
 
-    # -----------------------------------
-    # RUNTIME
-    # -----------------------------------
+        {
 
-    {
+            "Metric":
+                "PortfolioValue",
 
-        "Section":
-            "RUNTIME",
+            "Value":
+                portfolio_value
+        },
 
-        "Metric":
-            "Environment",
+        {
 
-        "Value":
-            "DEV"
-    },
+            "Metric":
+                "CurrentCash",
 
-    {
-
-        "Section":
-            "RUNTIME",
-
-        "Metric":
-            "MarketRegime",
-
-        "Value":
-            "RISK_ON"
-    },
-
-    # -----------------------------------
-    # CAPITAL
-    # -----------------------------------
-
-    {
-
-        "Section":
-            "CAPITAL",
-
-        "Metric":
-            "PortfolioValue",
-
-        "Value":
-            portfolio_value
-    },
-
-    {
-
-        "Section":
-            "CAPITAL",
-
-        "Metric":
-            "CurrentCash",
-
-        "Value":
-            current_cash
-    },
-
-    {
-
-        "Section":
-            "CAPITAL",
-
-        "Metric":
-            "EmergencyReserve",
-
-        "Value":
-            emergency_reserve
-    },
-
-    {
-
-        "Section":
-            "CAPITAL",
-
-        "Metric":
-            "TargetCashReserve",
-
-        "Value":
-            target_cash_reserve
-    },
-
-    {
-
-        "Section":
-            "CAPITAL",
-
-        "Metric":
-            "DeployableCapital",
-
-        "Value":
-            deployable_capital
-    },
-
-    {
-
-        "Section":
-            "CAPITAL",
-
-        "Metric":
-            "AvailableToInvest",
-
-        "Value":
-            available_to_invest
-    },
-
-    # -----------------------------------
-    # RISK
-    # -----------------------------------
-
-    {
-
-        "Section":
-            "RISK",
-
-        "Metric":
-            "CashRatio",
-
-        "Value":
-            round(
-
+            "Value":
                 current_cash
+        },
 
-                / portfolio_value,
+        {
 
-                4
-            )
-    },
+            "Metric":
+                "EmergencyReserve",
 
-    {
+            "Value":
+                emergency_reserve
+        },
 
-        "Section":
-            "RISK",
+        {
 
-        "Metric":
-            "DeploymentPct",
+            "Metric":
+                "TargetCashReserve",
 
-        "Value":
-            round(
+            "Value":
+                target_cash_reserve
+        },
 
+        {
+
+            "Metric":
+                "MonthlyContributions",
+
+            "Value":
+                monthly_contributions
+        },
+
+        {
+
+            "Metric":
+                "MaxDeploymentPercent",
+
+            "Value":
+                max_deployment_percent
+        },
+
+        {
+
+            "Metric":
+                "DeployableCapital",
+
+            "Value":
                 deployable_capital
+        },
 
-                / portfolio_value,
+        {
 
-                4
-            )
-    }
-]
+            "Metric":
+                "AvailableToInvest",
+
+            "Value":
+                available_to_invest
+        }
+    ]
 
     return pd.DataFrame(
         rows
