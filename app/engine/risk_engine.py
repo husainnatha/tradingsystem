@@ -1,10 +1,6 @@
 import pandas as pd
 import yfinance as yf
 
-from app.config.watchlist import (
-    WATCHLIST
-)
-
 
 # -----------------------------------
 # BUILD RISK ENGINE
@@ -12,13 +8,17 @@ from app.config.watchlist import (
 
 def build_risk_engine(
 
-    symbols=WATCHLIST
+    symbols,
+
+    verbose=True
 ):
 
-    print(
+    if verbose:
 
-        "\nBuilding risk intelligence...\n"
-    )
+        print(
+
+            "\nBuilding risk intelligence...\n"
+        )
 
     rows = []
 
@@ -42,17 +42,14 @@ def build_risk_engine(
 
         try:
 
-            # Yahoo bulk download structure:
-            # data["Close"][symbol]
-
             prices = (
 
-            data[
-                symbol
-            ][
-                "Close"
-            ]
-        )
+                data[
+                    symbol
+                ][
+                    "Close"
+                ]
+            )
 
             returns = (
 
@@ -131,7 +128,7 @@ def build_risk_engine(
 
             print(
 
-                f"Failed: {symbol} : {e}"
+                f"Failed: {symbol}: {e}"
             )
 
     return pd.DataFrame(

@@ -8,7 +8,6 @@ from app.engine.correlation_engine import (
     build_correlation_engine
 )
 
-
 def build_portfolio_risk(
     market_context
 ):
@@ -44,6 +43,14 @@ def build_portfolio_risk(
             "market_value_gbp > 0"
         )
     )
+
+    print(
+            "\nINVENTORY:\n"
+        )
+
+    print(
+            inventory.to_string()
+        )
 
     correlation = (
 

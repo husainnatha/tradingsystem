@@ -1,3 +1,11 @@
+from app.engine.transition_engine import (
+    build_transition_plan
+)
+
+from app.engine.decision_engine import (
+    build_decisions
+)
+
 from app.engine.action_engine import (
     build_actions
 )
@@ -14,20 +22,19 @@ from app.engine.rebalancing_engine import (
     build_rebalancing
 )
 
-from app.engine.market_context_engine import (
-    build_market_context
+from app.reports.tax_dashboard import (
+    build_tax_dashboard
 )
 
-market_context = (
-
-    build_market_context()
+from app.config.watchlist import (
+    WATCHLIST
 )
 
 position_df = (
 
     build_position_sizing(
 
-        market_context=market_context,
+        watchlist=WATCHLIST,
 
         portfolio_value=100000
     )
@@ -35,23 +42,17 @@ position_df = (
 
 risk_df = (
 
-    build_portfolio_risk(
-
-        market_context
-    )
+    build_portfolio_risk()
 )
 
 rebalance_df = (
 
     build_rebalancing(
-
-        market_context=market_context,
-
         portfolio_value=100000
     )
 )
 
-df = (
+actions = (
 
     build_actions(
 
@@ -65,9 +66,34 @@ df = (
     )
 )
 
-print(
+decision_df = (
 
-    "\nPORTFOLIO ACTIONS:\n"
+    build_decisions(
+
+        action_df=actions,
+
+        risk_df=risk_df,
+
+        tax_df=build_tax_dashboard()
+    )
 )
 
-print(df)
+transition_df = (
+
+    build_transition_plan(
+
+        decision_df=decision_df,
+
+        position_df=position_df
+    )
+)
+
+print(
+
+    "\nTRANSITION PLAN:\n"
+)
+
+print(
+
+    transition_df
+)

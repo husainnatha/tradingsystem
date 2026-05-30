@@ -68,7 +68,8 @@ class RecommendationMapper:
 
 def build_position_sizing(
     market_context,
-    portfolio_value
+    portfolio_value,
+    risk_df
 ):
 
     df = build_buy_recommendations(
@@ -78,26 +79,6 @@ def build_position_sizing(
     # -----------------------------------
     # LOAD RISK DATA
     # -----------------------------------
-
-    risk_df = (
-
-        build_risk_engine()
-    )
-
-    if risk_df.empty:
-
-        raise Exception(
-
-            "Risk engine returned no data"
-        )
-
-    risk_lookup = (
-
-        risk_df.set_index(
-
-            "symbol"
-        )
-    )
 
     portfolio_risk_df = (
 
@@ -109,6 +90,14 @@ def build_position_sizing(
     portfolio_risk_lookup = (
 
         portfolio_risk_df.set_index(
+
+            "symbol"
+        )
+    )
+
+    risk_lookup = (
+
+        risk_df.set_index(
 
             "symbol"
         )
@@ -208,6 +197,14 @@ def build_position_sizing(
         # RISK LOOKUPS
         # -----------------------------------
 
+        risk_lookup = (
+
+            risk_df.set_index(
+
+                "symbol"
+            )
+        )
+
         risk_score = (
 
             risk_lookup.loc[
@@ -233,7 +230,7 @@ def build_position_sizing(
 
             else 0
         )
-
+        
         # -----------------------------------
         # FINAL ADJUSTMENT
         # -----------------------------------

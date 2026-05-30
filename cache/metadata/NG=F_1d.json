@@ -1,7 +1,0 @@
-{
-    "ticker": "NG=F",
-    "interval": "1d",
-    "source": "yfinance",
-    "rows": 503,
-    "last_updated": "2026-05-29T14:12:26.890143"
-}
