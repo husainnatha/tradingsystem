@@ -5,16 +5,15 @@ import pandas as pd
 # BUILD DECISION ENGINE
 # -----------------------------------
 
+
 def build_decisions(
 
     action_df,
 
-    risk_intelligence_df,
-
-    tax_df
 ):
 
     rows = []
+
 
     for _, row in action_df.iterrows():
 

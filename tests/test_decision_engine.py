@@ -1,9 +1,9 @@
-from app.engine.decision_engine import (
-    build_decisions
+from src.pipelines.market_pipeline import (
+    MarketPipeline
 )
 
-from app.engine.action_engine import (
-    build_actions
+from app.engine.portfolio_summary import (
+    get_portfolio_summary
 )
 
 from app.engine.position_sizing_engine import (
@@ -18,42 +18,113 @@ from app.engine.rebalancing_engine import (
     build_rebalancing
 )
 
+from app.engine.action_engine import (
+    build_actions
+)
+
+from app.engine.decision_engine import (
+    build_decisions
+)
+
 from app.reports.tax_dashboard import (
     build_tax_dashboard
 )
 
-from app.config.watchlist import (
-    WATCHLIST
+from app.engine.risk_intelligence_engine import (
+    build_risk_engine
 )
 
 # -----------------------------------
-# BUILD INPUTS
+# BUILD MARKET CONTEXT
+# -----------------------------------
+
+pipeline = MarketPipeline()
+
+market_context = (
+
+    pipeline.run_watchlist(
+        "equities"
+    )
+)
+
+# -----------------------------------
+# PORTFOLIO SUMMARY
+# -----------------------------------
+
+summary = (
+
+    get_portfolio_summary()
+)
+
+portfolio_value = (
+
+    summary[
+        "total_portfolio_value"
+    ]
+)
+
+# -----------------------------------
+# RISK DATA
+# -----------------------------------
+
+risk_intelligence_df = (
+
+    build_risk_engine(
+
+        symbols=list(
+
+            market_context
+            .get_all()
+            .keys()
+        ),
+
+        verbose=False
+    )
+)
+
+portfolio_risk_df = (
+
+    build_portfolio_risk(
+        market_context
+    )
+)
+
+# -----------------------------------
+# POSITION SIZING
+# -----------------------------------
+
+
+# -----------------------------------
+# REBALANCING
+# -----------------------------------
+
+rebalance_df = (
+
+    build_rebalancing(
+
+        market_context=market_context,
+
+        portfolio_value=portfolio_value
+    )
+)
+
+# -----------------------------------
+# ACTIONS
 # -----------------------------------
 
 position_df = (
 
     build_position_sizing(
 
-        watchlist=WATCHLIST,
+        market_context=market_context,
 
-        portfolio_value=100000
+        portfolio_value=portfolio_value,
+
+        risk_intelligence_df=risk_intelligence_df
     )
 )
 
-risk_intelligence_df = (
-
-    build_portfolio_risk()
-)
-
-rebalance_df = (
-
-    build_rebalancing(
-
-        portfolio_value=100000
-    )
-)
-
-actions = (
+action_df = (
 
     build_actions(
 
@@ -61,11 +132,17 @@ actions = (
 
         position_df=position_df,
 
-        risk_intelligence_df=risk_intelligence_df,
+        portfolio_risk_df=
+            portfolio_risk_df,
 
-        portfolio_value=100000
+        portfolio_value=
+            portfolio_value
     )
 )
+
+# -----------------------------------
+# TAX
+# -----------------------------------
 
 tax_df = (
 
@@ -73,85 +150,25 @@ tax_df = (
 )
 
 # -----------------------------------
+# DECISIONS
+# -----------------------------------
+
+decision_df = (
+
+    build_decisions(
+
+        action_df=action_df
+    )
+)
+
+# -----------------------------------
 # DEBUG OUTPUT
 # -----------------------------------
 
 print(
-
-    "\nREBALANCING:\n"
+    "\nDECISIONS:\n"
 )
 
 print(
-    rebalance_df
-)
-
-print(
-
-    "\nPOSITION SIZING:\n"
-)
-
-print(
-    position_df
-)
-
-print(
-
-    "\nPORTFOLIO RISK:\n"
-)
-
-print(
-    risk_intelligence_df
-)
-
-print(
-
-    "\nACTIONS:\n"
-)
-
-print(
-    actions
-)
-
-# -----------------------------------
-# BUILD DECISIONS
-# -----------------------------------
-
-df = (
-
-    build_decisions(
-
-        action_df=actions,
-
-        risk_intelligence_df=risk_intelligence_df,
-
-        tax_df=tax_df
-    )
-)
-
-print(
-
-    "\nFINAL DECISIONS:\n"
-)
-
-print(
-
-    "\nFINAL DECISIONS:\n"
-)
-
-print(
-
-    df[
-        [
-
-            "symbol",
-
-            "decision",
-
-            "priority",
-
-            "trade_value",
-
-            "reason"
-        ]
-    ]
+    decision_df.to_string()
 )
