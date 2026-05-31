@@ -35,7 +35,7 @@ risk_intelligence_df = (
 
     risk_intelligence_df.sort_values(
 
-        by="risk_score",
+        by="asset_risk_score",
 
         ascending=False
     )

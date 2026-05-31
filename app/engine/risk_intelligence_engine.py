@@ -91,7 +91,7 @@ def build_risk_engine(
                 )
             )
 
-            risk_score = min(
+            asset_risk_score = min(
 
                 round(
 
@@ -120,8 +120,8 @@ def build_risk_engine(
                         4
                     ),
 
-                "risk_score":
-                    risk_score
+                "asset_risk_score":
+                    asset_risk_score
             })
 
         except Exception as e:

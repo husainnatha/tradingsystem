@@ -118,11 +118,7 @@ decision_df = (
 
     build_decisions(
 
-        action_df=actions,
-
-        risk_intelligence_df=risk_intelligence_df,
-
-        tax_df=build_tax_dashboard()
+        action_df=actions
     )
 )
 

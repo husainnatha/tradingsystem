@@ -205,11 +205,11 @@ def build_position_sizing(
             )
         )
 
-        risk_score = (
+        asset_risk_score = (
 
             risk_lookup.loc[
                 row["symbol"],
-                "risk_score"
+                "asset_risk_score"
             ]
 
             if row["symbol"]
@@ -241,7 +241,7 @@ def build_position_sizing(
 
             *
 
-            (1 - risk_score)
+            (1 - asset_risk_score)
 
             *
 
@@ -286,8 +286,8 @@ def build_position_sizing(
             "ai_score":
                 row["ai_score"],
 
-            "risk_score":
-                risk_score,
+            "asset_risk_score":
+                asset_risk_score,
 
             "portfolio_risk":
                 portfolio_risk,
