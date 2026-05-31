@@ -22,3 +22,9 @@ class MarketContext:
     def get_all(self):
 
         return self.market_data
+    
+    def get_tickers(self):
+
+        return list(
+            self.market_data.keys()
+        )

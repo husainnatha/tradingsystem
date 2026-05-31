@@ -2,11 +2,10 @@ from src.pipelines.system_pipeline import (
     SystemPipeline
 )
 
+pipeline = (
+    SystemPipeline()
+)
 
-def test_system_pipeline_runs():
+pipeline.run()
 
-    pipeline = SystemPipeline()
-
-    pipeline.ensure_directories()
-
-    assert True
+#assert True

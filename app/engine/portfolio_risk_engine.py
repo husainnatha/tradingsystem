@@ -44,13 +44,13 @@ def build_portfolio_risk(
         )
     )
 
-    print(
-            "\nINVENTORY:\n"
-        )
+    # print(
+    #         "\nINVENTORY:\n"
+    #     )
 
-    print(
-            inventory.to_string()
-        )
+    # print(
+    #         inventory.to_string()
+    #     )
 
     correlation = (
 

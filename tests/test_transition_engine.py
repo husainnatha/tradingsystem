@@ -85,6 +85,13 @@ position_df = (
     )
 )
 
+portfolio_risk_df = (
+
+    build_portfolio_risk(
+        market_context=market_context
+    )
+)
+
 rebalance_df = (
 
     build_rebalancing(
@@ -100,8 +107,8 @@ actions = (
         rebalance_df=rebalance_df,
 
         position_df=position_df,
-
-        risk_intelligence_df=risk_intelligence_df,
+        
+        portfolio_risk_df=portfolio_risk_df,
 
         portfolio_value=portfolio_value
     )

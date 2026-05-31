@@ -1,9 +1,14 @@
 import pandas as pd
 
+# -----------------------------------
+
+# BUILD ACTION ENGINE
 
 # -----------------------------------
-# BUILD ACTION ENGINE
-# -----------------------------------
+print(
+
+        "\nBuilding portfolio actions...\n"
+    )
 
 def build_actions(
 
@@ -11,19 +16,15 @@ def build_actions(
 
     position_df,
 
-    risk_intelligence_df,
+    portfolio_risk_df,
 
-    portfolio_value=100000
-):
+    portfolio_value
 
-    print(
 
-        "\nBuilding portfolio actions...\n"
-    )
+    ):
 
-    # -----------------------------------
-    # LOOKUPS
-    # -----------------------------------
+
+    
 
     position_lookup = (
 
@@ -34,16 +35,12 @@ def build_actions(
 
     risk_lookup = (
 
-        risk_intelligence_df.set_index(
+        portfolio_risk_df.set_index(
             "symbol"
         )
     )
 
     rows = []
-
-    # -----------------------------------
-    # PROCESS ACTIONS
-    # -----------------------------------
 
     for _, row in rebalance_df.iterrows():
 
@@ -68,10 +65,6 @@ def build_actions(
             else 0
         )
 
-        # -----------------------------------
-        # POSITION VALUE
-        # -----------------------------------
-
         value = 0
 
         if symbol in position_lookup.index:
@@ -85,10 +78,6 @@ def build_actions(
 
                 2
             )
-
-        # -----------------------------------
-        # DECISION RULES
-        # -----------------------------------
 
         rebalance_action = (
 
@@ -138,10 +127,6 @@ def build_actions(
                 "Near target allocation"
             )
 
-        # -----------------------------------
-        # PRIORITY RULES
-        # -----------------------------------
-
         if action == "REDUCE":
 
             if difference > 30:
@@ -174,10 +159,6 @@ def build_actions(
 
             priority = "LOW"
 
-        # -----------------------------------
-        # SKIP EMPTY HOLDS
-        # -----------------------------------
-
         if (
 
             action == "HOLD"
@@ -189,10 +170,6 @@ def build_actions(
         ):
 
             continue
-
-        # -----------------------------------
-        # EXECUTION VALUE
-        # -----------------------------------
 
         trade_value = 0
 
@@ -230,15 +207,9 @@ def build_actions(
 
             "reason":
                 reason
-
         })
 
-    # -----------------------------------
-    # RETURN RESULTS
-    # -----------------------------------
-
     result_df = pd.DataFrame(
-
         rows
     )
 
@@ -248,3 +219,4 @@ def build_actions(
 
         ascending=True
     )
+

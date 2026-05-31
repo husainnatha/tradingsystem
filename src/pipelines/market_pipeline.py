@@ -10,7 +10,6 @@ from src.models.market_context import (
     MarketContext
 )
 
-
 class MarketPipeline:
 
     def __init__(self):

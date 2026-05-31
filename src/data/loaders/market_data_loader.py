@@ -29,7 +29,7 @@ class MarketDataLoader:
 
         if cache_path.exists() and not refresh:
 
-            print(f"Loading cached data: {ticker}")
+            # print(f"Loading cached data: {ticker}")
 
             df = pd.read_parquet(cache_path)
 
@@ -41,7 +41,7 @@ class MarketDataLoader:
 
             return df
 
-        print(f"Downloading data: {ticker}")
+        # print(f"Downloading data: {ticker}")
 
         df = self.provider.download(
             ticker=ticker,
