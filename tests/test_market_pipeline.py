@@ -6,7 +6,7 @@ from src.pipelines.market_pipeline import (
 pipeline = MarketPipeline()
 
 results = pipeline.run_watchlist(
-    "core_macro"
+    "equities"
 )
 
 

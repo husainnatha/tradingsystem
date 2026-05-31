@@ -268,10 +268,10 @@ class SystemPipeline:
 
                 action_df=action_df,
 
-                portfolio_risk_df=
-                    portfolio_risk_df,
+                # portfolio_risk_df=
+                #     portfolio_risk_df,
 
-                tax_df=build_tax_dashboard()
+                # tax_df=build_tax_dashboard()
             )
         )
 

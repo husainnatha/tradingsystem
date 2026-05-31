@@ -5,10 +5,6 @@ import pandas as pd
 # BUILD ACTION ENGINE
 
 # -----------------------------------
-print(
-
-        "\nBuilding portfolio actions...\n"
-    )
 
 def build_actions(
 
@@ -20,11 +16,12 @@ def build_actions(
 
     portfolio_value
 
-
     ):
 
+    print(
 
-    
+        "\nBuilding portfolio actions...\n"
+    )
 
     position_lookup = (
 
