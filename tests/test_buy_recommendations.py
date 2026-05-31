@@ -1,31 +1,33 @@
+from src.pipelines.market_pipeline import (
+    MarketPipeline
+)
+
 from app.engine.buy_recommendation_engine import (
     build_buy_recommendations
 )
 
-from app.config.watchlist import (
-    WATCHLIST
-)
 
-df = build_buy_recommendations(
+pipeline = MarketPipeline()
 
-    WATCHLIST
-)
-
-print("\nBUY RECOMMENDATIONS:\n")
-
-for _, row in df.iterrows():
-
-    print(
-
-        f"{row['symbol']} | "
-
-        f"AI={row['ai_score']} | "
-
-        f"Rating={row['rating']} | "
-
-        f"RSI={row['rsi']} | "
-
-        f"Fit={row['portfolio_fit_score']} \n"
-
-        f"Why: {row['explanation']}\n"
+market_context = (
+    pipeline.run_watchlist(
+        "equities"
     )
+)
+
+df = (
+
+    build_buy_recommendations(
+
+        market_context
+    )
+)
+
+print(
+
+    "\nBUY RECOMMENDATIONS:\n"
+)
+
+print(
+    df.to_string()
+)

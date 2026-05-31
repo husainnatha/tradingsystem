@@ -35,9 +35,9 @@ class MarketPipeline:
 
         for ticker in watchlist:
 
-            print(
-                f"\nProcessing: {ticker}"
-            )
+            # print(
+            #     f"\nProcessing: {ticker}"
+            # )
 
             df = (
                 self.market_service

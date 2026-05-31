@@ -16,9 +16,7 @@ _cached_correlation_df = None
 
 def build_correlation_engine(
     market_context
-):
-
-    
+): 
     # -----------------------------------
     # EXTRACT CLOSE PRICES
     # -----------------------------------

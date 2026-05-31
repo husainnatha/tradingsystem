@@ -8,7 +8,7 @@ from app.engine.macro_regime_engine import (
     build_macro_regime
 )
 
-from app.engine.risk_engine import (
+from app.engine.risk_intelligence_engine import (
     build_risk_engine
 )
 
