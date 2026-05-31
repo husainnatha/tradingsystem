@@ -1,6 +1,6 @@
 venv/
 __pycache__/
 *.pyc
-cache/
+*cache/
 .vscode/
 .pytest_cache/

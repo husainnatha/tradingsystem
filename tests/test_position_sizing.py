@@ -36,7 +36,7 @@ symbols = list(
     .keys()
 )
 
-risk_df = (
+risk_intelligence_df = (
 
     build_risk_engine(
 
@@ -54,7 +54,7 @@ df = (
 
         portfolio_value=portfolio_value,
 
-        risk_df=risk_df
+        risk_intelligence_df=risk_intelligence_df
     )
 )
 

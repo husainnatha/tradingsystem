@@ -22,7 +22,7 @@ symbols = list(
     .keys()
 )
 
-risk_df = (
+risk_intelligence_df = (
 
     build_risk_engine(
 
@@ -31,9 +31,9 @@ risk_df = (
         verbose=True
     )
 )
-risk_df = (
+risk_intelligence_df = (
 
-    risk_df.sort_values(
+    risk_intelligence_df.sort_values(
 
         by="risk_score",
 
@@ -48,5 +48,5 @@ print(
 
 print(
 
-    risk_df.to_string()
+    risk_intelligence_df.to_string()
 )

@@ -36,10 +36,6 @@ from app.reports.export_intelligence_report import (
     export_intelligence_report
 )
 
-from app.config.watchlist import (
-    WATCHLIST
-)
-
 from app.reports.documentation_generator import (
     generate_system_documentation
 )
@@ -125,8 +121,23 @@ class SystemPipeline:
         build_disposal_ledger()
 
         build_tax_dashboard()
+    
+from app.engine.portfolio_summary import (
+    get_portfolio_summary
+)
 
-    def build_market_analysis(self):
+summary = (
+        get_portfolio_summary()
+    )
+
+portfolio_value = (
+
+        summary[
+            "total_portfolio_value"
+        ]
+    )
+
+def build_market_analysis(self):
 
         print(
             "Building market intelligence..."
@@ -135,7 +146,7 @@ class SystemPipeline:
         market_context = (
             self.market_pipeline
             .run_watchlist(
-                "core_macro"
+                "equities"
             )
         )
 
@@ -159,7 +170,7 @@ class SystemPipeline:
 
                 market_context=market_context,
 
-                portfolio_value=100000
+                portfolio_value=portfolio_value
             )
         )
 
@@ -196,9 +207,9 @@ class SystemPipeline:
 
                 position_df=position_df,
 
-                risk_df=portfolio_risk_df,
+                risk_intelligence_df=portfolio_risk_df,
 
-                portfolio_value=100000
+                portfolio_value=portfolio_value
             )
         )
 
@@ -208,7 +219,7 @@ class SystemPipeline:
 
                 action_df=action_df,
 
-                risk_df=portfolio_risk_df,
+                risk_intelligence_df=portfolio_risk_df,
 
                 tax_df=build_tax_dashboard()
             )

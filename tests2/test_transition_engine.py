@@ -40,7 +40,7 @@ position_df = (
     )
 )
 
-risk_df = (
+risk_intelligence_df = (
 
     build_portfolio_risk()
 )
@@ -60,7 +60,7 @@ actions = (
 
         position_df=position_df,
 
-        risk_df=risk_df,
+        risk_intelligence_df=risk_intelligence_df,
 
         portfolio_value=100000
     )
@@ -72,7 +72,7 @@ decision_df = (
 
         action_df=actions,
 
-        risk_df=risk_df,
+        risk_intelligence_df=risk_intelligence_df,
 
         tax_df=build_tax_dashboard()
     )

@@ -33,7 +33,7 @@ position_df = (
     )
 )
 
-risk_df = (
+risk_intelligence_df = (
 
     build_portfolio_risk(
 
@@ -59,7 +59,7 @@ df = (
 
         position_df=position_df,
 
-        risk_df=risk_df,
+        risk_intelligence_df=risk_intelligence_df,
 
         portfolio_value=100000
     )

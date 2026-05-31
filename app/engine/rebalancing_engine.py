@@ -43,7 +43,7 @@ def build_rebalancing(
     # TARGET ALLOCATIONS
     # -----------------------------------
 
-    risk_df = (
+    risk_intelligence_df = (
 
     build_risk_engine(
 
@@ -66,7 +66,7 @@ def build_rebalancing(
 
             portfolio_value=portfolio_value,
 
-            risk_df=risk_df
+            risk_intelligence_df=risk_intelligence_df
         )
     )
 

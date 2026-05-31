@@ -11,7 +11,7 @@ def build_actions(
 
     position_df,
 
-    risk_df,
+    risk_intelligence_df,
 
     portfolio_value=100000
 ):
@@ -34,7 +34,7 @@ def build_actions(
 
     risk_lookup = (
 
-        risk_df.set_index(
+        risk_intelligence_df.set_index(
             "symbol"
         )
     )

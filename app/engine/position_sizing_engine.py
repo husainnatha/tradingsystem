@@ -69,7 +69,7 @@ class RecommendationMapper:
 def build_position_sizing(
     market_context,
     portfolio_value,
-    risk_df
+    risk_intelligence_df
 ):
 
     df = build_buy_recommendations(
@@ -97,7 +97,7 @@ def build_position_sizing(
 
     risk_lookup = (
 
-        risk_df.set_index(
+        risk_intelligence_df.set_index(
 
             "symbol"
         )
@@ -199,7 +199,7 @@ def build_position_sizing(
 
         risk_lookup = (
 
-            risk_df.set_index(
+            risk_intelligence_df.set_index(
 
                 "symbol"
             )

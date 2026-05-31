@@ -65,7 +65,7 @@ symbols = list(
     market_context.get_all().keys()
 )
 
-risk_df = (
+risk_intelligence_df = (
 
     build_risk_engine(
         symbols=symbols,
@@ -81,7 +81,7 @@ position_df = (
 
         portfolio_value=portfolio_value,
 
-        risk_df=risk_df
+        risk_intelligence_df=risk_intelligence_df
     )
 )
 
@@ -101,7 +101,7 @@ actions = (
 
         position_df=position_df,
 
-        risk_df=risk_df,
+        risk_intelligence_df=risk_intelligence_df,
 
         portfolio_value=portfolio_value
     )
@@ -113,7 +113,7 @@ decision_df = (
 
         action_df=actions,
 
-        risk_df=risk_df,
+        risk_intelligence_df=risk_intelligence_df,
 
         tax_df=build_tax_dashboard()
     )

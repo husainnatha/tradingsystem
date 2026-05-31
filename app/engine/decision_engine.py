@@ -9,7 +9,7 @@ def build_decisions(
 
     action_df,
 
-    risk_df,
+    risk_intelligence_df,
 
     tax_df
 ):
