@@ -14,7 +14,6 @@ from src.config.environment_loader import (
     EnvironmentLoader
 )
 
-
 class SellPipeline:
 
     def __init__(self):
@@ -47,6 +46,10 @@ class SellPipeline:
             )
         )
 
+        print(
+            "\nSell pipeline test complete.\n"
+        )
+        
         return {
 
             "inventory_df":

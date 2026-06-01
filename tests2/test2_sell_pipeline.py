@@ -2,7 +2,6 @@ from src.pipelines.sell_pipeline import (
     SellPipeline
 )
 
-
 def test_sell_pipeline():
 
     pipeline = (
@@ -11,8 +10,7 @@ def test_sell_pipeline():
 
     results = (
 
-        pipeline
-        .run_sell_analysis()
+        pipeline.run_sell_analysis()
     )
 
     assert "inventory_df" in results
@@ -20,3 +18,5 @@ def test_sell_pipeline():
     assert "ranked_df" in results
 
     assert "sell_df" in results
+
+   
