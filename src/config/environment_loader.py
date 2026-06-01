@@ -10,9 +10,13 @@ class EnvironmentLoader:
     @staticmethod
     def load():
 
-        env = os.getenv(
-            "APP_ENV",
-            "prod"
+        env = (
+            os.getenv("APP_ENV")
+            or "prod"
+        )
+
+        print(
+            f"APP_ENV={env}"
         )
 
         path = (
