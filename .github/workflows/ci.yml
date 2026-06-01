@@ -3,26 +3,25 @@ name: Trading System CI
 on:
   push:
   pull_request:
-
+    branches: [ main ]
+         
 jobs:
 
-smoke-tests:
+  test:
 
-runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-steps:
+    steps:
 
-  - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-  - uses: actions/setup-python@v5
-    with:
-      python-version: "3.13"
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
 
-  - name: Install dependencies
-    run: pip install -r requirements.txt
+    - run: pip install -r requirements.txt
 
-  - name: Run Market Analysis Smoke Test
-    run: pytest tests2/test2_market_analysis_pipeline_main.py -v
+    - run: pytest tests2/test2_market_analysis_pipeline_main.py -v
 
-  - name: Run System Pipeline Smoke Test
-    run: pytest tests2/test2_system_pipeline_main.py -v
+    - run: pytest tests2/test2_system_pipeline_main.py -v
+
