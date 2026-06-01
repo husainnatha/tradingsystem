@@ -10,11 +10,13 @@ def test_sell_pipeline():
     )
 
     results = (
-        pipeline.run()
-    )
 
-    assert "sell_df" in results
+        pipeline
+        .run_sell_analysis()
+    )
 
     assert "inventory_df" in results
 
     assert "ranked_df" in results
+
+    assert "sell_df" in results
