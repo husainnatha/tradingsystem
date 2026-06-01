@@ -10,7 +10,6 @@ from src.models.market_context import (
     MarketContext
 )
 
-
 class MarketPipeline:
 
     def __init__(self):
@@ -35,9 +34,9 @@ class MarketPipeline:
 
         for ticker in watchlist:
 
-            print(
-                f"\nProcessing: {ticker}"
-            )
+            # print(
+            #     f"\nProcessing: {ticker}"
+            # )
 
             df = (
                 self.market_service

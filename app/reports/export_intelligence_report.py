@@ -40,6 +40,10 @@ from app.config.environment import (
     get_output_suffix
 )
 
+from app.engine.capital_engine import (
+    build_capital_summary
+)
+
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
@@ -56,7 +60,11 @@ def export_intelligence_report(
 
     action_df,
 
-    transition_df
+    transition_df,
+
+    capital_df = (
+        build_capital_summary()
+    )
 ):
 
     env = get_output_suffix()
@@ -237,7 +245,7 @@ def export_intelligence_report(
 
         output_file,
 
-        engine="openpyxl"
+        engine="xlsxwriter"
 
     ) as writer:
 
@@ -356,6 +364,35 @@ def export_intelligence_report(
             sheet_name="TRANSITIONS",
 
             index=False
+        ),
+    
+        capital_df.to_excel(
+
+        writer,
+
+        sheet_name="PORTFOLIO",
+
+        index=False
+    )
+        portfolio_sheet = (
+            writer.sheets[
+                "PORTFOLIO"
+            ]
+        )
+
+        portfolio_sheet.set_column(
+            "A:A",
+            20
+        )
+
+        portfolio_sheet.set_column(
+            "B:B",
+            30
+        )
+
+        portfolio_sheet.set_column(
+            "C:C",
+            20
         )
 
     print(

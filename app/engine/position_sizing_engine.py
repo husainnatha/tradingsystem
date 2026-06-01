@@ -8,7 +8,7 @@ from app.engine.macro_regime_engine import (
     build_macro_regime
 )
 
-from app.engine.risk_engine import (
+from app.engine.risk_intelligence_engine import (
     build_risk_engine
 )
 
@@ -68,7 +68,8 @@ class RecommendationMapper:
 
 def build_position_sizing(
     market_context,
-    portfolio_value
+    portfolio_value,
+    risk_intelligence_df
 ):
 
     df = build_buy_recommendations(
@@ -78,26 +79,6 @@ def build_position_sizing(
     # -----------------------------------
     # LOAD RISK DATA
     # -----------------------------------
-
-    risk_df = (
-
-        build_risk_engine()
-    )
-
-    if risk_df.empty:
-
-        raise Exception(
-
-            "Risk engine returned no data"
-        )
-
-    risk_lookup = (
-
-        risk_df.set_index(
-
-            "symbol"
-        )
-    )
 
     portfolio_risk_df = (
 
@@ -109,6 +90,14 @@ def build_position_sizing(
     portfolio_risk_lookup = (
 
         portfolio_risk_df.set_index(
+
+            "symbol"
+        )
+    )
+
+    risk_lookup = (
+
+        risk_intelligence_df.set_index(
 
             "symbol"
         )
@@ -208,11 +197,19 @@ def build_position_sizing(
         # RISK LOOKUPS
         # -----------------------------------
 
-        risk_score = (
+        risk_lookup = (
+
+            risk_intelligence_df.set_index(
+
+                "symbol"
+            )
+        )
+
+        asset_risk_score = (
 
             risk_lookup.loc[
                 row["symbol"],
-                "risk_score"
+                "asset_risk_score"
             ]
 
             if row["symbol"]
@@ -233,7 +230,7 @@ def build_position_sizing(
 
             else 0
         )
-
+        
         # -----------------------------------
         # FINAL ADJUSTMENT
         # -----------------------------------
@@ -244,7 +241,7 @@ def build_position_sizing(
 
             *
 
-            (1 - risk_score)
+            (1 - asset_risk_score)
 
             *
 
@@ -289,8 +286,8 @@ def build_position_sizing(
             "ai_score":
                 row["ai_score"],
 
-            "risk_score":
-                risk_score,
+            "asset_risk_score":
+                asset_risk_score,
 
             "portfolio_risk":
                 portfolio_risk,

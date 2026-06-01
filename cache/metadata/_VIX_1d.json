@@ -1,7 +1,0 @@
-{
-    "ticker": "^VIX",
-    "interval": "1d",
-    "source": "yfinance",
-    "rows": 502,
-    "last_updated": "2026-05-28T18:52:54.661768"
-}

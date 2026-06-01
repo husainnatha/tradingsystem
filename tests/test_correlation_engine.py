@@ -6,18 +6,23 @@ from src.services.correlation_service import (
     CorrelationService
 )
 
-
 pipeline = MarketPipeline()
 
-market_data = pipeline.run_watchlist(
-    "core_macro"
-)
-
-correlation_matrix = (
-    CorrelationService
-    .correlation_matrix(
-        market_data
+market_context = (
+    pipeline.run_watchlist(
+        "equities"
     )
 )
 
-print(correlation_matrix.round(2))
+correlation_matrix = (
+
+    CorrelationService
+    .correlation_matrix(
+
+        market_context.get_all()
+    )
+)
+
+print(
+    correlation_matrix.round(2)
+)

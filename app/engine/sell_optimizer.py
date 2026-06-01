@@ -169,7 +169,7 @@ def optimise_sale_strategy(
                     4
                 ),
 
-            "risk_score":
+            "position_risk_score":
                 round(
                     row[
                         "position_risk_score"

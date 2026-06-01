@@ -1,6 +1,10 @@
 venv/
 __pycache__/
 *.pyc
-cache/
+*cache/
 .vscode/
 .pytest_cache/
+*docs/
+*pytest*
+*dashboard/*.xlsx
+*data/*

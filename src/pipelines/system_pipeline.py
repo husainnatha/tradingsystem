@@ -1,81 +1,84 @@
 from pathlib import Path
 
 from app.engine.inventory_engine import (
-    build_inventory_state
+build_inventory_state
 )
 
 from app.engine.holdings_service import (
-    calculate_holdings
+calculate_holdings
 )
 
 from app.engine.disposal_ledger import (
-    build_disposal_ledger
+build_disposal_ledger
 )
 
 from app.reports.tax_dashboard import (
-    build_tax_dashboard
+build_tax_dashboard
 )
 
 from app.engine.market_intelligence_engine import (
-    build_market_intelligence
+build_market_intelligence
 )
 
 from app.engine.buy_recommendation_engine import (
-    build_buy_recommendations
+build_buy_recommendations
 )
 
 from app.engine.position_sizing_engine import (
-    build_position_sizing
+build_position_sizing
 )
 
 from app.engine.sell_optimizer import (
-    optimise_sale_strategy
+optimise_sale_strategy
 )
 
 from app.reports.export_intelligence_report import (
-    export_intelligence_report
-)
-
-from app.config.watchlist import (
-    WATCHLIST
+export_intelligence_report
 )
 
 from app.reports.documentation_generator import (
-    generate_system_documentation
+generate_system_documentation
 )
 
 from app.engine.action_engine import (
-    build_actions
+build_actions
 )
 
 from app.engine.portfolio_risk_engine import (
-    build_portfolio_risk
+build_portfolio_risk
 )
 
 from app.engine.rebalancing_engine import (
-    build_rebalancing
+build_rebalancing
 )
 
 from app.engine.transition_engine import (
-    build_transition_plan
+build_transition_plan
 )
 
 from app.engine.decision_engine import (
-    build_decisions
+build_decisions
+)
+
+from app.engine.portfolio_summary import (
+get_portfolio_summary
+)
+
+from app.engine.risk_intelligence_engine import (
+build_risk_engine
 )
 
 from src.pipelines.market_pipeline import (
-    MarketPipeline
+MarketPipeline
 )
-
 
 class SystemPipeline:
 
     def __init__(self):
 
         self.market_pipeline = (
-            MarketPipeline()
-        )
+        MarketPipeline()
+    )
 
     def ensure_directories(self):
 
@@ -126,18 +129,70 @@ class SystemPipeline:
 
         build_tax_dashboard()
 
-    def build_market_analysis(self):
+    def build_market_analysis(
+        self
+    ):
 
         print(
             "Building market intelligence..."
         )
 
+        # -----------------------------------
+        # PORTFOLIO VALUE
+        # -----------------------------------
+
+        summary = (
+            get_portfolio_summary()
+        )
+
+        portfolio_value = (
+
+            summary[
+                "total_portfolio_value"
+            ]
+        )
+
+        # -----------------------------------
+        # MARKET DATA
+        # -----------------------------------
+
         market_context = (
+
             self.market_pipeline
             .run_watchlist(
-                "core_macro"
+                "equities"
             )
         )
+
+        # -----------------------------------
+        # RISK DATA
+        # -----------------------------------
+
+        risk_intelligence_df = (
+
+            build_risk_engine(
+
+                symbols=list(
+
+                    market_context
+                    .get_all()
+                    .keys()
+                ),
+
+                verbose=False
+            )
+        )
+
+        portfolio_risk_df = (
+
+            build_portfolio_risk(
+                market_context
+            )
+        )
+
+        # -----------------------------------
+        # INTELLIGENCE
+        # -----------------------------------
 
         market_df = (
 
@@ -151,7 +206,11 @@ class SystemPipeline:
             build_buy_recommendations(
                 market_context
             )
-                    )
+        )
+
+        # -----------------------------------
+        # POSITION SIZING
+        # -----------------------------------
 
         position_df = (
 
@@ -159,24 +218,16 @@ class SystemPipeline:
 
                 market_context=market_context,
 
-                portfolio_value=100000
+                portfolio_value=portfolio_value,
+
+                risk_intelligence_df=
+                    risk_intelligence_df
             )
         )
 
-        sale_df = (
-
-            optimise_sale_strategy(
-
-                target_cash=5000
-            )
-        )
-
-        portfolio_risk_df = (
-
-            build_portfolio_risk(
-                market_context
-            )
-        )
+        # -----------------------------------
+        # REBALANCING
+        # -----------------------------------
 
         rebalancing_df = (
 
@@ -184,9 +235,13 @@ class SystemPipeline:
 
                 market_context=market_context,
 
-                portfolio_value=100000
+                portfolio_value=portfolio_value
             )
         )
+
+        # -----------------------------------
+        # ACTIONS
+        # -----------------------------------
 
         action_df = (
 
@@ -196,23 +251,29 @@ class SystemPipeline:
 
                 position_df=position_df,
 
-                risk_df=portfolio_risk_df,
+                portfolio_risk_df=
+                    portfolio_risk_df,
 
-                portfolio_value=100000
+                portfolio_value=portfolio_value
             )
         )
+
+        # -----------------------------------
+        # DECISIONS
+        # -----------------------------------
 
         decision_df = (
 
             build_decisions(
 
-                action_df=action_df,
+                action_df=action_df
 
-                risk_df=portfolio_risk_df,
-
-                tax_df=build_tax_dashboard()
             )
         )
+
+        # -----------------------------------
+        # TRANSITION PLAN
+        # -----------------------------------
 
         transition_df = (
 
@@ -224,9 +285,22 @@ class SystemPipeline:
             )
         )
 
+        # -----------------------------------
+        # SALE STRATEGY
+        # -----------------------------------
+
+        sale_df = (
+
+            optimise_sale_strategy(
+
+                target_cash=5000
+            )
+        )
+
         return {
 
-            "market_df": market_df,
+            "market_df":
+                market_df,
 
             "recommendation_df":
                 recommendation_df,
@@ -274,7 +348,7 @@ class SystemPipeline:
                 results["transition_df"]
         )
 
-        generate_system_documentation()
+        # generate_system_documentation()
 
     def run(self):
 
@@ -289,10 +363,13 @@ class SystemPipeline:
         self.rebuild_state()
 
         results = (
+
             self.build_market_analysis()
         )
 
-        self.export_reports(results)
+        self.export_reports(
+            results
+        )
 
         print(
             "\nPipeline complete.\n"

@@ -22,33 +22,73 @@ from app.engine.rebalancing_engine import (
     build_rebalancing
 )
 
-from app.reports.tax_dashboard import (
-    build_tax_dashboard
+from app.engine.portfolio_summary import (
+    get_portfolio_summary
 )
 
-from app.config.watchlist import (
-    WATCHLIST
+from app.engine.risk_intelligence_engine import (
+    build_risk_engine
+)
+
+from src.pipelines.market_pipeline import (
+    MarketPipeline
+)
+
+pipeline = MarketPipeline()
+
+market_context = (
+    pipeline.run_watchlist(
+        "equities"
+    )
+)
+
+summary = (
+    get_portfolio_summary()
+)
+
+portfolio_value = (
+
+    summary[
+        "total_portfolio_value"
+    ]
+)
+
+symbols = list(
+    market_context.get_all().keys()
+)
+
+risk_intelligence_df = (
+
+    build_risk_engine(
+        symbols=symbols,
+        verbose=False
+    )
 )
 
 position_df = (
 
     build_position_sizing(
 
-        watchlist=WATCHLIST,
+        market_context=market_context,
 
-        portfolio_value=100000
+        portfolio_value=portfolio_value,
+
+        risk_intelligence_df=risk_intelligence_df
     )
 )
 
-risk_df = (
+portfolio_risk_df = (
 
-    build_portfolio_risk()
+    build_portfolio_risk(
+        market_context=market_context
+    )
 )
 
 rebalance_df = (
 
     build_rebalancing(
-        portfolio_value=100000
+        market_context=market_context,
+        portfolio_value=portfolio_value
     )
 )
 
@@ -59,10 +99,10 @@ actions = (
         rebalance_df=rebalance_df,
 
         position_df=position_df,
+        
+        portfolio_risk_df=portfolio_risk_df,
 
-        risk_df=risk_df,
-
-        portfolio_value=100000
+        portfolio_value=portfolio_value
     )
 )
 
@@ -70,11 +110,7 @@ decision_df = (
 
     build_decisions(
 
-        action_df=actions,
-
-        risk_df=risk_df,
-
-        tax_df=build_tax_dashboard()
+        action_df=actions
     )
 )
 

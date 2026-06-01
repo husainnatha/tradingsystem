@@ -1,3 +1,5 @@
+from logging import config
+
 from src.config.capital_config_loader import (
     CapitalConfigLoader
 )
@@ -25,5 +27,7 @@ class CapitalService:
         yaml_config.update(
             spreadsheet_config
         )
+
+        print("CONFIG =", yaml_config)
 
         return yaml_config

@@ -13,6 +13,7 @@ class CorrelationService:
         for ticker, df in market_data.items():
 
             returns[ticker] = (
+
                 df["Close"]
                 .pct_change()
             )
@@ -25,8 +26,10 @@ class CorrelationService:
     ):
 
         returns = (
+
             CorrelationService
             .build_return_series(
+
                 market_data
             )
         )

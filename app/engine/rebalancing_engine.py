@@ -8,8 +8,8 @@ from app.engine.position_sizing_engine import (
     build_position_sizing
 )
 
-from app.config.watchlist import (
-    WATCHLIST
+from app.engine.risk_intelligence_engine import (
+    build_risk_engine
 )
 
 # -----------------------------------
@@ -43,13 +43,30 @@ def build_rebalancing(
     # TARGET ALLOCATIONS
     # -----------------------------------
 
+    risk_intelligence_df = (
+
+    build_risk_engine(
+
+            symbols=list(
+
+                market_context
+                .get_all()
+                .keys()
+            ),
+
+            verbose=False
+        )
+    )
+
     target_df = (
 
         build_position_sizing(
 
             market_context=market_context,
 
-            portfolio_value=portfolio_value
+            portfolio_value=portfolio_value,
+
+            risk_intelligence_df=risk_intelligence_df
         )
     )
 

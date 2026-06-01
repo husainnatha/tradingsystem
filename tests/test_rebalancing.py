@@ -2,29 +2,37 @@ from app.engine.rebalancing_engine import (
     build_rebalancing
 )
 
-df = build_rebalancing()
-
-print(
-
-    "\nREBALANCING:\n"
+from src.pipelines.market_pipeline import (
+    MarketPipeline
 )
 
-for _, row in df.iterrows():
+from app.engine.portfolio_summary import (
+    get_portfolio_summary
+)
 
-    print(
+pipeline = MarketPipeline()
 
-        f"{row['symbol']} | "
-
-        f"Current={row['current_weight']}% | "
-
-        f"Target={row['target_weight']}% | "
-
-        f"Diff={row['difference']}% | "
-
-        f"{row['action']}"
+market_context = (
+    pipeline.run_watchlist(
+        "equities"
     )
+)
 
-    print(
+portfolio_value = (
 
-        f"Why: {row['reason']}\n"
+    get_portfolio_summary()[
+        "total_portfolio_value"
+    ]
+)
+
+df = (
+
+    build_rebalancing(
+
+        market_context=market_context,
+
+        portfolio_value=portfolio_value
     )
+)
+
+print(df)
