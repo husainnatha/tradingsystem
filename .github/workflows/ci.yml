@@ -5,24 +5,17 @@ on:
   pull_request:
 
 jobs:
+  test:
 
-smoke-tests:
+    runs-on: ubuntu-latest
 
-runs-on: ubuntu-latest
+    steps:
 
-steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
 
-  - uses: actions/checkout@v4
+      - run: pip install -r requirements.txt
 
-  - uses: actions/setup-python@v5
-    with:
-      python-version: "3.13"
-
-  - name: Install dependencies
-    run: pip install -r requirements.txt
-
-  - name: Run Market Analysis Smoke Test
-    run: pytest tests2/test2_market_analysis_pipeline_main.py -v
-
-  - name: Run System Pipeline Smoke Test
-    run: pytest tests2/test2_system_pipeline_main.py -v
+      - run: pytest tests2/test2_market_analysis_pipeline_main.py -v
+      - run: pytest tests2/test2_system_pipeline_main.py -v
