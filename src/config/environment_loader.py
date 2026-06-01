@@ -34,3 +34,11 @@ class EnvironmentLoader:
         ) as file:
 
             return yaml.safe_load(file)
+    
+    @staticmethod
+    def get_environment():
+
+        return (
+            os.getenv("APP_ENV")
+            or "prod"
+        )

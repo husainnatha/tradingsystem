@@ -10,12 +10,21 @@ from src.models.market_context import (
     MarketContext
 )
 
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
+
 class MarketPipeline:
 
     def __init__(self):
 
         self.market_service = (
             MarketDataService()
+        )
+
+        print(
+            f"\nENVIRONMENT: "
+            f"{EnvironmentLoader.get_environment().upper()}\n"
         )
 
     def run_watchlist(
@@ -33,10 +42,6 @@ class MarketPipeline:
         context = MarketContext()
 
         for ticker in watchlist:
-
-            # print(
-            #     f"\nProcessing: {ticker}"
-            # )
 
             df = (
                 self.market_service

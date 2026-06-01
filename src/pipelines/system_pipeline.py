@@ -72,6 +72,10 @@ from src.pipelines.market_pipeline import (
 MarketPipeline
 )
 
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
+
 class SystemPipeline:
 
     def __init__(self):
@@ -79,6 +83,11 @@ class SystemPipeline:
         self.market_pipeline = (
         MarketPipeline()
     )
+        
+    print(
+            f"\nENVIRONMENT: "
+            f"{EnvironmentLoader.get_environment().upper()}\n"
+        )
 
     def ensure_directories(self):
 
@@ -266,7 +275,7 @@ class SystemPipeline:
 
             build_decisions(
 
-                action_df=action_df
+                action_df=action_df,
 
             )
         )

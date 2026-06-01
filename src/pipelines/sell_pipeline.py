@@ -10,9 +10,18 @@ from app.engine.sell_optimizer import (
     optimise_sale_strategy
 )
 
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
+
 class SellPipeline:
 
     def run(self):
+
+        print(
+            f"\nENVIRONMENT: "
+            f"{EnvironmentLoader.get_environment().upper()}\n"
+        )
 
         sell_df = (
             optimise_sale_strategy(
