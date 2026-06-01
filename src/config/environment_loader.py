@@ -12,7 +12,7 @@ class EnvironmentLoader:
 
         env = os.getenv(
             "APP_ENV",
-            "dev"
+            "prod"
         )
 
         path = (
