@@ -2,7 +2,6 @@ from src.pipelines.market_pipeline import (
     MarketPipeline
 )
 
-
 def test_market_pipeline():
 
     pipeline = (
