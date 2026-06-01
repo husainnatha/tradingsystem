@@ -84,11 +84,6 @@ class SystemPipeline:
         MarketPipeline()
     )
         
-    print(
-            f"\nENVIRONMENT: "
-            f"{EnvironmentLoader.get_environment().upper()}\n"
-        )
-
     def ensure_directories(self):
 
         folders = [
@@ -363,6 +358,11 @@ class SystemPipeline:
 
         print(
             "\nStarting System Pipeline...\n"
+        )
+
+        print(
+            f"\nENVIRONMENT: "
+            f"{EnvironmentLoader.get_environment().upper()}\n"
         )
 
         self.ensure_directories()

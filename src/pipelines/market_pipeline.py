@@ -22,11 +22,6 @@ class MarketPipeline:
             MarketDataService()
         )
 
-        print(
-            f"\nENVIRONMENT: "
-            f"{EnvironmentLoader.get_environment().upper()}\n"
-        )
-
     def run_watchlist(
         self,
         watchlist_name: str,
@@ -50,6 +45,11 @@ class MarketPipeline:
                     period=period,
                     interval=interval
                 )
+            )
+
+            print(
+                f"\nENVIRONMENT: "
+                f"{EnvironmentLoader.get_environment().upper()}\n"
             )
 
             context.add_dataset(
