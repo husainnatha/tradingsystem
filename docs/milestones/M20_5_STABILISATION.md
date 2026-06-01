@@ -44,3 +44,31 @@ python -m tests.test_position_sizing
 python -m tests.test_rebalancing
 python -m tests.test_action_engine
 python -m tests.test_transition_engine
+
+Refactoring
+Rename risk_score → asset_risk_score
+Remove dead parameters
+Remove duplicated code
+Standardise engine signatures
+
+Performance
+Avoid rebuilding portfolio risk repeatedly
+Avoid rebuilding tax dashboard repeatedly
+Introduce engine caching
+
+Features
+Macro regime integration
+Portfolio optimisation
+Tax-aware selling
+Sector allocation control
+
+risk_score_mappings
+
+asset_risk_score
+    volatility + drawdown
+
+portfolio_risk
+    concentration + correlation
+
+position_risk_score
+    inventory ranking risk
