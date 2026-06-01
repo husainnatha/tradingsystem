@@ -19,25 +19,17 @@ class SellPipeline:
 
     def __init__(self):
 
-        self.env = (
-            EnvironmentLoader.get_environment()
-        )
+        pass
 
-    def run(self):
+    def run_sell_analysis(
+        self,
+        target_cash: float = 5000,
+        strategy: str = "growth"
+    ):
 
         print(
             f"\nENVIRONMENT: "
-            f"{self.env.upper()}\n"
-        )
-
-        sell_df = (
-
-            optimise_sale_strategy(
-
-                target_cash=5000,
-
-                strategy="growth"
-            )
+            f"{EnvironmentLoader.get_environment().upper()}\n"
         )
 
         inventory_df = (
@@ -46,6 +38,13 @@ class SellPipeline:
 
         ranked_df = (
             build_ranked_inventory()
+        )
+
+        sell_df = (
+            optimise_sale_strategy(
+                target_cash=target_cash,
+                strategy=strategy
+            )
         )
 
         return {
