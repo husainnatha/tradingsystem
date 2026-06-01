@@ -1,28 +1,28 @@
-stages:
+name: Trading System CI
 
-* test
+on:
+push:
+pull_request:
 
-smoke_tests:
+jobs:
 
-stage: test
+smoke-tests:
 
-image: python:3.13
+runs-on: ubuntu-latest
 
-before_script:
-- python --version
-- pip install -r requirements.txt
+steps:
 
-script:
-- pytest tests2/test2_market_analysis_pipeline_main.py -v
-- pytest tests2/test2_system_pipeline_main.py -v
+  - uses: actions/checkout@v4
 
-rules:
+  - uses: actions/setup-python@v5
+    with:
+      python-version: "3.13"
 
-# Every branch push
-- if: '$CI_PIPELINE_SOURCE == "push"'
+  - name: Install dependencies
+    run: pip install -r requirements.txt
 
-# Every merge request
-- if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  - name: Run Market Analysis Smoke Test
+    run: pytest tests2/test2_market_analysis_pipeline_main.py -v
 
-# Direct pushes to main
-- if: '$CI_COMMIT_BRANCH == "main"'
+  - name: Run System Pipeline Smoke Test
+    run: pytest tests2/test2_system_pipeline_main.py -v
