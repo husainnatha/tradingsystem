@@ -11,7 +11,7 @@ pipeline = MarketPipeline()
 
 market_context = (
     pipeline.run_watchlist(
-        "core_macro"
+        "equities"
     )
 )
 

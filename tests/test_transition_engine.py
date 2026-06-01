@@ -22,20 +22,16 @@ from app.engine.rebalancing_engine import (
     build_rebalancing
 )
 
-from app.reports.tax_dashboard import (
-    build_tax_dashboard
-)
-
 from app.engine.portfolio_summary import (
     get_portfolio_summary
 )
 
-from src.pipelines.market_pipeline import (
-    MarketPipeline
-)
-
 from app.engine.risk_intelligence_engine import (
     build_risk_engine
+)
+
+from src.pipelines.market_pipeline import (
+    MarketPipeline
 )
 
 pipeline = MarketPipeline()
@@ -55,10 +51,6 @@ portfolio_value = (
     summary[
         "total_portfolio_value"
     ]
-)
-
-from app.engine.risk_intelligence_engine import (
-    build_risk_engine
 )
 
 symbols = list(

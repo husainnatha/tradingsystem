@@ -6,11 +6,11 @@ from src.pipelines.market_pipeline import (
 pipeline = MarketPipeline()
 
 results = pipeline.run_watchlist(
-    "core_macro"
+    "equities"
 )
 
 
-for ticker, df in results.items():
+for ticker, df in results.get_tickers():
 
     print(f"\n{ticker}")
 
