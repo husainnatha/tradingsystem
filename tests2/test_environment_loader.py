@@ -4,7 +4,6 @@ from src.config.environment_loader import (
     EnvironmentLoader
 )
 
-
 def test_environment_loader():
 
     os.environ[
