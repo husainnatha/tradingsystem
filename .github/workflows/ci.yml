@@ -3,19 +3,25 @@ name: Trading System CI
 on:
   push:
   pull_request:
-
+    branches: [ main ]
+         
 jobs:
+
   test:
 
     runs-on: ubuntu-latest
 
     steps:
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
+    - uses: actions/checkout@v4
 
-      - run: pip install -r ../requirements.txt
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
 
-      - run: pytest tests2/test2_market_analysis_pipeline_main.py -v
-      - run: pytest tests2/test2_system_pipeline_main.py -v
+    - run: pip install -r requirements.txt
+
+    - run: pytest tests2/test2_market_analysis_pipeline_main.py -v
+
+    - run: pytest tests2/test2_system_pipeline_main.py -v
+
