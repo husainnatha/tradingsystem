@@ -24,9 +24,9 @@ def build_capital_summary():
         ]
     )
 
-    monthly_contributions = (
+    cash_contributions = (
         config[
-            "monthly_contributions"
+            "cash_contributions"
         ]
     )
 
@@ -99,10 +99,10 @@ def build_capital_summary():
         {
 
             "Metric":
-                "MonthlyContributions",
+                "Contributions",
 
             "Value":
-                monthly_contributions
+                cash_contributions
         },
 
         {

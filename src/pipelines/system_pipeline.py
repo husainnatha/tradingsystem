@@ -266,12 +266,8 @@ class SystemPipeline:
 
             build_decisions(
 
-                action_df=action_df,
+                action_df=action_df
 
-                # portfolio_risk_df=
-                #     portfolio_risk_df,
-
-                # tax_df=build_tax_dashboard()
             )
         )
 
@@ -352,7 +348,7 @@ class SystemPipeline:
                 results["transition_df"]
         )
 
-        generate_system_documentation()
+        # generate_system_documentation()
 
     def run(self):
 
