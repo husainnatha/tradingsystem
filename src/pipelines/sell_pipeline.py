@@ -14,22 +14,28 @@ from src.config.environment_loader import (
     EnvironmentLoader
 )
 
+
 class SellPipeline:
 
     def __init__(self):
 
-            pass
+        self.env = (
+            EnvironmentLoader.get_environment()
+        )
 
     def run(self):
 
         print(
             f"\nENVIRONMENT: "
-            f"{EnvironmentLoader.get_environment().upper()}\n"
+            f"{self.env.upper()}\n"
         )
 
         sell_df = (
+
             optimise_sale_strategy(
+
                 target_cash=5000,
+
                 strategy="growth"
             )
         )
@@ -41,9 +47,15 @@ class SellPipeline:
         ranked_df = (
             build_ranked_inventory()
         )
-        
+
         return {
-            "inventory_df": inventory_df,
-            "ranked_df": ranked_df,
-            "sell_df": sell_df
+
+            "inventory_df":
+                inventory_df,
+
+            "ranked_df":
+                ranked_df,
+
+            "sell_df":
+                sell_df
         }
