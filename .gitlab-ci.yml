@@ -1,0 +1,28 @@
+stages:
+
+* test
+
+smoke_tests:
+
+stage: test
+
+image: python:3.13
+
+before_script:
+- python --version
+- pip install -r requirements.txt
+
+script:
+- pytest tests2/test2_market_analysis_pipeline_main.py -v
+- pytest tests2/test2_system_pipeline_main.py -v
+
+rules:
+
+# Every branch push
+- if: '$CI_PIPELINE_SOURCE == "push"'
+
+# Every merge request
+- if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+# Direct pushes to main
+- if: '$CI_COMMIT_BRANCH == "main"'
