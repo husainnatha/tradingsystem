@@ -20,7 +20,8 @@ jobs:
         python-version: "3.13"
 
     - run: pip install -r requirements.txt
+    - run: pytest tests2/test2_sell_pipeline.py -v
     - run: pytest tests2/test2_market_analysis_pipeline.py -v
     - run: pytest tests2/test2_system_pipeline.py -v
-    - run: pytest tests2/test2_sell_pipeline.py -v
+  
 
