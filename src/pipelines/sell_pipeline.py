@@ -16,6 +16,10 @@ from src.config.environment_loader import (
 
 class SellPipeline:
 
+    def __init__(self):
+
+            pass
+
     def run(self):
 
         print(
