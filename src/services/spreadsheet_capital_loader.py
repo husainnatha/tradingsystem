@@ -5,5 +5,13 @@ class SpreadsheetCapitalLoader:
 
         return {
 
-            "emergency_reserve": 20000
+            "cash": 0,
+
+            "target_cash_reserve": 12000,
+
+            "emergency_reserve": 20000,
+
+            "cash_contributions": 33738.31,
+
+            "max_deployment_percent": 70
         }
