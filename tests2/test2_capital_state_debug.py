@@ -8,4 +8,9 @@ state = (
 )
 
 print()
-print(state)
+
+for key, value in state.items():
+
+    print(
+        f"{key}: {value}"
+    )

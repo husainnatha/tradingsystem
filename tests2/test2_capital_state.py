@@ -6,19 +6,22 @@ from src.services.capital_service import (
 def test_capital_state():
 
     state = (
-
-        CapitalService()
+        CapitalService
         .build_capital_state()
     )
 
-    assert "cash" in state
-
     assert (
-        "cash_shortfall"
+        "target_invested_value"
         in state
     )
 
     assert (
-        "cash_surplus"
+        "deployment_difference"
         in state
+    )
+
+    assert (
+        state[
+            "target_invested_value"
+        ] >= 0
     )
