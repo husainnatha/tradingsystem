@@ -4,19 +4,18 @@ from src.pipelines.sell_pipeline import (
 
 def test_sell_pipeline():
 
-    pipeline = (
-        SellPipeline()
-    )
+    pipeline = SellPipeline()
 
-    results = (
+    results = pipeline.run_sell_analysis()
 
-        pipeline.run_sell_analysis()
-    )
+    assert results.inventory_df is not None
 
-    assert "inventory_df" in results
+    assert results.ranked_df is not None
 
-    assert "ranked_df" in results
+    assert results.sell_df is not None
 
-    assert "sell_df" in results
+    print(results.inventory_df.head())
+    print(results.ranked_df.head())
+    print(results.sell_df.head())
 
    

@@ -14,6 +14,20 @@ from src.config.environment_loader import (
     EnvironmentLoader
 )
 
+
+class SellPipelineResult:
+
+    def __init__(
+        self,
+        inventory_df,
+        ranked_df,
+        sell_df
+    ):
+        self.inventory_df = inventory_df
+        self.ranked_df = ranked_df
+        self.sell_df = sell_df
+
+
 class SellPipeline:
 
     def __init__(self):
@@ -49,15 +63,9 @@ class SellPipeline:
         print(
             "\nSell pipeline test complete.\n"
         )
-        
-        return {
 
-            "inventory_df":
-                inventory_df,
-
-            "ranked_df":
-                ranked_df,
-
-            "sell_df":
-                sell_df
-        }
+        return SellPipelineResult(
+            inventory_df=inventory_df,
+            ranked_df=ranked_df,
+            sell_df=sell_df
+        )
