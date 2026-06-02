@@ -19,6 +19,9 @@ jobs:
       
       - run: pip install -r requirements.txt
       
-      - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_sell_pipeline.py -s -v
+      - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_sell_pipeline.py -s -v --tb=short --collect-only
+      - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_sell_pipeline.py -s -v --tb=long --capture=no 2>&1
       - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_market_analysis_pipeline.py -s -v
       - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_system_pipeline.py -s -v
+
+      - run: echo "All tests passed successfully!"
