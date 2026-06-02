@@ -9,11 +9,14 @@ except ImportError as e:
     sys.exit(1)
 
 def test_sell_pipeline():
-    pipeline = SellPipeline()
-    results = pipeline.run_sell_analysis()
-    assert results.inventory_df is not None
-    assert results.ranked_df is not None
+
+    results = (
+        SellPipeline()
+        .run_sell_analysis()
+    )
+
+    assert not results.inventory_df.empty
+
+    assert not results.ranked_df.empty
+
     assert results.sell_df is not None
-    print(results.inventory_df.head())
-    print(results.ranked_df.head())
-    print(results.sell_df.head())
