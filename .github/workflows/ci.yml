@@ -1,103 +1,29 @@
-name: Trading System CI
+name: Trading_System_CI
 
 on:
-
   push:
-
     branches:
       - '**'
-
   pull_request:
-
     branches:
       - main
 
-env:
-
-  APP_ENV: prod
-
 jobs:
-
-  sell-pipeline:
-
-    name: Sell Pipeline
-
+  test_pipeline:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        python-version: ['3.13']
     steps:
-
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: "3.13"
-
-      - run: pip install -r requirements.txt
-
-      - run: >
-          PYTHONPATH=${{ github.workspace }}
-          pytest tests2/test2_sell_pipeline.py
-          -s
-          -v
-          --tb=long
-          --capture=no
-
-  market-analysis-pipeline:
-
-    name: Market Analysis Pipeline
-
-    runs-on: ubuntu-latest
-
-    steps:
-
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - run: pip install -r requirements.txt
-
-      - run: >
-          PYTHONPATH=${{ github.workspace }}
-          pytest tests2/test2_market_analysis_pipeline.py
-          -s
-          -v
-
-  system-pipeline:
-
-    name: System Pipeline
-
-    runs-on: ubuntu-latest
-
-    steps:
-
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - run: pip install -r requirements.txt
-
-      - run: >
-          PYTHONPATH=${{ github.workspace }}
-          pytest tests2/test2_system_pipeline.py
-          -s
-          -v
-
-  success:
-
-    name: All Tests Complete
-
-    runs-on: ubuntu-latest
-
-    needs:
-
-      - sell-pipeline
-      - market-analysis-pipeline
-      - system-pipeline
-
-    steps:
-
-      - run: echo "All tests passed successfully!..."
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: sell pipeline test
+        run: pytest tests2/test2_sell_pipeline.py -s -v --tb=long --capture=no
+      - name: system pipeline test
+        run: pytest tests2/test2_system_pipeline.py -s -v --tb=long --capture=no
+      - name: market pipeline test
+        run: pytest tests2/test2_market_pipeline.py -s -v --tb=long --capture=no
