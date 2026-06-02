@@ -1,4 +1,4 @@
-name: Trading_System_CI
+name: Trading_System_CI_Pipeline
 
 on:
   push:
