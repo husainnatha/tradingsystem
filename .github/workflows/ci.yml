@@ -21,9 +21,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: sell pipeline test
-        run: pytest tests2/test2_sell_pipeline.py -s -v --tb=long --capture=no
       - name: system pipeline test
         run: pytest tests2/test2_system_pipeline.py -s -v --tb=long --capture=no
       - name: market pipeline test
         run: pytest tests2/test2_market_pipeline.py -s -v --tb=long --capture=no
+      - name: sell pipeline test
+        run: pytest tests2/test2_sell_pipeline.py -s -v --tb=long --capture=no
+      - name: capital pipeline test
+        run: pytest tests2/test2_capital_pipeline.py -s -v --tb=long --capture=no
