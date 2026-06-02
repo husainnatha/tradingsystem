@@ -76,6 +76,20 @@ from src.config.environment_loader import (
     EnvironmentLoader
 )
 
+from app.engine.capital_engine import (
+    build_capital_state
+)
+
+capital_state = (
+    build_capital_state()
+)
+
+target_cash = (
+    capital_state[
+        "required_sale_for_deployment"
+    ]
+)
+
 class SystemPipeline:
 
     def __init__(self):
@@ -296,8 +310,8 @@ class SystemPipeline:
         sale_df = (
 
             optimise_sale_strategy(
-
-                target_cash=5000
+                target_cash=target_cash,
+                strategy="growth"
             )
         )
 
