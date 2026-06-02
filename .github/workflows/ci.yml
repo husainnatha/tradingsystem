@@ -25,4 +25,4 @@ jobs:
       - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_market_analysis_pipeline.py -s -v
       - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_system_pipeline.py -s -v
 
-      - run: echo "All tests passed successfully!"
+      - run: echo "All tests passed successfully!..."
