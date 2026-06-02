@@ -29,5 +29,51 @@ class CapitalService:
         )
 
         print("CONFIG =", yaml_config)
-
+        
         return yaml_config
+
+
+    @staticmethod
+    def build_capital_state():
+
+        config = (
+            CapitalService
+            .get_capital_config()
+        )
+
+        cash = (
+            config["cash"]
+        )
+
+        target_cash_reserve = (
+            config[
+                "target_cash_reserve"
+            ]
+        )
+
+        cash_shortfall = max(
+            0,
+            target_cash_reserve
+            - cash
+        )
+
+        cash_surplus = max(
+            0,
+            cash
+            - target_cash_reserve
+        )
+
+        return {
+
+            "cash":
+                cash,
+
+            "target_cash_reserve":
+                target_cash_reserve,
+
+            "cash_shortfall":
+                cash_shortfall,
+
+            "cash_surplus":
+                cash_surplus
+        }
