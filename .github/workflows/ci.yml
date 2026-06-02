@@ -11,27 +11,93 @@ on:
 
     branches:
       - main
-         
+
+env:
+
+  APP_ENV: prod
+
 jobs:
 
-  test:
+  sell-pipeline:
+
+    name: Sell Pipeline
+
     runs-on: ubuntu-latest
-    env:
-      APP_ENV: prod
-      
+
     steps:
+
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      
+
       - run: pip install -r requirements.txt
-      - run: pwd
-      - run: ls -la
-      - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_sell_pipeline.py -s -v --tb=short --collect-only
-      - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_sell_pipeline.py -s -v --tb=long --capture=no 2>&1
-      - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_market_analysis_pipeline.py -s -v
-      - run: PYTHONPATH=${{ github.workspace }} pytest tests2/test2_system_pipeline.py -s -v
+
+      - run: >
+          PYTHONPATH=${{ github.workspace }}
+          pytest tests2/test2_sell_pipeline.py
+          -s
+          -v
+          --tb=long
+          --capture=no
+
+  market-analysis-pipeline:
+
+    name: Market Analysis Pipeline
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install -r requirements.txt
+
+      - run: >
+          PYTHONPATH=${{ github.workspace }}
+          pytest tests2/test2_market_analysis_pipeline.py
+          -s
+          -v
+
+  system-pipeline:
+
+    name: System Pipeline
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install -r requirements.txt
+
+      - run: >
+          PYTHONPATH=${{ github.workspace }}
+          pytest tests2/test2_system_pipeline.py
+          -s
+          -v
+
+  success:
+
+    name: All Tests Complete
+
+    runs-on: ubuntu-latest
+
+    needs:
+
+      - sell-pipeline
+      - market-analysis-pipeline
+      - system-pipeline
+
+    steps:
 
       - run: echo "All tests passed successfully!..."
