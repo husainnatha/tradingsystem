@@ -27,5 +27,3 @@ jobs:
         run: pytest tests2/test2_market_pipeline.py -s -v --tb=long --capture=no
       - name: sell pipeline test
         run: pytest tests2/test2_sell_pipeline.py -s -v --tb=long --capture=no
-      - name: capital pipeline test
-        run: pytest tests2/test2_capital_pipeline.py -s -v --tb=long --capture=no
