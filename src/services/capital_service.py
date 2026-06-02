@@ -8,6 +8,10 @@ from src.services.spreadsheet_capital_loader import (
     SpreadsheetCapitalLoader
 )
 
+from app.engine.portfolio_summary import (
+    get_portfolio_summary
+    )
+
 
 class CapitalService:
 
@@ -63,10 +67,26 @@ class CapitalService:
             - target_cash_reserve
         )
 
+        summary = (
+            get_portfolio_summary()
+        )
+
+        portfolio_value = (
+            summary[
+                "total_portfolio_value"
+            ]
+        )
+
+        invested_value = (
+
+            portfolio_value
+
+            - cash
+        )
+
         return {
 
-            "cash":
-                cash,
+            "cash": cash,
 
             "target_cash_reserve":
                 target_cash_reserve,
@@ -75,5 +95,11 @@ class CapitalService:
                 cash_shortfall,
 
             "cash_surplus":
-                cash_surplus
+                cash_surplus,
+
+            "portfolio_value":
+                portfolio_value,
+
+            "invested_value":
+                invested_value
         }
