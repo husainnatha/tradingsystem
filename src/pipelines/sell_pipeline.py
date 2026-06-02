@@ -10,6 +10,10 @@ from app.engine.sell_optimizer import (
     optimise_sale_strategy
 )
 
+from app.engine.capital_engine import (
+    build_capital_state
+)
+
 from src.config.environment_loader import (
     EnvironmentLoader
 )
@@ -36,13 +40,30 @@ class SellPipeline:
 
     def run_sell_analysis(
         self,
-        target_cash: float = 5000,
+        target_cash: float = None,
         strategy: str = "growth"
     ):
 
         print(
             f"\nENVIRONMENT: "
             f"{EnvironmentLoader.get_environment().upper()}\n"
+        )
+
+        capital_state = (
+            build_capital_state()
+        )
+
+        if target_cash is None:
+
+            target_cash = (
+                capital_state[
+                    "required_sale_for_deployment"
+                ]
+            )
+
+        print(
+            f"Required Sale Value: "
+            f"£{target_cash:,.2f}"
         )
 
         inventory_df = (

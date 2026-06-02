@@ -44,6 +44,9 @@ from app.engine.capital_engine import (
     build_capital_summary
 )
 
+from app.engine.capital_engine import (
+        build_capital_state
+)
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
@@ -145,11 +148,26 @@ def export_intelligence_report(
         build_sector_exposure()
     )
 
+    capital_state = (
+        build_capital_state()
+    )
+
+    target_cash = (
+        capital_state[
+            "required_sale_for_deployment"
+        ]
+    )
+
     strategy_df = (
 
         compare_strategies(
-            target_cash=5000
+            target_cash=target_cash
         )
+    )
+
+    print(
+        f"Required Sale Value: "
+        f"£{capital_state['required_sale_for_deployment']:,.2f}"
     )
 
     buy_df = (

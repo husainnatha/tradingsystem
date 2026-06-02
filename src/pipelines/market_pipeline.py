@@ -47,14 +47,14 @@ class MarketPipeline:
                 )
             )
 
-            print(
-                f"\nENVIRONMENT: "
-                f"{EnvironmentLoader.get_environment().upper()}\n"
-            )
-
             context.add_dataset(
                 ticker,
                 df
             )
+
+        print(
+            f"\nENVIRONMENT: "
+            f"{EnvironmentLoader.get_environment().upper()}\n"
+        )
 
         return context
