@@ -2,11 +2,6 @@ name: Trading System CI
 
 on:
 
-  push:
-
-    branches:
-      - milestone-*
-
   pull_request:
 
     branches:
