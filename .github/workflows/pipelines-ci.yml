@@ -107,6 +107,27 @@ jobs:
           pytest tests2/test2_capital_pipeline.py
           -s
           -v
+  position-sizing-pipeline:
+
+    name: Position Sizing Pipeline
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install -r requirements.txt
+
+      - run: >
+          PYTHONPATH=${{ github.workspace }}
+          pytest tests2/test2_position_sizing_pipeline.py
+          -s
+          -v
 
   success:
 
@@ -120,7 +141,7 @@ jobs:
       - market-analysis-pipeline
       - sell-pipeline
       - system-pipeline
-    #  - position-sizing-pipeline
+      - position-sizing-pipeline
 
     steps:
 
