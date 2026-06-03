@@ -8,59 +8,13 @@ from app.engine.macro_regime_engine import (
     build_macro_regime
 )
 
-from app.engine.risk_intelligence_engine import (
-    build_risk_engine
-)
-
 from app.engine.portfolio_risk_engine import (
     build_portfolio_risk
 )
 
-from src.models.recommendation import (
-    Recommendation
+from src.mappers.recommendation_mapper import (
+    RecommendationMapper,
 )
-
-from src.utils.market_data_accessor import (
-    MarketDataAccessor
-)
-
-from src.config.environment_loader import (
-    EnvironmentLoader
-)
-
-class RecommendationMapper:
-
-    @staticmethod
-    def from_dataframe_row(
-        row
-    ):
-
-        return Recommendation(
-
-            symbol=row["symbol"],
-
-            price=row["price"],
-
-            ai_score=row["ai_score"],
-
-            rating=row["rating"],
-
-            sector=row["sector"],
-
-            rsi=row["rsi"],
-
-            ma50=row["ma50"],
-
-            ma200=row["ma200"],
-
-            bullish_trend=row[
-                "bullish_trend"
-            ],
-
-            portfolio_fit_score=row[
-                "portfolio_fit_score"
-            ]
-        )
 
 # -----------------------------------
 # BUILD POSITION SIZING

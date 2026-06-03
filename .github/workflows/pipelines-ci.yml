@@ -116,10 +116,11 @@ jobs:
 
     needs:
 
-      - sell-pipeline
-      - market-analysis-pipeline
-      - system-pipeline
       - capital-pipeline
+      - market-analysis-pipeline
+      - sell-pipeline
+      - system-pipeline
+    #  - position-sizing-pipeline
 
     steps:
 
