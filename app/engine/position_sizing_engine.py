@@ -16,6 +16,10 @@ from src.mappers.recommendation_mapper import (
     RecommendationMapper,
 )
 
+from app.engine.capital_engine import (
+    build_capital_state
+)
+
 # -----------------------------------
 # BUILD POSITION SIZING
 # -----------------------------------
@@ -25,6 +29,21 @@ def build_position_sizing(
     portfolio_value,
     risk_intelligence_df
 ):
+    capital_state = (
+        build_capital_state()
+    )
+
+    deployable_capital = (
+        capital_state[
+            "deployable_capital"
+        ]
+    )
+
+    capital_status = (
+        capital_state[
+            "capital_status"
+        ]
+    )
 
     df = build_buy_recommendations(
         market_context
