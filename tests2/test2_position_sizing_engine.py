@@ -58,6 +58,17 @@ def test_position_sizing_engine():
 
     print()
 
-    print(df)
+    print(
+        df[
+            [
+                "symbol",
+                "suggested_allocation_pct",
+                "suggested_position_value",
+                "asset_risk_score",
+                "portfolio_risk"
+            ]
+        ]
+        .head(20)
+    )
 
     assert len(df) > 0
