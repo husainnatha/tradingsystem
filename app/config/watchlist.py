@@ -80,6 +80,12 @@ WATCHLIST = [
     "TWLO",
     "VRT",
     "WDAY",
-    "ZS"
-
+    "ZS",
+    "TM",
+    "MCD",
+    "NKE",
+    "BMW.DE",
+    "DIS",
+    "SAP",
+    "PG"
 ]
