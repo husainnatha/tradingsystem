@@ -85,7 +85,7 @@ def build_transition_plan(
 
         position_df.sort_values(
 
-            by="suggested_position_value",
+            by="theoretical_position_value",
 
             ascending=False
         )
@@ -106,7 +106,7 @@ def build_transition_plan(
         trade_value = round(
 
             row[
-                "suggested_position_value"
+                "theoretical_position_value"
             ],
 
             2

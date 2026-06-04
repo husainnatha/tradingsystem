@@ -70,7 +70,7 @@ def build_actions(
 
                 position_lookup.loc[
                     symbol,
-                    "suggested_position_value"
+                    "executable_position_value"
                 ],
 
                 2

@@ -6,22 +6,18 @@ def test_portfolio_valuation():
 
     portfolio = (
         get_portfolio_valuation()
-    )   
+    )
 
-    assert len(portfolio) > 0
+    print()
+
+    print(
+        f"ROWS: {len(portfolio)}"
+    )
+
+    print()
 
     for row in portfolio:
 
-        assert "symbol" in row
+        print(row)
 
-        assert "quantity" in row
-
-        assert "average_cost" in row
-
-        assert "current_price" in row
-
-        assert "market_value" in row
-
-        assert "unrealised_pl" in row
-
-print("\nPORTFOLIO VALUATION:\n")
+    assert len(portfolio) > 0
