@@ -1,33 +1,18 @@
-import yfinance as yf
-
-# -----------------------------------
-# GET LIVE PRICE
-# -----------------------------------
+from src.services.price_cache_service import (
+    PriceCacheService
+)
 
 def get_live_price(
-
     symbol
 ):
 
     try:
 
-        ticker = yf.Ticker(symbol)
-
-        data = ticker.history(
-            period="1d"
-        )
-
-        if data.empty:
-
-            return None
-
-        latest_price = data[
-            "Close"
-        ].iloc[-1]
-
-        return round(
-            float(latest_price),
-            2
+        return (
+            PriceCacheService
+            .get_price(
+                symbol
+            )
         )
 
     except Exception as e:

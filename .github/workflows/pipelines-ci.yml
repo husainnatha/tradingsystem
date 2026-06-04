@@ -12,6 +12,27 @@ env:
   APP_ENV: prod
 
 jobs:
+  price-cache-pipeline:
+
+    name: Market Analysis Pipeline
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install -r requirements.txt
+
+      - run: >
+          PYTHONPATH=${{ github.workspace }}
+          pytest tests2/test2_price_cache_pipeline.py
+          -s
+          -v
 
   market-analysis-pipeline:
 
@@ -132,6 +153,7 @@ jobs:
 
     needs:
 
+      - price-cache-pipeline
       - capital-pipeline
       - market-analysis-pipeline
       - sell-pipeline

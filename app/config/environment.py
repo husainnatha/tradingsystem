@@ -80,7 +80,7 @@ def get_app_env():
 
         "APP_ENV",
 
-        "dev"
+        "prod"
     )
 
 

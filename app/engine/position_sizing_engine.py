@@ -30,6 +30,7 @@ def build_position_sizing(
     risk_intelligence_df
 ):
     capital_state = (
+
         build_capital_state()
     )
 
@@ -230,7 +231,7 @@ def build_position_sizing(
             15
         )
 
-        suggested_value = round(
+        theoretical_position_value = round(
 
             portfolio_value
 
@@ -242,6 +243,31 @@ def build_position_sizing(
             ),
 
             2
+        )
+
+        executable_position_value = round(
+
+            deployable_capital
+
+            *
+
+            (
+
+                adjusted_pct / 100
+            ),
+
+            2
+        )
+
+        funding_gap = max(
+
+            0,
+
+            theoretical_position_value
+
+            -
+
+            executable_position_value
         )
         
         if adjusted_pct <= 0:
@@ -267,9 +293,18 @@ def build_position_sizing(
 
             "suggested_allocation_pct":
                 adjusted_pct,
+            
+            "theoretical_position_value":
+                theoretical_position_value,
 
-            "suggested_position_value":
-                suggested_value,
+            "executable_position_value":
+                executable_position_value,
+
+            "capital_status":
+                capital_status,
+
+            "deployable_capital":
+                deployable_capital,
 
             "price":
                 row["price"],
@@ -278,7 +313,7 @@ def build_position_sizing(
 
                 round(
 
-                    suggested_value
+                    theoretical_position_value
 
                     /
 
@@ -297,7 +332,11 @@ def build_position_sizing(
                 ),
 
             "explanation":
-                row["explanation"]
+                row["explanation"],
+
+            "funding_gap":
+                funding_gap
+
         })
 
     result_df = pd.DataFrame(

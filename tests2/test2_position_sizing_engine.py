@@ -1,3 +1,5 @@
+import pandas as pd
+
 from src.pipelines.market_pipeline import (
     MarketPipeline
 )
@@ -56,19 +58,36 @@ def test_position_sizing_engine():
         )
     )
 
+    pd.set_option(
+        "display.max_columns",
+        None
+    )
+
+    pd.set_option(
+        "display.width",
+        None
+    )
+
     print()
 
     print(
-        df[
-            [
-                "symbol",
-                "suggested_allocation_pct",
-                "suggested_position_value",
-                "asset_risk_score",
-                "portfolio_risk"
-            ]
-        ]
-        .head(20)
+        df.head(20)
     )
+
+    # print(
+    #     df[
+    #         [
+    #             "symbol",
+    #             "suggested_allocation_pct",
+    #             "theoretical_position_value",
+    #             "executable_position_value",
+    #             "capital_status",
+    #             "asset_risk_score",
+    #             "portfolio_risk"
+    #         ]
+    #     ]
+    #     .head(20)
+    # )
+    # print()
 
     assert len(df) > 0
