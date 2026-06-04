@@ -2,7 +2,9 @@ from app.engine.matching_engine import (
     get_section_104_pool
 )
 
-import yfinance as yf
+from src.services.price_cache_service import (
+    PriceCacheService
+)
 
 
 def get_portfolio_valuation():
@@ -38,27 +40,9 @@ def get_portfolio_valuation():
 
         try:
 
-            ticker = yf.Ticker(
-                symbol
-            )
-
-            history = ticker.history(
-                period="1d"
-            )
-
-            if history.empty:
-
-                print(
-                    f"Skipped: {symbol}"
-                )
-
-                continue
-
-            current_price = float(
-
-                history.iloc[-1][
-                    "Close"
-                ]
+            current_price = (
+                PriceCacheService
+                .get_price(symbol)
             )
 
         except Exception as e:
