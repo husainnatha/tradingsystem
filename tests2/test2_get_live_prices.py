@@ -1,4 +1,4 @@
-from app.services.live_price_service import (
+from src.services.live_price_service import (
     get_live_price
 )
 
@@ -10,7 +10,7 @@ symbols = [
     "AMZN"
 ]
 
-def test_live_prices():
+def test_get_live_prices():
     
     print("\nLIVE MARKET PRICES:\n")
 

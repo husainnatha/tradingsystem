@@ -1,7 +1,17 @@
+from datetime import (
+    datetime,
+    timedelta
+)
+
 import pandas as pd
 
-from src.data.providers.yfinance_provider import YFinanceProvider
-from src.data.cache.cache_manager import CacheManager
+from src.data.providers.yfinance_provider import (
+    YFinanceProvider
+)
+
+from src.data.cache.cache_manager import (
+    CacheManager
+)
 
 from src.data.cache.metadata_registry import (
     MetadataRegistry
@@ -10,9 +20,13 @@ from src.data.cache.metadata_registry import (
 
 class MarketDataLoader:
 
+    CACHE_EXPIRY_DAYS = 1
+
     def __init__(self):
 
-        self.provider = YFinanceProvider()
+        self.provider = (
+            YFinanceProvider()
+        )
 
     def load(
         self,
@@ -22,44 +36,88 @@ class MarketDataLoader:
         refresh: bool = False
     ):
 
-        cache_path = CacheManager.get_cache_path(
-            ticker,
-            interval
+        cache_path = (
+            CacheManager
+            .get_cache_path(
+                ticker,
+                interval
+            )
         )
 
-        if cache_path.exists() and not refresh:
+        if (
+            cache_path.exists()
+            and
+            not refresh
+            and
+            self._is_cache_fresh(
+                cache_path
+            )
+        ):
 
-            # print(f"Loading cached data: {ticker}")
-
-            df = pd.read_parquet(cache_path)
+            df = pd.read_parquet(
+                cache_path
+            )
 
             MetadataRegistry.save_metadata(
+
                 ticker=ticker,
+
                 interval=interval,
+
                 rows=len(df)
             )
 
             return df
 
-        # print(f"Downloading data: {ticker}")
-
         df = self.provider.download(
+
             ticker=ticker,
+
             period=period,
+
             interval=interval
         )
 
         cache_path.parent.mkdir(
+
             parents=True,
+
             exist_ok=True
         )
 
-        df.to_parquet(cache_path)
+        df.to_parquet(
+            cache_path
+        )
 
         MetadataRegistry.save_metadata(
+
             ticker=ticker,
+
             interval=interval,
+
             rows=len(df)
         )
 
         return df
+
+    def _is_cache_fresh(
+        self,
+        cache_path
+    ):
+
+        modified = datetime.fromtimestamp(
+
+            cache_path.stat().st_mtime
+        )
+
+        age = (
+
+            datetime.now()
+
+            - modified
+        )
+
+        return age < timedelta(
+
+            days=self.CACHE_EXPIRY_DAYS
+        )

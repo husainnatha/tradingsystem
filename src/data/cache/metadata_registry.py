@@ -50,7 +50,7 @@ class MetadataRegistry:
             "source": source,
             "rows": rows,
             "last_updated":
-                datetime.utcnow().isoformat()
+                datetime.now().isoformat()
         }
 
         with open(path, "w") as file:
