@@ -106,26 +106,6 @@ def build_opportunities(
                 row["diversification_score"]
         })
 
-    print(
-        pd.DataFrame(rows).head(10)
-    )
-
-    print(
-
-        pd.DataFrame(rows)[
-            [
-                "symbol",
-                "rating",
-                "ai_score",
-                "technical_score",
-                "portfolio_fit_score",
-                "diversification_score"
-            ]
-        ]
-
-        .head(10)
-    )
-
     return (
 
         pd.DataFrame(rows)

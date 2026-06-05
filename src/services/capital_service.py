@@ -19,14 +19,14 @@ class CapitalService:
             .load()
         )
 
-        spreadsheet_config = (
-            SpreadsheetCapitalLoader
-            .load()
-        )
+        # spreadsheet_config = (
+        #     SpreadsheetCapitalLoader
+        #     .load()
+        # )
 
-        yaml_config.update(
-            spreadsheet_config
-        )
+        # yaml_config.update(
+        #     spreadsheet_config
+        # )
 
         print("CONFIG =", yaml_config)
         
