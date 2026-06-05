@@ -12,13 +12,6 @@ def test_opportunity_pipeline():
         .run()
     )
 
-    print()
-
-    print(
-
-        df.head(
-            10
-        )
-    )
+    print(df.head(10))
 
     assert len(df) > 0

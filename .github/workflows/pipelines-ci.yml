@@ -14,7 +14,7 @@ env:
 jobs:
   price-cache-pipeline:
 
-    name: Market Analysis Pipeline
+    name: Price Cache Pipeline
 
     runs-on: ubuntu-latest
 
@@ -144,6 +144,50 @@ jobs:
           pytest tests2/test2_position_sizing_pipeline.py
           -s
           -v
+  
+  opportunity-pipeline:
+
+    name: Opportunity Pipeline
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install -r requirements.txt
+
+      - run: >
+          PYTHONPATH=${{ github.workspace }}
+          pytest tests2/test2_opportunity_pipeline.py
+          -s
+          -v
+
+  contextual-decision-pipeline:
+
+    name: Contextual Decision Pipeline
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install -r requirements.txt
+
+      - run: >
+          PYTHONPATH=${{ github.workspace }}
+          pytest tests2/test2_contextual_decision_pipeline.py
+          -s
+          -v
 
   success:
 
@@ -154,11 +198,13 @@ jobs:
     needs:
 
       - price-cache-pipeline
-      - capital-pipeline
       - market-analysis-pipeline
-      - sell-pipeline
       - system-pipeline
+      - sell-pipeline
+      - capital-pipeline
       - position-sizing-pipeline
+      - opportunity-pipeline
+      - contextual-decision-pipeline
 
     steps:
 
