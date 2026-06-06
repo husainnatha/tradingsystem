@@ -6,10 +6,6 @@ def build_opportunities(
     market_intelligence_df
 ):
 
-    print()
-    print(market_intelligence_df.columns.tolist())
-    print()
-
     rows = []
 
     for _, row in (
@@ -90,6 +86,7 @@ def build_opportunities(
                     score,
                     2
                 ),
+                
             "ai_score":
                 row["ai_score"],
 
@@ -117,5 +114,7 @@ def build_opportunities(
 
             ascending=False
         )
+
+        .head(30)
     )
 

@@ -10,8 +10,16 @@ def test_opportunity_pipeline():
         OpportunityPipeline()
 
         .run()
-    )
+    
+        .sort_values(
 
-    print(df.head(10))
+            by="opportunity_score",
+
+            ascending=False
+
+        )
+    )
+    
+    print(df.head(30))
 
     assert len(df) > 0
