@@ -45,31 +45,37 @@ from app.engine.capital_engine import (
 )
 
 from app.engine.capital_engine import (
-        build_capital_state
+    build_capital_state
 )
+
+from app.engine.macro_regime_engine import (
+    build_macro_regime
+)
+
+from app.engine.opportunity_engine import (
+    build_opportunities
+)
+
+from app.engine.contextual_decision_engine import (
+    build_contextual_decisions
+)
+
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
 
 def export_intelligence_report(
-
     market_df,
-
     recommendation_df,
-
     position_df,
-
     sale_df,
-
     action_df,
-
     transition_df,
-
-    capital_df = (
-        build_capital_summary()
-    )
+    capital_df=None,
+    macro_df=None,
+    opportunity_df=None,
+    contextual_decisions_df=None
 ):
-
     env = get_output_suffix()
 
     output_file = (
@@ -151,6 +157,26 @@ def export_intelligence_report(
     capital_state = (
         build_capital_state()
     )
+
+    if capital_df is None:
+        capital_df = build_capital_summary()
+
+    if macro_df is None:
+        macro_df = pd.DataFrame([
+            build_macro_regime()
+        ])
+
+    if opportunity_df is None:
+        opportunity_df = build_opportunities(
+            market_df
+        )
+
+    if contextual_decisions_df is None:
+        contextual_decisions_df = pd.DataFrame(
+            build_contextual_decisions(
+                opportunity_df
+            )
+        )
 
     target_cash = (
         capital_state[
@@ -384,33 +410,40 @@ def export_intelligence_report(
             index=False
         ),
     
+        macro_df.to_excel(
+
+            writer,
+
+            sheet_name="MACRO_REGIME",
+
+            index=False
+        ),
+    
+        opportunity_df.to_excel(
+
+            writer,
+
+            sheet_name="OPPORTUNITY_LEDGER",
+
+            index=False
+        ),
+    
+        contextual_decisions_df.to_excel(
+
+            writer,
+
+            sheet_name="CONTEXTUAL_DECISIONS",
+
+            index=False
+        ),
+    
         capital_df.to_excel(
 
-        writer,
+            writer,
 
-        sheet_name="PORTFOLIO",
+            sheet_name="CAPITAL_SUMMARY",
 
-        index=False
-    )
-        portfolio_sheet = (
-            writer.sheets[
-                "PORTFOLIO"
-            ]
-        )
-
-        portfolio_sheet.set_column(
-            "A:A",
-            20
-        )
-
-        portfolio_sheet.set_column(
-            "B:B",
-            30
-        )
-
-        portfolio_sheet.set_column(
-            "C:C",
-            20
+            index=False
         )
 
     print(

@@ -176,13 +176,12 @@ def build_opportunities(
             "explanation":
                 explanation
         })
+    
+    opportunity_df = pd.DataFrame(rows)
 
-    return (
-
-    pd.DataFrame(rows)
-
-    .sort_values(
+    opportunity_df = opportunity_df.sort_values(
         by="opportunity_score",
         ascending=False
     )
-)
+
+    return (opportunity_df)

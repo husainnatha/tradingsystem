@@ -60,17 +60,17 @@ def build_capital_state():
         get_portfolio_summary()
     )
 
-    portfolio_value = (
+    invested_value = (
         summary[
             "total_portfolio_value"
         ]
     )
 
-    invested_value = (
+    portfolio_value = (
 
-        portfolio_value
+        invested_value
 
-        - cash
+        + cash
     )
 
     cash_shortfall = max(
@@ -276,4 +276,18 @@ def build_capital_state():
         "capital_status":
             capital_status
     }
+
+if __name__ == "__main__":
+
+    state = build_capital_state()
+
+    print()
+
+    for key, value in state.items():
+
+        print(f"{key}: {value}")
+
+    print()
+
+    
 
