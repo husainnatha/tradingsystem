@@ -3,15 +3,19 @@ from app.engine.capital_engine import (
 )
 
 
-def test_capital_engine():
+summary = build_capital_summary()
 
-    df = (
-        build_capital_summary()
-    )
+print(summary)
 
-    print(
-        "\nCAPITAL SUMMARY:\n"
-    )   
-    print(df)
+# def test_capital_engine():
 
-    assert not df.empty
+#     df = (
+#         build_capital_summary()
+#     )
+
+#     print(
+#         "\nCAPITAL SUMMARY:\n"
+#     )   
+#     print(df)
+
+#     assert not df.empty

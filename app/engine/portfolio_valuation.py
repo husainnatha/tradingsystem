@@ -6,6 +6,9 @@ from src.services.price_cache_service import (
     PriceCacheService
 )
 
+from src.services.fx_service import (
+    FXService
+)
 
 def get_portfolio_valuation():
 
@@ -38,27 +41,23 @@ def get_portfolio_valuation():
             quantity
         )
 
-        try:
+        current_price_usd = (
+            PriceCacheService
+            .get_price(symbol)
+        )
 
-            current_price = (
-                PriceCacheService
-                .get_price(symbol)
-            )
+        usd_to_gbp = (
+            FXService.get_usd_gbp()
+        )
 
-        except Exception as e:
-
-            print(
-                f"Error loading "
-                f"{symbol}: {e}"
-            )
-
-            continue
+        current_price_gbp = (
+            current_price_usd *
+            usd_to_gbp
+        )
 
         market_value = (
-
             quantity *
-
-            current_price
+            current_price_gbp
         )
 
         unrealised_pl = (
@@ -79,8 +78,14 @@ def get_portfolio_valuation():
             "average_cost":
                 round(average_cost, 2),
 
-            "current_price":
-                round(current_price, 2),
+            "current_price_usd":
+                round(current_price_gbp, 2),
+
+            "current_price_gbp":
+                round(current_price_gbp, 2),
+            
+            "usd_to_gbp":
+                round(current_price_gbp, 2),
 
             "market_value":
                 round(market_value, 2),

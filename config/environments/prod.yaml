@@ -1,6 +1,6 @@
 capital:
 
-  cash: -20000
+  cash: 0
 
   target_cash_reserve: 12000
 

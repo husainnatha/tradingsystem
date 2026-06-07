@@ -20,6 +20,19 @@ def test_opportunity_pipeline():
         )
     )
     
-    print(df.head(30))
+    print()
+
+    print(
+
+        df[
+            [
+                "symbol",
+                "rating",
+                "opportunity_score",
+                "explanation"
+            ]
+        ]
+
+    )
 
     assert len(df) > 0
