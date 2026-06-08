@@ -49,6 +49,25 @@ def build_inventory_state():
 
     for tx in buy_transactions:
 
+        cost_gbp = round(
+
+            tx.quantity *
+            tx.trade_price *
+            tx.fx_rate_to_gbp,
+
+            2
+        )
+
+        fees_gbp = round(
+            tx.fees,
+            2
+        )
+
+        net_cost_gbp = round(
+            cost_gbp + fees_gbp,
+            2
+        )
+
         inventory_rows.append({
 
             "transaction_id":
@@ -75,25 +94,20 @@ def build_inventory_state():
             "fx_rate_to_gbp":
                 tx.fx_rate_to_gbp,
 
-            "cost_gbp":
-                round(
+            "cost_gbp": 
+                cost_gbp,
 
-                    tx.quantity *
+            "fees_gbp":
+                fees_gbp, 
 
-                    tx.trade_price *
-
-                    tx.fx_rate_to_gbp,
-
-                    2
-                ),
-
-            "fees_gbp": round(tx.fees,2),
-
-            "net_cost_gbp": round("cost_gbp" + "fees_gbp",2),
+            "net_cost_gbp":
+                net_cost_gbp,
 
             "match_rule":
                 None
-        })
+
+        }
+    )
 
     inventory_df = pd.DataFrame(
         inventory_rows
@@ -395,7 +409,7 @@ def build_inventory_state():
         *
 
         inventory_df[
-            "net_cost_gbp"
+            "cost_gbp"
         ],
 
         2
