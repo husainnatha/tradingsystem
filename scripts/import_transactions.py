@@ -26,18 +26,6 @@ def import_transactions():
         get_input_source()
     )
 
-    print(
-
-        f"\nEnvironment: {app_env}"
-    )
-
-    print(
-
-        f"\nLoading:\n"
-
-        f"{input_source}\n"
-    )
-
     # -----------------------------------
     # LOAD INPUT
     # -----------------------------------

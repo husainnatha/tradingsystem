@@ -216,17 +216,6 @@ def build_capital_state():
         capital_status = (
             "HEALTHY"
         )
-        
-    summary = get_portfolio_summary()
-
-    print("\nPORTFOLIO SUMMARY")
-    print(summary)
-    print()
-
-    print(
-        "\nTOTAL PORTFOLIO VALUE:",
-        summary["total_portfolio_value"]
-    )
 
     return {
 

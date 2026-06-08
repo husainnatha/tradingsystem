@@ -52,9 +52,4 @@ class MarketPipeline:
                 df
             )
 
-        print(
-            f"\nENVIRONMENT: "
-            f"{EnvironmentLoader.get_environment().upper()}\n"
-        )
-
         return context

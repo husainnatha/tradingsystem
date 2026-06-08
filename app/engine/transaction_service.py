@@ -42,14 +42,11 @@ def add_transaction(
 
     gbp_net_amount = (
 
-        (
-            quantity *
-            trade_price
-        )
+        quantity
+        * trade_price
+        * fx_rate_to_gbp
 
-        + fees
-
-    ) / fx_rate_to_gbp
+    ) + fees
 
     # -----------------------------------
     # CREATE TRANSACTION HASH
