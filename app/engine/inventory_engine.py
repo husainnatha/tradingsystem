@@ -87,6 +87,10 @@ def build_inventory_state():
                     2
                 ),
 
+            "fees_gbp": round(tx.fees,2),
+
+            "net_cost_gbp": round("cost_gbp" + "fees_gbp",2),
+
             "match_rule":
                 None
         })
@@ -391,7 +395,7 @@ def build_inventory_state():
         *
 
         inventory_df[
-            "cost_gbp"
+            "net_cost_gbp"
         ],
 
         2

@@ -10,7 +10,6 @@ from src.pipelines.market_pipeline import (
     MarketPipeline
 )
 
-
 from src.pipelines.opportunity_pipeline import (
     OpportunityPipeline
 )
