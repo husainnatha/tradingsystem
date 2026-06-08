@@ -2,15 +2,11 @@ name: Trading System CI
 
 on:
 
-  push:
-
-    branches:
-      - '**'
-
   pull_request:
 
     branches:
       - main
+      - branches
 
 env:
 
