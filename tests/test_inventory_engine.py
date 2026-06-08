@@ -21,15 +21,6 @@ for _, row in df.iterrows():
         f"Remaining={row['remaining_quantity']} | "
 
         f"Rule={row['match_rule']}"
-    )
-    
-for _, row in df.iterrows():
-
-    print(
-
-        f"{row['symbol']} | "
-
-        f"Remaining={row['remaining_quantity']} | "
 
         f"Market=£{row['market_value_gbp']} | "
 
@@ -39,3 +30,4 @@ for _, row in df.iterrows():
 
         f"UPnL%={row['unrealised_gain_pct']}"
     )
+    
