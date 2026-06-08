@@ -16,6 +16,10 @@ from src.services.live_price_service import (
     get_live_price
 )
 
+from src.services.fx_service import (
+    FXService
+)
+
 # -----------------------------------
 # BUILD INVENTORY STATE
 # -----------------------------------
@@ -336,6 +340,10 @@ def build_inventory_state():
     # HANDLE MISSING LIVE PRICES
     # -----------------------------------
 
+    usd_to_gbp = (
+            FXService.get_usd_gbp()
+        )
+
     inventory_df[
             "current_price"
         ] = inventory_df[
@@ -354,7 +362,12 @@ def build_inventory_state():
 
         inventory_df[
             "current_price"
-        ],
+        ]
+        
+        *
+        
+        usd_to_gbp
+        ,
 
         2
     )
