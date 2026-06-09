@@ -6,7 +6,7 @@ from app.engine.cgt_estimator import (
 # TEST PARAMETERS
 # -----------------------------------
 
-tax_year = "2025/2026"
+tax_year = "2025/26"
 
 taxable_income = 60000
 

@@ -1,5 +1,7 @@
 capital:
 
+  cash: 20000
+
   emergency_reserve: 50000
 
   target_cash_reserve: 50000

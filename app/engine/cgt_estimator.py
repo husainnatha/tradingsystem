@@ -13,7 +13,7 @@ from app.engine.tax_reporting import (
 
 UK_TAX_CONFIG = {
 
-    "2025/2026": {
+    "2025/26": {
 
         "CGT_ALLOWANCE":
             3000,
@@ -28,7 +28,7 @@ UK_TAX_CONFIG = {
             0.20
     },
 
-    "2024/2025": {
+    "2024/25": {
 
         "CGT_ALLOWANCE":
             3000,
@@ -57,6 +57,42 @@ def estimate_cgt(
     summary = generate_tax_year_summary(
         tax_year
     )
+
+    if tax_year not in UK_TAX_CONFIG:
+
+        raise ValueError(
+            f"Unsupported tax year: {tax_year}"
+        )
+
+    if not summary:
+
+        return {
+
+            "tax_year":
+                tax_year,
+
+            "taxable_income_gbp":
+                round(
+                    taxable_income,
+                    2
+                ),
+
+            "net_gain_gbp":
+                0,
+
+            "cgt_allowance_gbp":
+                UK_TAX_CONFIG[
+                    tax_year
+                ][
+                    "CGT_ALLOWANCE"
+                ],
+
+            "taxable_gain_gbp":
+                0,
+
+            "estimated_cgt_due_gbp":
+                0
+        }
 
     net_gain = summary[
         "net_gain_gbp"
@@ -261,3 +297,18 @@ def estimate_cgt(
                 2
             )
     }
+
+if __name__ == "__main__":
+
+    result = estimate_cgt(
+        tax_year="2025/26",
+        taxable_income=0
+    )
+
+    print()
+
+    for key, value in result.items():
+
+        print(f"{key}: {value}")
+
+    print()

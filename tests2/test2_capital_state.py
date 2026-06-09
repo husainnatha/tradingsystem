@@ -1,13 +1,12 @@
-from src.services.capital_service import (
-    CapitalService
+from app.engine.capital_engine import (
+    build_capital_state
 )
 
 
 def test_capital_state():
 
     state = (
-        CapitalService
-        .build_capital_state()
+        build_capital_state()
     )
 
     assert (

@@ -3,7 +3,7 @@ from app.engine.tax_reporting import (
 )
 
 summary = generate_tax_year_summary(
-    "2025/2026"
+    "2025/26"
 )
 
 print("\nUK TAX YEAR SUMMARY:\n")
