@@ -23,6 +23,13 @@ from app.config.tax_config import (
     get_tax_year
 )
 
+from app.config.environment import (
+
+        DASHBOARD_DIR,
+
+        get_output_suffix
+)
+
 def build_tax_dashboard():
 
     df = build_disposal_ledger()
@@ -250,10 +257,13 @@ def export_tax_dashboard_to_excel():
     # EXPORT TO EXCEL
     # -----------------------------------
 
+    env = get_output_suffix()
+
     output_path = (
 
-        "dashboard/"
-        "tax_dashboard.xlsx"
+        DASHBOARD_DIR
+
+        / f"{env}-tax_dashboard.xlsx"
     )
 
     with pd.ExcelWriter(
@@ -261,59 +271,7 @@ def export_tax_dashboard_to_excel():
         output_path,
 
         engine="openpyxl"
-    ) as writer:
 
-        summary_df.to_excel(
-
-            writer,
-
-            sheet_name="TAX_SUMMARY",
-
-            index=False
-        )
-
-        disposal_df.to_excel(
-
-            writer,
-
-            sheet_name="DISPOSAL_LEDGER",
-
-            index=False
-        )
-
-        holdings_df.to_excel(
-
-            writer,
-
-            sheet_name="HOLDINGS",
-
-            index=False
-        )
-
-        transactions_df.to_excel(
-
-            writer,
-
-            sheet_name="TRANSACTIONS",
-
-            index=False
-        )
-
-    print(
-
-        f"\nTax dashboard exported:\n"
-        f"{output_path}\n"
-    )
-
-# -----------------------------------
-# EXPORT TAX DASHBOARD
-# -----------------------------------
-
-    with pd.ExcelWriter(
-
-        output_path,
-
-        engine="openpyxl"
     ) as writer:
 
         summary_df.to_excel(

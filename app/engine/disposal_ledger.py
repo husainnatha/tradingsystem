@@ -12,8 +12,6 @@ from app.engine.matching_engine import (
 
 def build_disposal_ledger():
 
-    disposals = []
-
     session = SessionLocal()
 
     results = get_section_104_pool()
@@ -267,7 +265,25 @@ def build_disposal_ledger():
     session.close()
 
     disposals_df = pd.DataFrame(
-        ledger
+
+        ledger,
+
+        columns=[
+
+            "symbol",
+
+            "disposal_date",
+
+            "tax_year",
+
+            "quantity",
+
+            "proceeds_gbp",
+
+            "cost_basis_gbp",
+
+            "gain_loss_gbp"
+        ]
     )
 
     return disposals_df

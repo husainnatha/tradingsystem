@@ -29,7 +29,7 @@ def get_uk_tax_year(
 
     return (
         f"{start_year}/"
-        f"{end_year}"
+        f"{str(end_year)[-2:]}"
     )
 
 
@@ -38,14 +38,36 @@ def generate_tax_year_summary(
     tax_year
 ):
 
-    ledger = (
+    ledger = build_disposal_ledger()
 
-        build_disposal_ledger()
-    )
+    print("\nLEDGER")
+    print(ledger)
+    print()
 
     if ledger.empty:
 
-        return {}
+        if ledger.empty:
+
+            return {
+
+                "tax_year":
+                    tax_year,
+
+                "disposal_count":
+                    0,
+
+                "total_proceeds_gbp":
+                    0,
+
+                "total_gains_gbp":
+                    0,
+
+                "total_losses_gbp":
+                    0,
+
+                "net_gain_gbp":
+                    0
+            }
 
     filtered = (
 
@@ -130,3 +152,4 @@ def generate_tax_year_summary(
                 2
             )
     }
+
