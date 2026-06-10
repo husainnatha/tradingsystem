@@ -1,0 +1,37 @@
+uk_tax_config:
+
+  "2023/24":
+
+    cgt_allowance: 6000
+
+    basic_income_limit: 50270
+
+    basic_cgt_rate: 0.10
+
+    higher_cgt_rate: 0.20
+
+    taxable_income: 59000
+
+  "2024/25":
+
+    cgt_allowance: 3000
+
+    basic_income_limit: 50270
+
+    basic_cgt_rate: 0.10
+
+    higher_cgt_rate: 0.20
+
+    taxable_income: 59000
+
+  "2025/26":
+
+    cgt_allowance: 3000
+
+    basic_income_limit: 50270
+
+    basic_cgt_rate: 0.10
+
+    higher_cgt_rate: 0.20
+
+    taxable_income: 59000
