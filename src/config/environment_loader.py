@@ -11,29 +11,73 @@ class EnvironmentLoader:
     def load():
 
         env = (
+
             os.getenv("APP_ENV")
+
             or "prod"
         )
 
-        print(
-            f"APP_ENV={env}"
+        config = {}
+
+        config_dir = Path(
+            "config"
         )
 
-        path = (
+        # Environment
 
-            Path("config")
+        with open(
+
+            config_dir
 
             / "environments"
 
-            / f"{env}.yaml"
-        )
+            / f"{env}.yaml",
 
-        with open(
-            path,
             "r"
+
         ) as file:
 
-            return yaml.safe_load(file)
+            config["environment"] = (
+                yaml.safe_load(file)
+            )
+
+        # Tax
+
+        with open(
+
+            config_dir
+
+            / "tax"
+
+            / f"{env}.yml",
+
+            "r"
+
+        ) as file:
+
+            config["uk_tax_config"] = (
+                yaml.safe_load(file)
+            )
+
+        # Capital
+
+        with open(
+
+            config_dir
+
+            / "capital"
+
+            / f"{env}.yml",
+
+            "r"
+
+        ) as file:
+
+            config["capital"] = (
+                yaml.safe_load(file)
+            )
+
+        return config
     
     @staticmethod
     def get_environment():

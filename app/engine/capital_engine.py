@@ -1,11 +1,10 @@
 import pandas as pd
 
-from src.services.capital_service import (
-    CapitalService
-)
-
 from app.engine.portfolio_summary import (
     get_portfolio_summary
+)
+from src.config.environment_loader import (
+    EnvironmentLoader
 )
 
 def build_capital_summary():
@@ -33,25 +32,24 @@ def build_capital_summary():
 
 def build_capital_state():
 
-    config = (
-        CapitalService
-        .get_capital_config()
-    )
+    config = EnvironmentLoader.load()
 
-    cash = (
+    capital_config = (
         config[
-            "cash"
+            "capital"
         ]
     )
 
+    cash = capital_config["cash"]
+
     target_cash_reserve = (
-        config[
+        capital_config[
             "target_cash_reserve"
         ]
     )
 
     max_deployment_percent = (
-        config[
+        capital_config[
             "max_deployment_percent"
         ]
     )
