@@ -6,27 +6,51 @@ from src.config.environment_loader import (
 
 def test_environment_loader():
 
-    os.environ[
-        "APP_ENV"
-    ] = "dev"
+    # os.environ[
+    #     "APP_ENV"
+    # ] = "dev"
 
-    config = (
-        EnvironmentLoader
-        .load()
+    # config = (
+    #     EnvironmentLoader
+    #     .load()
+    # )
+
+    env = EnvironmentLoader.get_environment()
+
+    capital_config = EnvironmentLoader.load(
+        f"config/capital/{env}.yaml"
     )
 
-    assert "capital" in config
+    tax_config = EnvironmentLoader.load(
+        f"config/tax/{env}.yaml"
+    )
+
+    assert "capital" in capital_config
 
     assert (
-        config["capital"][
+        capital_config["capital"][
             "emergency_reserve"
         ]
         == 12000
     )
 
     assert (
-        config["capital"][
+        capital_config["capital"][
             "target_cash_reserve"
         ]
         == 12000
     )
+
+    assert (
+
+        tax_config["uk_tax_config"][
+            "2023/24"
+        ][
+            "cgt_allowance"
+        ]
+
+        == 6000
+    )
+
+    print(tax_config)
+    print(capital_config)

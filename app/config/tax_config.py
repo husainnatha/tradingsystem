@@ -1,3 +1,5 @@
+from datetime import date
+
 # -----------------------------------
 # UK TAX CONFIGURATION
 # -----------------------------------
@@ -39,7 +41,7 @@ UK_TAX_CONFIG = {
 }
 
 # -----------------------------------
-# TAX YEAR HELPER
+# TAX YEAR HELPER FOR TRADE DATE
 # -----------------------------------
 
 def get_tax_year(trade_date):
@@ -56,6 +58,16 @@ def get_tax_year(trade_date):
 
         f"{trade_date.year - 1}/"
         f"{str(trade_date.year)[2:]}"
+    )
+
+# -----------------------------------
+# CURRENT UK CALENDAR TAX YEAR  
+# -----------------------------------
+
+def get_current_tax_year():
+
+    return get_tax_year(
+        date.today()
     )
 
 # -----------------------------------

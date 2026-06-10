@@ -1,11 +1,21 @@
-capital:
+environment: dev
 
-  cash: 10000
+database:
 
-  emergency_reserve: 12000
+  path: data/dev.db
 
-  target_cash_reserve: 12000
+reporting:
 
-  cash_contributions: 33738.31
+  export_enabled: true
 
-  max_deployment_percent: 70
+  export_path: data/exports
+
+market:
+
+  use_cached_prices: true
+
+  refresh_prices_on_startup: false
+
+logging:
+
+  level: DEBUG
