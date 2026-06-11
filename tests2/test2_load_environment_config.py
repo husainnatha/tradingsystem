@@ -3,7 +3,7 @@ from src.config.environment_loader import (
 )
 
 
-def test_print_config():
+def test_load_environment_config():
 
     config = (
         EnvironmentLoader
