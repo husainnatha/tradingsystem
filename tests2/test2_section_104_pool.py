@@ -38,4 +38,5 @@ def test_section_104_pool_remaining():
 
             f"Cost={data['total_cost']:.2f}"
         )
+        
     assert len(results["remaining_pool"]) >= 0
