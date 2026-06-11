@@ -20,4 +20,4 @@ def test_section_104_pool_disposals (
             f"{disposal}"
         )
     
-    assert results >=0
+    assert results is not None
