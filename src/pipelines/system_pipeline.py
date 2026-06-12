@@ -302,11 +302,21 @@ class SystemPipeline:
         # -----------------------------------
         # SALE STRATEGY
         # -----------------------------------
+        
+        capital_state = (
+            build_capital_state()
+        )
+
+        required_sale_value = (
+            capital_state[
+                "required_sale_value"
+            ]
+        )
 
         sale_df = (
 
             optimise_sale_strategy(
-                target_cash=target_cash,
+                required_sale_value=required_sale_value,
                 strategy="growth"
             )
         )

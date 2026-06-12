@@ -1,1 +1,0 @@
-from app.marketdata.collect_macro_data import *

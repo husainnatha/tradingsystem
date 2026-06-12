@@ -8,14 +8,15 @@ from app.engine.ranking_engine import (
     build_ranked_inventory
 )
 
+
 # -----------------------------------
 # OPTIMISE SALE STRATEGY
 # -----------------------------------
 
 def optimise_sale_strategy(
 
-    target_cash,
-    strategy="growth"
+    required_sale_value,
+    strategy
 ):
 
     inventory_df = build_ranked_inventory(
@@ -59,13 +60,13 @@ def optimise_sale_strategy(
     # BUILD STRATEGY
     # -----------------------------------
 
-    cash_remaining = target_cash
+    sale_value_remaining = required_sale_value
 
     recommendations = []
 
     for _, row in inventory_df.iterrows():
 
-        if cash_remaining <= 0:
+        if sale_value_remaining <= 0:
 
             break
 
@@ -88,7 +89,7 @@ def optimise_sale_strategy(
         # DETERMINE SALE SIZE
         # -----------------------------------
 
-        if max_position_value <= cash_remaining:
+        if max_position_value <= sale_value_remaining:
 
             sell_qty = remaining_qty
 
@@ -96,7 +97,7 @@ def optimise_sale_strategy(
 
             sell_qty = (
 
-                cash_remaining /
+                sale_value_remaining /
 
                 current_price
             )
@@ -188,7 +189,7 @@ def optimise_sale_strategy(
                 explain_position(row)
         })
 
-        cash_remaining -= (
+        sale_value_remaining  -= (
             estimated_proceeds
         )
 

@@ -125,16 +125,16 @@ class ExportIntelligenceReportPipeline():
             build_capital_state()
         )
 
-        target_cash = (
+        required_sale_value = (
             capital_state[
-                "required_sale_for_deployment"
+                "required_sale_value"
             ]
         )
 
         sale_df = (
 
                 optimise_sale_strategy(
-                    target_cash=target_cash,
+                    required_sale_value,
                     strategy="growth"
                 )
             )
