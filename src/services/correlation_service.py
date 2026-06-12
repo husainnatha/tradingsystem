@@ -5,13 +5,16 @@ class CorrelationService:
 
     @staticmethod
     def build_return_series(
-        market_data: dict
+        market_context
     ):
 
         returns = pd.DataFrame()
 
-        for ticker, df in market_data.items():
-
+        for ticker, df in (
+            market_context
+                .get_all()
+                .items()
+        ):
             returns[ticker] = (
 
                 df["Close"]
@@ -22,7 +25,7 @@ class CorrelationService:
 
     @staticmethod
     def correlation_matrix(
-        market_data: dict
+        market_context
     ):
 
         returns = (
@@ -30,7 +33,7 @@ class CorrelationService:
             CorrelationService
             .build_return_series(
 
-                market_data
+                market_context
             )
         )
 
