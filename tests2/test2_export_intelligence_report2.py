@@ -198,6 +198,19 @@ def test_export_intelligence_report ():
         transition_df=transition_df
     )
 
-    print("report published")
-
     assert True
+    assert market_df is not None
+    assert recommendation_df is not None
+    assert position_df is not None
+    assert len(sale_df) >= 0
+    assert action_df is not None
+    assert transition_df is not None
+    assert summary is not None
+    assert portfolio_value >= 1
+    assert risk_intelligence_df is not None
+    assert capital_state is not None
+    assert target_cash >= 0
+    assert portfolio_risk_df is not None
+    assert rebalancing_df is not None
+    assert decision_df is not None
+    assert transition_df is not None

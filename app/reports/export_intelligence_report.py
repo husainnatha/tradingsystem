@@ -60,12 +60,6 @@ from app.engine.contextual_decision_engine import (
     build_contextual_decisions
 )
 
-from src.pipelines.market_pipeline import (
-    MarketPipeline
-)
-from app.engine.market_intelligence_engine import (
-    build_market_intelligence
-)
 
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
