@@ -3,7 +3,7 @@ from app.engine.strategy_comparator import (
 )
 
 
-def test_startegy_comparator_engine():
+def test_strategy_comparator_engine():
 
     required_sale_value = 100000
     

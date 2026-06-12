@@ -125,10 +125,12 @@ def test_export_intelligence_report ():
         ]
     )
 
+    required_sale_value = capital_state["required_sale_value"]
+
     sale_df = (
 
             optimise_sale_strategy(
-                target_cash=target_cash,
+                required_sale_value,
                 strategy="growth"
             )
         )

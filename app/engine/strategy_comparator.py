@@ -28,7 +28,7 @@ def compare_strategies(
 
         df = optimise_sale_strategy(
 
-            required_sale_value=required_sale_value,
+            required_sale_value,
 
             strategy=strategy
         )

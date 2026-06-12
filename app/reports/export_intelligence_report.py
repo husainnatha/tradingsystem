@@ -179,16 +179,16 @@ def export_intelligence_report(
             )
         )
 
-    target_cash = (
+    required_sale_value = (
         capital_state[
-            "required_sale_for_deployment"
+            "required_sale_value"
         ]
     )
 
     strategy_df = (
 
         compare_strategies(
-            target_cash=target_cash
+            required_sale_value
         )
     )
 

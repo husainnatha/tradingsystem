@@ -74,9 +74,20 @@ class SellPipeline:
             build_ranked_inventory()
         )
 
+        capital_state = (
+            build_capital_state()
+        )
+
+        required_sale_value = (
+            capital_state[
+                "required_sale_value"
+            ]
+        )
+
+
         sell_df = (
             optimise_sale_strategy(
-                target_cash=target_cash,
+                required_sale_value=required_sale_value,
                 strategy=strategy
             )
         )
