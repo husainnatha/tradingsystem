@@ -126,8 +126,9 @@ class ExportIntelligenceReportPipeline():
         )
 
         required_sale_value = (
+
             capital_state[
-                "required_sale_value"
+                "required_sale_for_deployment"
             ]
         )
 
