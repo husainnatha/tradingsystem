@@ -119,13 +119,11 @@ def test_export_intelligence_report ():
         build_capital_state()
     )
 
-    target_cash = (
+    required_sale_value = (
         capital_state[
             "required_sale_for_deployment"
         ]
     )
-
-    required_sale_value = capital_state["required_sale_value"]
 
     sale_df = (
 
@@ -211,7 +209,7 @@ def test_export_intelligence_report ():
     assert portfolio_value >= 1
     assert risk_intelligence_df is not None
     assert capital_state is not None
-    assert target_cash >= 0
+    assert required_sale_value >= 0
     assert portfolio_risk_df is not None
     assert rebalancing_df is not None
     assert decision_df is not None

@@ -37,10 +37,21 @@ class SellPipeline:
     def __init__(self):
 
         pass
+    
+    capital_state = (
+        build_capital_state()
+    )
+    
+    required_sale_value = (
+
+    capital_state[
+        "required_sale_for_deployment"
+    ]
+)
 
     def run_sell_analysis(
         self,
-        target_cash: float = None,
+        required_sale_value: float = None,
         strategy: str = "growth"
     ):
 
@@ -53,9 +64,9 @@ class SellPipeline:
             build_capital_state()
         )
 
-        if target_cash is None:
+        if required_sale_value is None:
 
-            target_cash = (
+            required_sale_value = (
                 capital_state[
                     "required_sale_for_deployment"
                 ]
@@ -63,7 +74,7 @@ class SellPipeline:
 
         print(
             f"Required Sale Value: "
-            f"£{target_cash:,.2f}"
+            f"£{required_sale_value:,.2f}"
         )
 
         inventory_df = (
@@ -79,8 +90,9 @@ class SellPipeline:
         )
 
         required_sale_value = (
+
             capital_state[
-                "required_sale_value"
+                "required_sale_for_deployment"
             ]
         )
 

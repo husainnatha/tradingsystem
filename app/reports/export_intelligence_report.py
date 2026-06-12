@@ -180,8 +180,9 @@ def export_intelligence_report(
         )
 
     required_sale_value = (
+
         capital_state[
-            "required_sale_value"
+            "required_sale_for_deployment"
         ]
     )
 

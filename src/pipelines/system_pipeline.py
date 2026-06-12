@@ -80,7 +80,7 @@ capital_state = (
     build_capital_state()
 )
 
-target_cash = (
+required_sale_value = (
     capital_state[
         "required_sale_for_deployment"
     ]
@@ -308,8 +308,9 @@ class SystemPipeline:
         )
 
         required_sale_value = (
+
             capital_state[
-                "required_sale_value"
+                "required_sale_for_deployment"
             ]
         )
 
