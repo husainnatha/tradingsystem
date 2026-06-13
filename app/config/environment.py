@@ -128,8 +128,8 @@ INPUT_SOURCES = {
 
     "test":
 
-        SEED_DIR
-        / "sample_transactions.csv",
+        DASHBOARD_DIR
+        / "trading_system.xlsx",
 
     "prod":
 

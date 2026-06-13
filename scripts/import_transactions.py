@@ -30,19 +30,20 @@ def import_transactions():
     # LOAD INPUT
     # -----------------------------------
 
-    if app_env == "prod" or "test":
+    if str(input_source).endswith(".xlsx"):
 
         df = pd.read_excel(
 
             input_source,
 
-            sheet_name="INPUT_TRANSACTIONS"
+            sheet_name="INPUT_TRANSACTIONS",
+
+            engine="openpyxl"
         )
 
     else:
 
         df = pd.read_csv(
-
             input_source
         )
 
