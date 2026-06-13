@@ -40,10 +40,6 @@ def generate_tax_year_summary(
 
     ledger = build_disposal_ledger()
 
-    print("\nLEDGER")
-    print(ledger)
-    print()
-
     if ledger.empty:
 
         if ledger.empty:
@@ -68,6 +64,9 @@ def generate_tax_year_summary(
                 "net_gain_gbp":
                     0
             }
+        
+    print("\nLEDGER")
+    print(ledger)
 
     filtered = (
 
@@ -152,4 +151,6 @@ def generate_tax_year_summary(
                 2
             )
     }
+
+
 

@@ -4,16 +4,16 @@ from app.engine.cgt_estimator import (
 
 def test_cgt_estimation_engine():
 
-    result = estimate_cgt(
-        tax_year="2025/26"
+    cgt_df = estimate_cgt(
+
+        tax_year="2025/26",
+        taxable_income=30000
+
     )
 
-    print()
-
-    for key, value in result.items():
+    for key, value in cgt_df.items():
 
         print(f"{key}: {value}")
 
-    print()
 
     assert True
