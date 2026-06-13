@@ -60,6 +60,14 @@ from app.engine.contextual_decision_engine import (
     build_contextual_decisions
 )
 
+from app.engine.risk_intelligence_engine import (
+    build_risk_engine
+)
+
+from src.pipelines.market_pipeline import (
+    MarketPipeline
+)
+
 
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
@@ -269,6 +277,42 @@ def export_intelligence_report(
     session.close()
 
     # -----------------------------------
+    # RISK INTELLIGENCE
+    # -----------------------------------
+
+    pipeline = MarketPipeline()
+
+    market_context = (
+        pipeline.run_watchlist(
+            "equities"
+        )
+    )
+
+    symbols = list(
+
+        market_context
+        .get_all()
+        .keys()
+    )
+
+    risk_intelligence_df = (
+
+        build_risk_engine(
+
+            symbols=symbols,
+
+            verbose=True
+        )
+
+        .sort_values(
+
+            by="asset_risk_score",
+
+            ascending=False
+        )
+    )
+
+    # -----------------------------------
     # ENSURE DIRECTORY
     # -----------------------------------
 
@@ -444,6 +488,15 @@ def export_intelligence_report(
             writer,
 
             sheet_name="CAPITAL_SUMMARY",
+
+            index=False
+        ),
+    
+        risk_intelligence_df.to_excel(
+
+            writer,
+
+            sheet_name="RISK_INTELLIGENCE",
 
             index=False
         )

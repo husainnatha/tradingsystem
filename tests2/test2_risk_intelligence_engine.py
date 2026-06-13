@@ -1,5 +1,4 @@
 from app.engine.risk_intelligence_engine import (
-
     build_risk_engine
 )
 
@@ -32,11 +31,8 @@ def test_risk_intelligence_engine():
 
             verbose=True
         )
-    )
 
-    risk_intelligence_df = (
-
-        risk_intelligence_df.sort_values(
+        .sort_values(
 
             by="asset_risk_score",
 

@@ -29,7 +29,14 @@ for env in environments:
     # SET ENVIRONMENT
     # -----------------------------------
 
-    os.environ["APP_ENV"] = env
+    #os.environ["APP_ENV"] = env
+
+    env = (
+
+            os.environ("APP_ENV")
+
+            or "test"
+        )
 
     # -----------------------------------
     # INIT DB

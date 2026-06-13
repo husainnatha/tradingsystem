@@ -14,7 +14,7 @@ class EnvironmentLoader:
 
             os.getenv("APP_ENV")
 
-            or "prod"
+            or "test"
         )
 
         config = {}
@@ -84,5 +84,5 @@ class EnvironmentLoader:
 
         return (
             os.getenv("APP_ENV")
-            or "prod"
+            or "test"
         )

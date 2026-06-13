@@ -30,7 +30,7 @@ def import_transactions():
     # LOAD INPUT
     # -----------------------------------
 
-    if app_env == "prod":
+    if app_env == "prod" or "test":
 
         df = pd.read_excel(
 

@@ -7,42 +7,9 @@ from app.engine.tax_reporting import (
     generate_tax_year_summary
 )
 
-# -----------------------------------
-# UK TAX CONFIGURATION
-# -----------------------------------
-
-UK_TAX_CONFIG = {
-
-    "2025/26": {
-
-        "CGT_ALLOWANCE":
-            3000,
-
-        "BASIC_INCOME_RATE_ALLOWANCE":
-            0,
-
-        "BASIC_CGT_RATE":
-            0.10,
-
-        "HIGHER_CGT_RATE":
-            0.20
-    },
-
-    "2024/25": {
-
-        "CGT_ALLOWANCE":
-            3000,
-
-        "BASIC_INCOME_RATE_ALLOWANCE":
-            37700,
-
-        "BASIC_CGT_RATE":
-            0.10,
-
-        "HIGHER_CGT_RATE":
-            0.20
-    }
-}
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
 
 # -----------------------------------
 # CGT ESTIMATION ENGINE
@@ -51,20 +18,40 @@ UK_TAX_CONFIG = {
 
 def estimate_cgt(
     tax_year,
-    taxable_income=0
+    taxable_income
 ):
 
+    config = (
+        EnvironmentLoader
+        .load()
+    )
+
+    tax_config = (
+
+        config[
+            "uk_tax_config"
+        ][
+            tax_year
+        ]
+    )
+
+    taxable_income = (
+
+        tax_config[
+            "taxable_income"
+        ]
+    )
+    
     summary = generate_tax_year_summary(
         tax_year
     )
 
-    if tax_year not in UK_TAX_CONFIG:
-
-        raise ValueError(
-            f"Unsupported tax year: {tax_year}"
-        )
-
     if not summary:
+
+        summary = {
+
+            "net_gain_gbp": 0
+        }
 
         return {
 
@@ -81,10 +68,7 @@ def estimate_cgt(
                 0,
 
             "cgt_allowance_gbp":
-                UK_TAX_CONFIG[
-                    tax_year
-                ][
-                    "CGT_ALLOWANCE"
+                tax_config["cgt_allowance"
                 ],
 
             "taxable_gain_gbp":
@@ -98,12 +82,8 @@ def estimate_cgt(
         "net_gain_gbp"
     ]
 
-    tax_config = UK_TAX_CONFIG[
-        tax_year
-    ]
-
     allowance = tax_config[
-        "CGT_ALLOWANCE"
+        "cgt_allowance"
     ]
 
     carried_losses = (
@@ -113,15 +93,15 @@ def estimate_cgt(
     )
 
     basic_band_limit = tax_config[
-        "BASIC_INCOME_RATE_ALLOWANCE"
+        "basic_income_limit"
     ]
 
     basic_cgt_rate = tax_config[
-        "BASIC_CGT_RATE"
+        "basic_cgt_rate"
     ]
 
     higher_cgt_rate = tax_config[
-        "HIGHER_CGT_RATE"
+        "higher_cgt_rate"
     ]
 
     # -----------------------------------
@@ -298,17 +278,18 @@ def estimate_cgt(
             )
     }
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    result = estimate_cgt(
-        tax_year="2025/26",
-        taxable_income=0
-    )
 
-    print()
+#     result = estimate_cgt(
+#         tax_year,
+#         taxable_income
+#     )
 
-    for key, value in result.items():
+#     print()
 
-        print(f"{key}: {value}")
+#     for key, value in result.items():
 
-    print()
+#         print(f"{key}: {value}")
+
+#     print()
