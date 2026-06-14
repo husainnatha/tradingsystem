@@ -21,4 +21,3 @@ def test_disposal_simulator_engine():
 
     assert True
     assert(result) is not None
-assert True

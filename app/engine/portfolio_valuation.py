@@ -22,13 +22,9 @@ def get_portfolio_valuation():
 
     for symbol, data in remaining_pool.items():
 
-        quantity = data[
-            "total_quantity"
-        ]
+        quantity = data["total_quantity"]
 
-        total_cost = data[
-            "total_cost"
-        ]
+        total_cost = data["total_cost"]
 
         if quantity <= 0:
 
@@ -42,9 +38,19 @@ def get_portfolio_valuation():
         )
 
         current_price_usd = (
+
             PriceCacheService
             .get_price(symbol)
         )
+
+        if current_price_usd is None:
+
+            current_price_usd = 0
+
+            print(
+                f"WARNING: "
+                f"No market price for {symbol}"
+            )
 
         usd_to_gbp = (
             FXService.get_usd_gbp()
@@ -79,13 +85,13 @@ def get_portfolio_valuation():
                 round(average_cost, 2),
 
             "current_price_usd":
-                round(current_price_gbp, 2),
+                round(current_price_usd, 2),
 
             "current_price_gbp":
                 round(current_price_gbp, 2),
-            
+
             "usd_to_gbp":
-                round(current_price_gbp, 2),
+                round(usd_to_gbp, 4),
 
             "market_value":
                 round(market_value, 2),
@@ -94,4 +100,4 @@ def get_portfolio_valuation():
                 round(unrealised_pl, 2)
         })
 
-    return portfolio
+        return portfolio
