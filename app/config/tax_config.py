@@ -1,44 +1,8 @@
 from datetime import date
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
 
-# -----------------------------------
-# UK TAX CONFIGURATION
-# -----------------------------------
-
-UK_TAX_CONFIG = {
-
-    "2023/24": {
-
-        "cgt_allowance": 6000,
-
-        "basic_income_limit": 50270,
-
-        "basic_cgt_rate": 0.10,
-
-        "higher_cgt_rate": 0.20
-    },
-
-    "2024/25": {
-
-        "cgt_allowance": 3000,
-
-        "basic_income_limit": 50270,
-
-        "basic_cgt_rate": 0.10,
-
-        "higher_cgt_rate": 0.20
-    },
-
-    "2025/26": {
-
-        "cgt_allowance": 3000,
-
-        "basic_income_limit": 50270,
-
-        "basic_cgt_rate": 0.10,
-
-        "higher_cgt_rate": 0.20
-    }
-}
 
 # -----------------------------------
 # TAX YEAR HELPER FOR TRADE DATE
@@ -76,7 +40,18 @@ def get_current_tax_year():
 
 def get_tax_config(tax_year):
 
-    if tax_year not in UK_TAX_CONFIG:
+    config = (
+        EnvironmentLoader
+        .load()
+    )
+
+    tax_config = (
+        config[
+            "uk_tax_config"
+        ]
+    )
+
+    if tax_year not in tax_config:
 
         raise Exception(
 
@@ -84,4 +59,6 @@ def get_tax_config(tax_year):
             f"for {tax_year}"
         )
 
-    return UK_TAX_CONFIG[tax_year]
+    return tax_config[
+        tax_year
+    ]

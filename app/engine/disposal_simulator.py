@@ -4,10 +4,10 @@ from app.engine.inventory_engine import (
     build_inventory_state
 )
 
-from app.config.tax_config import (
-    UK_TAX_CONFIG
-)
 
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
 # -----------------------------------
 # SIMULATE DISPOSAL
 # -----------------------------------
@@ -146,11 +146,21 @@ def simulate_sale(
         proceeds - allowable_cost
     )
 
-    config = UK_TAX_CONFIG[
-        tax_year
-    ]
+    config = (
+        EnvironmentLoader
+        .load()
+    )
 
-    allowance = config[
+    tax_config = (
+
+        config[
+            "uk_tax_config"
+        ][
+            tax_year
+        ]
+    )
+
+    allowance = tax_config[
         "cgt_allowance"
     ]
 
@@ -165,7 +175,7 @@ def simulate_sale(
 
         taxable_gain *
 
-        config[
+        tax_config[
             "higher_cgt_rate"
         ]
     )

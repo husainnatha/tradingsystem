@@ -16,11 +16,14 @@ def test_disposal_ledger():
         
     else:
 
-        print(ledger)
+        print()
 
-        print(
-            "\nTax Years:",
-            ledger["tax_year"].unique()
-        )
+        print("Columns:")
+        print(ledger.columns)
+
+        print()
+
+        print("Tax Years:")
+        print(ledger["tax_year"].unique())
 
     assert True

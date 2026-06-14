@@ -58,8 +58,6 @@ def generate_tax_year_summary(
                     0
             }
         
-    print("\nLEDGER")
-    print(ledger)
 
     filtered = (
 
@@ -144,6 +142,5 @@ def generate_tax_year_summary(
                 2
             )
     }
-
 
 
