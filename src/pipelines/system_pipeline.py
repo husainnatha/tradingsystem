@@ -78,16 +78,6 @@ from app.engine.capital_engine import (
 
 class SystemPipeline:
 
-    capital_state = (
-        build_capital_state()
-    )
-
-    required_sale_value = (
-        capital_state[
-            "required_sale_for_deployment"
-        ]
-    )
-
     def __init__(self):
 
         self.market_pipeline = (
@@ -148,6 +138,15 @@ class SystemPipeline:
             
         self
     ):
+        capital_state = (
+            build_capital_state()
+        )
+
+        required_sale_value = (
+            capital_state[
+                "required_sale_for_deployment"
+            ]
+        )
 
         print(
             "Building market intelligence..."

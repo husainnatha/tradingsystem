@@ -39,3 +39,10 @@ trade_date,account,symbol,action,quantity,trade_currency,trade_price,fees,fx_rat
 15/02/2026,IBKR,LWLG,SELL,100,USD,40.00,1.00,0.80,Large capital loss
 01/03/2026,IBKR,NKE,BUY,500,USD,20.00,1.00,0.80,Gain after losses
 20/03/2026,IBKR,NKE,SELL,500,USD,40.00,1.00,0.80,Gain offset by carried losses
+01/05/2026,IBKR,INTC,BUY,200,USD,10.00,1.00,0.80,Partial disposal setup
+15/05/2026,IBKR,INTC,SELL,50,USD,20.00,1.00,0.80,Partial disposal
+20/06/2026,IBKR,INTC,SELL,50,USD,22.00,1.00,0.80,Second partial disposal
+01/06/2026,IBKR,LWLG,BUY,100,USD,100.00,1.00,0.80,Large loss scenario
+15/06/2026,IBKR,LWLG,SELL,100,USD,40.00,1.00,0.80,Large capital loss
+01/07/2026,IBKR,NKE,BUY,500,USD,20.00,1.00,0.80,Gain after losses
+20/07/2026,IBKR,NKE,SELL,500,USD,40.00,1.00,0.80,Gain offset by carried losses
