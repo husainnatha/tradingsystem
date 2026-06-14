@@ -18,9 +18,10 @@ from src.config.environment_loader import (
 
 def estimate_cgt(
     tax_year,
-    taxable_income
+    taxable_income,
+    ledger
 ):
-
+ 
     config = (
         EnvironmentLoader
         .load()
@@ -43,7 +44,10 @@ def estimate_cgt(
     )
     
     summary = generate_tax_year_summary(
-        tax_year
+
+        tax_year=tax_year,
+
+        ledger=ledger
     )
 
     if not summary:
