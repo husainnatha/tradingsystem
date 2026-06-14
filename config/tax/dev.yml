@@ -33,3 +33,15 @@
   higher_cgt_rate: 0.20
 
   taxable_income: 59000
+
+"2026/27":
+
+  cgt_allowance: 3000
+
+  basic_income_limit: 50270
+
+  basic_cgt_rate: 0.10
+
+  higher_cgt_rate: 0.20
+
+  taxable_income: 59000

@@ -1,10 +1,5 @@
 from datetime import date
 
-from app.engine.disposal_ledger import (
-    build_disposal_ledger
-)
-
-
 def get_uk_tax_year(
     disposal_date
 ):
@@ -34,11 +29,9 @@ def get_uk_tax_year(
 
 
 def generate_tax_year_summary(
-
-    tax_year
+    tax_year,
+    ledger
 ):
-
-    ledger = build_disposal_ledger()
 
     if ledger.empty:
 

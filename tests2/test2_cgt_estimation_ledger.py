@@ -4,8 +4,8 @@ from app.engine.cgt_estimation_ledger import (
 
 def test_cgt_estimation_ledger():
 
-    ledger_df = build_cgt_estimation_ledger()
+    cgt_ledger_df = build_cgt_estimation_ledger()
 
-    print(ledger_df)
+    print(cgt_ledger_df)
 
     assert True

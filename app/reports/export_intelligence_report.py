@@ -68,6 +68,38 @@ from src.pipelines.market_pipeline import (
     MarketPipeline
 )
 
+from app.engine.portfolio_risk_engine import (
+    build_portfolio_risk
+)
+
+from app.engine.capital_engine import (
+    build_capital_state
+)
+
+from app.engine.cgt_estimation_ledger import (
+    build_cgt_estimation_ledger
+)
+
+from app.engine.cgt_estimator import (
+    estimate_cgt
+)
+
+
+from app.engine.tax_reporting import (
+    generate_tax_year_summary
+)
+
+from src.config.environment_loader import (
+    EnvironmentLoader
+)
+
+from app.config.tax_config import (
+    get_current_tax_year
+)
+
+from app.engine.disposal_ledger import (
+        build_disposal_ledger
+    )
 
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
@@ -201,10 +233,10 @@ def export_intelligence_report(
         )
     )
 
-    print(
-        f"Required Sale Value: "
-        f"£{capital_state['required_sale_for_deployment']:,.2f}"
-    )
+    # print(
+    #     f"Required Sale Value: "
+    #     f"£{capital_state['required_sale_for_deployment']:,.2f}"
+    # )
 
     buy_df = (
 
@@ -311,6 +343,96 @@ def export_intelligence_report(
             ascending=False
         )
     )
+
+    # -----------------------------------
+    # PORTFOLIO RISK
+    # -----------------------------------
+
+    portfolio_risk_df = (
+        build_portfolio_risk(
+            market_context=market_context
+        )
+    )
+
+    # -----------------------------------
+    # CAPITAL_STATE
+    # -----------------------------------
+
+    capital_state = (
+            build_capital_state()
+        )
+    
+    capital_state_df = pd.DataFrame([
+
+        capital_state
+
+    ])
+    # -----------------------------------
+    # CGT ESTIMATION CURRENT TAX YEAR
+    # -----------------------------------
+
+    tax_year = get_current_tax_year()
+
+    config = (
+        EnvironmentLoader
+        .load()
+    )
+
+    tax_config = (
+
+        config[
+            "uk_tax_config"
+        ][
+            tax_year
+        ]
+    )
+
+    taxable_income = (
+
+        tax_config[
+            "taxable_income"
+        ]
+    )
+
+    ledger = (
+
+        build_disposal_ledger()
+    )
+
+    cgt_current_tax_year = ( 
+
+            estimate_cgt(
+                tax_year=tax_year,
+                taxable_income=taxable_income,
+                ledger=ledger
+            )
+    )
+
+    cgt_current_tax_year_df = pd.DataFrame([
+
+        cgt_current_tax_year
+    ])
+
+    # -----------------------------------
+    # CGT ESTIMATION LEDGER
+    # -----------------------------------
+
+    cgt_ledger_df = build_cgt_estimation_ledger()
+
+    # -----------------------------------
+    # TAX YEAR SUMMARY
+    # -----------------------------------
+
+    tax_year_summary = generate_tax_year_summary(
+            tax_year=tax_year,
+            ledger=ledger
+        )
+
+    tax_year_summary_df = pd.DataFrame([
+
+        tax_year_summary
+
+    ])
 
     # -----------------------------------
     # ENSURE DIRECTORY
@@ -497,6 +619,72 @@ def export_intelligence_report(
             writer,
 
             sheet_name="RISK_INTELLIGENCE",
+
+            index=False
+        ),
+
+        portfolio_risk_df.to_excel(
+
+            writer,
+
+            sheet_name="PORTFOLIO_RISK",
+
+            index=False
+        ),
+    
+        capital_state_df.to_excel(
+
+            writer,
+
+            sheet_name="CAPITAL_STATE",
+
+            index=False
+        ),
+    
+        cgt_current_tax_year_df.to_excel(
+
+            writer,
+
+            sheet_name="CGT_CURRENT_TAX_YEAR",
+
+            index=False
+        ),
+    
+        cgt_ledger_df.to_excel(
+
+            writer,
+
+            sheet_name="CGT_LEDGER",
+
+            index=False
+        ),
+
+        if not tax_year_summary:
+
+            tax_year_summary_df = pd.DataFrame(
+                columns=[
+                    "Metric",
+                    "Value"
+                ]
+            )
+
+        else:
+
+            tax_year_summary_df = pd.DataFrame([
+
+                {
+                    "Metric": key,
+                    "Value": value
+                }
+
+                for key, value in tax_year_summary.items()
+            ])
+    
+        tax_year_summary_df.to_excel(
+
+            writer,
+
+            sheet_name="CGT_TAX_YEAR",
 
             index=False
         )
