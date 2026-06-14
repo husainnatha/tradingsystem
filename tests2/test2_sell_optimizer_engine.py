@@ -2,18 +2,13 @@ from app.engine.sell_optimizer import (
     optimise_sale_strategy
 )
 
-from app.engine.capital_engine import (
-    build_capital_state
-)
 
 def test_optimse_sale_startegy():
 
-    capital_state = build_capital_state()
-    required_sale_value = 10000 #capital_state["required_sale_for_deployment"]
 
     df = optimise_sale_strategy(
 
-        required_sale_value=required_sale_value,
+        required_sale_value=100000,
         strategy="growth"
     )
 

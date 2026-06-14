@@ -49,23 +49,23 @@ build_rebalancing
 )
 
 from app.engine.transition_engine import (
-build_transition_plan
+    build_transition_plan
 )
 
 from app.engine.decision_engine import (
-build_decisions
+    build_decisions
 )
 
 from app.engine.portfolio_summary import (
-get_portfolio_summary
+    get_portfolio_summary
 )
 
 from app.engine.risk_intelligence_engine import (
-build_risk_engine
+    build_risk_engine
 )
 
 from src.pipelines.market_pipeline import (
-MarketPipeline
+    MarketPipeline
 )
 
 from src.config.environment_loader import (
@@ -76,17 +76,17 @@ from app.engine.capital_engine import (
     build_capital_state
 )
 
-capital_state = (
-    build_capital_state()
-)
-
-required_sale_value = (
-    capital_state[
-        "required_sale_for_deployment"
-    ]
-)
-
 class SystemPipeline:
+
+    capital_state = (
+        build_capital_state()
+    )
+
+    required_sale_value = (
+        capital_state[
+            "required_sale_for_deployment"
+        ]
+    )
 
     def __init__(self):
 
@@ -143,7 +143,9 @@ class SystemPipeline:
 
         build_tax_dashboard()
 
+
     def build_market_analysis(
+            
         self
     ):
 
