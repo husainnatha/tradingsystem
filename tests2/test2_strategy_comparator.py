@@ -28,4 +28,3 @@ def test_strategy_comparator_engine():
         )
 
     assert True
-assert True

@@ -1,9 +1,9 @@
-cash: 10000
+cash: 25000
 
 emergency_reserve: 12000
 
 target_cash_reserve: 12000
 
-cash_contributions: 33738.31
+cash_contributions: 22000
 
-max_deployment_percent: 70
+max_deployment_percent: 50

@@ -1,8 +1,8 @@
 "2023/24":
 
-  cgt_allowance: 6000
+  cgt_allowance: 3000
 
-  basic_income_limit: 50270
+  basic_income_limit: 38123
 
   basic_cgt_rate: 0.10
 
@@ -14,7 +14,7 @@
 
   cgt_allowance: 3000
 
-  basic_income_limit: 50270
+  basic_income_limit: 38123
 
   basic_cgt_rate: 0.10
 
@@ -26,7 +26,7 @@
 
   cgt_allowance: 3000
 
-  basic_income_limit: 50270
+  basic_income_limit: 38123
 
   basic_cgt_rate: 0.10
 
@@ -38,7 +38,7 @@
 
   cgt_allowance: 3000
 
-  basic_income_limit: 50270
+  basic_income_limit: 38123
 
   basic_cgt_rate: 0.10
 
