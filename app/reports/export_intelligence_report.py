@@ -101,6 +101,10 @@ from app.engine.disposal_ledger import (
         build_disposal_ledger
     )
 
+from app.engine.sell_optimizer import (
+    optimise_sale_strategy
+)
+
 # -----------------------------------
 # EXPORT INTELLIGENCE REPORT
 # -----------------------------------
@@ -109,9 +113,9 @@ def export_intelligence_report(
     market_df,
     recommendation_df,
     position_df,
-    sale_df,
     action_df,
     transition_df,
+    sale_df,
     capital_df=None,
     macro_df=None,
     opportunity_df=None,
@@ -229,7 +233,7 @@ def export_intelligence_report(
     strategy_df = (
 
         compare_strategies(
-            required_sale_value
+            required_sale_value=10000
         )
     )
 
@@ -248,9 +252,24 @@ def export_intelligence_report(
         position_df
     )
 
-    sell_df = (
+    capital_state = (
+            build_capital_state()
+        )
 
-        sale_df
+    required_sale_value = (
+
+            capital_state[
+                "required_sale_for_deployment"
+            ]
+        )
+
+    sale_df = (
+
+        optimise_sale_strategy(
+
+            required_sale_value=10000,
+            strategy="growth"
+        )
     )
 
     actions_df = (
@@ -533,7 +552,7 @@ def export_intelligence_report(
             index=False
         )
 
-        sell_df.to_excel(
+        sale_df.to_excel(
 
             writer,
 

@@ -24,3 +24,11 @@ def test_capital_state():
             "target_invested_value"
         ] >= 0
     )
+
+    print()
+
+    for key, value in state.items():
+
+        print(f"{key}: {value}")
+
+    assert True

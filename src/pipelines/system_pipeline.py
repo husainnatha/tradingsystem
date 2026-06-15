@@ -318,7 +318,7 @@ class SystemPipeline:
         sale_df = (
 
             optimise_sale_strategy(
-                required_sale_value=required_sale_value,
+                required_sale_value=10000,
                 strategy="growth"
             )
         )
