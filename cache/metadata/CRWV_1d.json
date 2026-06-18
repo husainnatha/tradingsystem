@@ -1,0 +1,7 @@
+{
+    "ticker": "CRWV",
+    "interval": "1d",
+    "source": "yfinance",
+    "rows": 307,
+    "last_updated": "2026-06-18T18:42:11.753747"
+}

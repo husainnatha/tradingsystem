@@ -28,7 +28,7 @@ def test_environment_loader():
     assert (
 
         config["uk_tax_config"][
-            "2023/24"
+            "2025/26"
         ][
             "cgt_allowance"
         ]
