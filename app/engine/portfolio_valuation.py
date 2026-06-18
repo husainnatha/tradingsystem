@@ -22,7 +22,7 @@ def get_portfolio_valuation():
 
     usd_to_gbp = (
             FXService.get_usd_gbp()
-        )
+    )
 
     for symbol, data in remaining_pool.items():
 
@@ -49,26 +49,26 @@ def get_portfolio_valuation():
 
         current_price_usd = (
 
-    PriceCacheService
-    .get_price(symbol)
-    )
+            PriceCacheService
+            .get_price(symbol)
+            )
 
-    price_available = True
+        price_available = True
 
-    if current_price_usd is None:
+        if current_price_usd is None:
 
-        price_available = False
+            price_available = False
 
-        current_price_usd = 0
+            current_price_usd = 0
 
-        print(
-            f"WARNING: "
-            f"No market price for {symbol}"
-        )
+            print(
+                f"WARNING: "
+                f"No market price for {symbol}"
+            )
 
-        usd_to_gbp = (
-            FXService.get_usd_gbp()
-        )
+            usd_to_gbp = (
+                FXService.get_usd_gbp()
+            )
 
         current_price_gbp = (
             current_price_usd *
@@ -117,4 +117,5 @@ def get_portfolio_valuation():
                 round(price_available, 2)
         })
 
+    
     return portfolio
