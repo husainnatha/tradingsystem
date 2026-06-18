@@ -2,12 +2,15 @@ import json
 
 from pathlib import Path
 from datetime import datetime
+from app.config.environment import(
+     BASE_DIR
+ )
 
 
 class MetadataRegistry:
 
     METADATA_DIR = Path(
-        "cache/metadata"
+        BASE_DIR/"cache/metadata"
     )
 
     @classmethod

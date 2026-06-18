@@ -64,16 +64,8 @@ from app.engine.risk_intelligence_engine import (
     build_risk_engine
 )
 
-from src.pipelines.market_pipeline import (
-    MarketPipeline
-)
-
 from app.engine.portfolio_risk_engine import (
     build_portfolio_risk
-)
-
-from app.engine.capital_engine import (
-    build_capital_state
 )
 
 from app.engine.cgt_estimation_ledger import (
@@ -101,8 +93,8 @@ from app.engine.disposal_ledger import (
         build_disposal_ledger
     )
 
-from app.engine.sell_optimizer import (
-    optimise_sale_strategy
+from src.pipelines.market_pipeline import (
+    MarketPipeline
 )
 
 # -----------------------------------
@@ -199,10 +191,6 @@ def export_intelligence_report(
         build_sector_exposure()
     )
 
-    capital_state = (
-        build_capital_state()
-    )
-
     if capital_df is None:
         capital_df = build_capital_summary()
 
@@ -222,18 +210,21 @@ def export_intelligence_report(
                 opportunity_df
             )
         )
-
-    required_sale_value = (
-
-        capital_state[
-            "required_sale_for_deployment"
-        ]
+    
+    capital_state = (
+        build_capital_state()
     )
+
 
     strategy_df = (
 
         compare_strategies(
-            required_sale_value=10000
+
+            analysis_sale_value=
+
+                capital_state[
+                    "analysis_sale_value"
+                ]
         )
     )
 
@@ -250,26 +241,6 @@ def export_intelligence_report(
     sizing_df = (
 
         position_df
-    )
-
-    capital_state = (
-            build_capital_state()
-        )
-
-    required_sale_value = (
-
-            capital_state[
-                "required_sale_for_deployment"
-            ]
-        )
-
-    sale_df = (
-
-        optimise_sale_strategy(
-
-            required_sale_value=10000,
-            strategy="growth"
-        )
     )
 
     actions_df = (
@@ -376,10 +347,6 @@ def export_intelligence_report(
     # -----------------------------------
     # CAPITAL_STATE
     # -----------------------------------
-
-    capital_state = (
-            build_capital_state()
-        )
     
     capital_state_df = pd.DataFrame([
 
@@ -452,6 +419,27 @@ def export_intelligence_report(
         tax_year_summary
 
     ])
+
+    if not tax_year_summary:
+
+            tax_year_summary_df = pd.DataFrame(
+                columns=[
+                    "Metric",
+                    "Value"
+                ]
+            )
+
+    else:
+
+        tax_year_summary_df = pd.DataFrame([
+
+            {
+                "Metric": key,
+                "Value": value
+            }
+
+            for key, value in tax_year_summary.items()
+        ])
 
     # -----------------------------------
     # ENSURE DIRECTORY
@@ -678,27 +666,6 @@ def export_intelligence_report(
             index=False
         ),
 
-        if not tax_year_summary:
-
-            tax_year_summary_df = pd.DataFrame(
-                columns=[
-                    "Metric",
-                    "Value"
-                ]
-            )
-
-        else:
-
-            tax_year_summary_df = pd.DataFrame([
-
-                {
-                    "Metric": key,
-                    "Value": value
-                }
-
-                for key, value in tax_year_summary.items()
-            ])
-    
         tax_year_summary_df.to_excel(
 
             writer,

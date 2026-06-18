@@ -138,15 +138,6 @@ class SystemPipeline:
             
         self
     ):
-        capital_state = (
-            build_capital_state()
-        )
-
-        required_sale_value = (
-            capital_state[
-                "required_sale_for_deployment"
-            ]
-        )
 
         print(
             "Building market intelligence..."
@@ -308,19 +299,14 @@ class SystemPipeline:
             build_capital_state()
         )
 
-        required_sale_value = (
+        sale_df = optimise_sale_strategy(
 
-            capital_state[
-                "required_sale_for_deployment"
-            ]
-        )
+            analysis_sale_value=
+                capital_state[
+                    "analysis_sale_value"
+                ],
 
-        sale_df = (
-
-            optimise_sale_strategy(
-                required_sale_value=10000,
-                strategy="growth"
-            )
+            strategy="growth"
         )
 
         return {

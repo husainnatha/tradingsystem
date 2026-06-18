@@ -10,7 +10,7 @@ from app.engine.sell_optimizer import (
 
 def compare_strategies(
 
-    required_sale_value=10000
+    analysis_sale_value
 ):
 
     strategies = [
@@ -28,7 +28,7 @@ def compare_strategies(
 
         df = optimise_sale_strategy(
 
-            required_sale_value=10000,
+            analysis_sale_value,
 
             strategy=strategy
         )

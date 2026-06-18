@@ -145,12 +145,12 @@ def build_capital_state():
         2
     )
 
-    required_sale_value = max(
+    # required_sale_value = max(
 
-        0,
+    #     0,
 
-        deployment_difference
-    )
+    #     deployment_difference
+    # )
 
     available_cash = max(
 
@@ -172,6 +172,7 @@ def build_capital_state():
     )
 
     required_sale_for_cash = (
+        
         cash_shortfall
     )
 
@@ -188,7 +189,14 @@ def build_capital_state():
 
         <=
 
-        portfolio_value
+        invested_value
+    )
+
+    analysis_sale_value = max(
+
+        required_sale_for_deployment,
+
+        target_cash_reserve
     )
 
     if cash_funding_ratio < 0.5:
@@ -253,17 +261,14 @@ def build_capital_state():
         "deployment_difference":
             deployment_difference,
 
-        "required_sale_value":
-            required_sale_value,
+        "analysis_sale_value":
+            analysis_sale_value,
 
         "available_cash":
             available_cash,
 
         "deployable_capital":
             deployable_capital,
-
-        "required_sale_for_cash":
-            required_sale_for_cash,
 
         "required_sale_for_deployment":
             required_sale_for_deployment,

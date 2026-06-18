@@ -8,7 +8,7 @@ def test_optimse_sale_startegy():
 
     df = optimise_sale_strategy(
 
-        required_sale_value=100000,
+        analysis_sale_value=25000,
         strategy="growth"
     )
 

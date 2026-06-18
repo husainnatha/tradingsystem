@@ -1,12 +1,13 @@
 venv/
 __pycache__/
 *.pyc
-*cache*
 .vscode/
 .pytest_cache/
+*cache/
 *docs/
 pytest.ini
 *dashboard/*.xlsx
 *data/*
 *.xlsx*
 *.csv
+*.db
