@@ -3,11 +3,10 @@ __pycache__/
 *.pyc
 .vscode/
 .pytest_cache/
-*cache/
 *docs/
 pytest.ini
 *dashboard/*.xlsx
+*.csv
 *data/*
 *.xlsx*
-*.csv
 *.db

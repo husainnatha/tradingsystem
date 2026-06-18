@@ -1,0 +1,7 @@
+{
+    "ticker": "BMW.DE",
+    "interval": "1d",
+    "source": "yfinance",
+    "rows": 507,
+    "last_updated": "2026-06-18T18:42:13.600297"
+}
