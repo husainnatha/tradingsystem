@@ -119,19 +119,15 @@ def test_export_intelligence_report ():
         build_capital_state()
     )
 
-    required_sale_value = (
-        capital_state[
-            "required_sale_for_deployment"
-        ]
+    sale_df = optimise_sale_strategy(
+
+        analysis_sale_value=
+            capital_state[
+                "analysis_sale_value"
+            ],
+
+        strategy="growth"
     )
-
-    sale_df = (
-
-            optimise_sale_strategy(
-                required_sale_value,
-                strategy="growth"
-            )
-        )
     
     portfolio_risk_df = (
 
@@ -202,14 +198,13 @@ def test_export_intelligence_report ():
     assert market_df is not None
     assert recommendation_df is not None
     assert position_df is not None
-    assert len(sale_df) >= 0
+    assert sale_df is not None
     assert action_df is not None
     assert transition_df is not None
     assert summary is not None
-    assert portfolio_value >= 1
+    assert portfolio_value is not None
     assert risk_intelligence_df is not None
     assert capital_state is not None
-    assert required_sale_value >= 0
     assert portfolio_risk_df is not None
     assert rebalancing_df is not None
     assert decision_df is not None

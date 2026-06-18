@@ -1,11 +1,17 @@
 from pathlib import Path
 import yaml
 
+from app.config.environment import (
+    BASE_DIR
+)
+
 
 class WatchlistLoader:
 
     WATCHLIST_DIR = Path(
-        "config/watchlists"
+        BASE_DIR
+        / "config"
+        / "watchlists"
     )
 
     @classmethod

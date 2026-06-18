@@ -9,7 +9,7 @@ def build_contextual_decisions(opportunity_df):
     # --- Capital State ---
     capital_state = build_capital_state()
     capital_status = capital_state["capital_status"]
-    required_sale_value = capital_state["required_sale_value"]
+    required_sale_for_deployment = capital_state["required_sale_for_deployment"]
     cash_shortfall = capital_state["cash_shortfall"]
 
     # --- Macro Regime ---
@@ -29,11 +29,11 @@ def build_contextual_decisions(opportunity_df):
             "reason": "Cash reserve below target"
         })
 
-    if required_sale_value > 0:
+    if required_sale_for_deployment > 0:
         decisions.append({
             "priority": 2,
             "decision": "TRIM_POSITIONS",
-            "reason": f"Portfolio overdeployed by £{required_sale_value:,.2f}"
+            "reason": f"Portfolio overdeployed by £{required_sale_for_deployment:,.2f}"
         })
 
     if regime == "RISK_OFF":

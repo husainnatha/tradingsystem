@@ -15,7 +15,7 @@ from app.engine.ranking_engine import (
 
 def optimise_sale_strategy(
 
-    required_sale_value,
+    analysis_sale_value,
     strategy
 ):
 
@@ -60,7 +60,9 @@ def optimise_sale_strategy(
     # BUILD STRATEGY
     # -----------------------------------
 
-    sale_value_remaining = required_sale_value
+    sale_value_remaining = (
+        analysis_sale_value
+    )
 
     recommendations = []
 

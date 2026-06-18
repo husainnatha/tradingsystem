@@ -7,7 +7,7 @@ def test_strategy_comparator_engine():
 
     df = compare_strategies(
 
-        required_sale_value=100000
+        analysis_sale_value=100000
     )
 
     print("\nSTRATEGY COMPARISON:\n")
