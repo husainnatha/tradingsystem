@@ -1,0 +1,506 @@
+TICKER_METADATA = {
+
+    "AAOI": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "OPTICAL_NETWORKING",
+        "themes": ["AI", "PHOTONICS", "NETWORKING"]
+    },
+
+    "AAPL": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CONSUMER_TECH",
+        "themes": ["AI", "ECOSYSTEM"]
+    },
+
+    "ADBE": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_SOFTWARE",
+        "themes": ["AI", "CREATIVE_SOFTWARE"]
+    },
+
+    "AEHR": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTOR_EQUIPMENT",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "AI": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_SOFTWARE",
+        "themes": ["AI"]
+    },
+
+    "ALAB": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_INFRASTRUCTURE",
+        "themes": ["AI", "DATA_CENTRES"]
+    },
+
+    "AMBA": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI", "AUTONOMY"]
+    },
+
+    "AMD": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI"]
+    },
+
+    "AMZN": {
+        "sector": "CONSUMER",
+        "sub_sector": "CLOUD",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "ANET": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_INFRASTRUCTURE",
+        "themes": ["AI", "NETWORKING", "DATA_CENTRES"]
+    },
+
+    "APP": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "ADTECH",
+        "themes": ["AI"]
+    },
+
+    "ARKK": {
+        "sector": "ETF",
+        "sub_sector": "THEMATIC_ETF",
+        "themes": ["AI", "INNOVATION"]
+    },
+
+    "ARM": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI"]
+    },
+
+    "ASML": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTOR_EQUIPMENT",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "AVGO": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI", "NETWORKING"]
+    },
+
+    "BBAI": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_SOFTWARE",
+        "themes": ["AI"]
+    },
+
+    "CDNS": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "EDA_SOFTWARE",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "CEG": {
+        "sector": "UTILITIES",
+        "sub_sector": "POWER_GENERATION",
+        "themes": ["ENERGY", "AI"]
+    },
+
+    "CRDO": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_INFRASTRUCTURE",
+        "themes": ["AI", "NETWORKING"]
+    },
+
+    "CRWD": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CYBERSECURITY",
+        "themes": ["CYBERSECURITY", "CLOUD"]
+    },
+
+    "CRWV": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_INFRASTRUCTURE",
+        "themes": ["AI", "DATA_CENTRES"]
+    },
+
+    "CSCO": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "NETWORKING",
+        "themes": ["NETWORKING"]
+    },
+
+    "DDOG": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "OBSERVABILITY",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "DELL": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_INFRASTRUCTURE",
+        "themes": ["AI", "DATA_CENTRES"]
+    },
+
+    "DT": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "OBSERVABILITY",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "ENVX": {
+        "sector": "INDUSTRIALS",
+        "sub_sector": "ENERGY_STORAGE",
+        "themes": ["ENERGY"]
+    },
+
+    "ETN": {
+        "sector": "INDUSTRIALS",
+        "sub_sector": "POWER_INFRASTRUCTURE",
+        "themes": ["ENERGY", "DATA_CENTRES"]
+    },
+
+    "FIVN": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "COMMUNICATIONS_SOFTWARE",
+        "themes": ["CLOUD"]
+    },
+
+    "FTNT": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CYBERSECURITY",
+        "themes": ["CYBERSECURITY"]
+    },
+
+    "GOOG": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "INTERNET_PLATFORM",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "HOOD": {
+        "sector": "FINANCIALS",
+        "sub_sector": "FINTECH",
+        "themes": ["FINTECH"]
+    },
+
+    "IBM": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "ENTERPRISE_SOFTWARE",
+        "themes": ["AI", "QUANTUM"]
+    },
+
+    "INOD": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_DATA",
+        "themes": ["AI"]
+    },
+
+    "INTC": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI"]
+    },
+
+    "IONQ": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "QUANTUM_COMPUTING",
+        "themes": ["QUANTUM"]
+    },
+
+    "IWM": {
+        "sector": "ETF",
+        "sub_sector": "INDEX_FUND",
+        "themes": ["SMALL_CAPS"]
+    },
+
+    "KLAC": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTOR_EQUIPMENT",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "LPTH": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "OPTICAL_NETWORKING",
+        "themes": ["PHOTONICS"]
+    },
+
+    "LWLG": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "OPTICAL_NETWORKING",
+        "themes": ["AI", "PHOTONICS"]
+    },
+
+    "MDB": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "DATA_PLATFORMS",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "META": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "DIGITAL_ADVERTISING",
+        "themes": ["AI"]
+    },
+
+    "MRVL": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI", "NETWORKING"]
+    },
+
+    "MSFT": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CLOUD",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "MU": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "MEMORY",
+        "themes": ["AI"]
+    },
+
+    "NET": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CLOUD",
+        "themes": ["AI", "CYBERSECURITY"]
+    },
+
+    "NOW": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "ENTERPRISE_SOFTWARE",
+        "themes": ["AI"]
+    },
+
+    "NVDA": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI"]
+    },
+
+    "ORCL": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CLOUD",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "PANW": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CYBERSECURITY",
+        "themes": ["CYBERSECURITY"]
+    },
+
+    "PATH": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AUTOMATION_SOFTWARE",
+        "themes": ["AI", "AUTOMATION"]
+    },
+
+    "PLAB": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTOR_EQUIPMENT",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "POET": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "OPTICAL_NETWORKING",
+        "themes": ["AI", "PHOTONICS"]
+    },
+
+    "QLYS": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CYBERSECURITY",
+        "themes": ["CYBERSECURITY"]
+    },
+
+    "QQQ": {
+        "sector": "ETF",
+        "sub_sector": "INDEX_FUND",
+        "themes": ["AI", "TECH"]
+    },
+
+    "ROK": {
+        "sector": "INDUSTRIALS",
+        "sub_sector": "INDUSTRIAL_AUTOMATION",
+        "themes": ["AUTOMATION", "ROBOTICS"]
+    },
+
+    "RXRX": {
+        "sector": "HEALTHCARE",
+        "sub_sector": "HEALTHCARE_AI",
+        "themes": ["AI", "HEALTHCARE"]
+    },
+
+    "S": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CYBERSECURITY",
+        "themes": ["CYBERSECURITY"]
+    },
+
+    "SCHW": {
+        "sector": "FINANCIALS",
+        "sub_sector": "BROKERAGE",
+        "themes": ["FINTECH"]
+    },
+
+        "SGE.L": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "BUSINESS_SOFTWARE",
+        "themes": ["SMB_SOFTWARE"]
+    },
+
+    "SKYT": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "OPTICAL_NETWORKING",
+        "themes": ["AI", "PHOTONICS"]
+    },
+
+    "SMCI": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_INFRASTRUCTURE",
+        "themes": ["AI", "DATA_CENTRES"]
+    },
+
+    "SMH": {
+        "sector": "ETF",
+        "sub_sector": "THEMATIC_ETF",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "SMR": {
+        "sector": "UTILITIES",
+        "sub_sector": "NUCLEAR_ENERGY",
+        "themes": ["ENERGY", "DATA_CENTRES"]
+    },
+
+    "SNDK": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "MEMORY",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "SNOW": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "DATA_PLATFORMS",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "SNPS": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "EDA_SOFTWARE",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "SOUN": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "AI_SOFTWARE",
+        "themes": ["AI"]
+    },
+
+    "SOXX": {
+        "sector": "ETF",
+        "sub_sector": "THEMATIC_ETF",
+        "themes": ["AI", "SEMICONDUCTORS"]
+    },
+
+    "SPY": {
+        "sector": "ETF",
+        "sub_sector": "INDEX_FUND",
+        "themes": ["MARKET"]
+    },
+
+    "SWKS": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["SEMICONDUCTORS"]
+    },
+
+    "SYM": {
+        "sector": "INDUSTRIALS",
+        "sub_sector": "ROBOTICS",
+        "themes": ["AI", "AUTOMATION", "ROBOTICS"]
+    },
+
+    "TEM": {
+        "sector": "HEALTHCARE",
+        "sub_sector": "HEALTHCARE_AI",
+        "themes": ["AI", "HEALTHCARE"]
+    },
+
+    "TSLA": {
+        "sector": "CONSUMER",
+        "sub_sector": "EV_AUTONOMY",
+        "themes": ["AUTONOMY", "AI", "ROBOTICS"]
+    },
+
+    "TSM": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "SEMICONDUCTORS",
+        "themes": ["AI"]
+    },
+
+    "TWLO": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "COMMUNICATIONS_SOFTWARE",
+        "themes": ["CLOUD"]
+    },
+
+    "VRT": {
+        "sector": "INDUSTRIALS",
+        "sub_sector": "POWER_INFRASTRUCTURE",
+        "themes": ["AI", "DATA_CENTRES", "ENERGY"]
+    },
+
+    "WDAY": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "ENTERPRISE_SOFTWARE",
+        "themes": ["AI"]
+    },
+
+    "ZS": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "CYBERSECURITY",
+        "themes": ["CYBERSECURITY", "CLOUD"]
+    },
+
+        "MCD": {
+        "sector": "CONSUMER",
+        "sub_sector": "RESTAURANTS",
+        "themes": ["CONSUMER"]
+    },
+
+    "NKE": {
+        "sector": "CONSUMER",
+        "sub_sector": "APPAREL",
+        "themes": ["CONSUMER"]
+    },
+
+    "BMW.DE": {
+        "sector": "CONSUMER",
+        "sub_sector": "AUTOMOTIVE",
+        "themes": ["EV", "AUTONOMY"]
+    },
+
+    "DIS": {
+        "sector": "COMMUNICATIONS",
+        "sub_sector": "MEDIA",
+        "themes": ["STREAMING", "ENTERTAINMENT"]
+    },
+
+    "SAP": {
+        "sector": "TECHNOLOGY",
+        "sub_sector": "ENTERPRISE_SOFTWARE",
+        "themes": ["AI", "CLOUD"]
+    },
+
+    "PG": {
+        "sector": "CONSUMER",
+        "sub_sector": "HOUSEHOLD_PRODUCTS",
+        "themes": ["DEFENSIVE"]
+    }
+}
