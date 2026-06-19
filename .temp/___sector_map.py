@@ -1,0 +1,122 @@
+# -----------------------------------
+# SECTOR MAP
+# -----------------------------------
+
+SECTOR_MAP = {
+
+    # --- AI / SEMICONDUCTORS / HARDWARE ---
+    "AAOI": "OPTICAL_NETWORKING",
+    "AEHR": "SEMICONDUCTOR_TESTING",
+    "AMBA": "EDGE_AI_CHIPS",
+    "AMD": "AI_SEMICONDUCTORS",
+    "ANET": "AI_NETWORKING",
+    "ARM": "CPU_IP_AI",
+    "ASML": "SEMICONDUCTOR_EUV",
+    "AVGO": "SEMICONDUCTORS",
+    "CRDO": "HIGH_SPEED_CONNECTIVITY",
+    "INTC": "SEMICONDUCTORS",
+    "KLAC": "SEMICONDUCTOR_EQUIPMENT",
+    "LPTH": "PHOTONICS",
+    "LWLG": "OPTICAL_NETWORKING",
+    "MRVL": "AI_INFRASTRUCTURE",
+    "MU": "MEMORY_CHIPS",
+    "NVDA": "AI_SEMICONDUCTORS",
+    "ON": "POWER_SEMICONDUCTORS",
+    "PLAB": "SEMICONDUCTOR_MANUFACTURING",
+    "POET": "OPTICAL_NETWORKING",
+    "SKYT": "RF_SEMICONDUCTORS",
+    "SMCI": "AI_SERVERS",
+    "SWKS": "RF_SEMICONDUCTORS",
+    "TER": "SEMICONDUCTOR_TESTING",
+    "TSM": "SEMICONDUCTOR_FOUNDRY",
+
+    # --- AI SOFTWARE / CLOUD / CYBERSECURITY ---
+    "AAPL": "CONSUMER_TECH",
+    "ADBE": "DIGITAL_MEDIA_SOFTWARE",
+    "AI": "AI_SOFTWARE",
+    "ALAB": "AI_BIOTECH",
+    "APP": "APP_ECOSYSTEM",
+    "BBAI": "AI_SOFTWARE",
+    "CDNS": "EDA_SOFTWARE",
+    "CRWD": "CYBERSECURITY",
+    "CRWV": "AI_INFRASTRUCTURE",
+    "DDOG": "OBSERVABILITY_CLOUD",
+    "DT": "OBSERVABILITY_CLOUD",
+    "FIVN": "CLOUD_CONTACT_CENTER",
+    "FTNT": "CYBERSECURITY",
+    "GOOG": "DIGITAL_ADVERTISING",
+    "IBM": "HYBRID_CLOUD_AI",
+    "INOD": "AI_DATA_SERVICES",
+    "IONQ": "QUANTUM_COMPUTING",
+    "MDB": "DATABASE_SOFTWARE",
+    "META": "DIGITAL_ADVERTISING",
+    "MSFT": "CLOUD_SOFTWARE",
+    "NET": "CLOUD_SECURITY",
+    "NOW": "ENTERPRISE_SOFTWARE",
+    "ORCL": "ENTERPRISE_SOFTWARE",
+    "PANW": "CYBERSECURITY",
+    "PATH": "AI_AUTOMATION",
+    "QLYS": "CYBERSECURITY",
+    "RXRX": "AI_BIOTECH",
+    "S": "CYBERSECURITY",
+    "SNOW": "DATA_CLOUD",
+    "SNPS": "EDA_SOFTWARE",
+    "SOUN": "AI_AUDIO",
+    "SYM": "AI_AUTOMATION",
+    "WDAY": "ENTERPRISE_SOFTWARE",
+    "ZS": "CYBERSECURITY",
+
+    # --- ELECTRIC VEHICLES / INDUSTRIAL TECH ---
+    "ETN": "ELECTRIFICATION",
+    "ROK": "INDUSTRIAL_AUTOMATION",
+    "SMR": "NUCLEAR_SMALL_MODULAR",
+    "TSLA": "EV_AUTONOMY",
+    "VRT": "DATA_CENTER_INFRASTRUCTURE",
+
+    # --- FINTECH / BROKERAGE ---
+    "HOOD": "FINTECH",
+    "SCHW": "BROKERAGE",
+
+    # --- CONSUMER / BRANDS / NON-TECH ---
+    "KO": "BEVERAGES",
+    "TM": "AUTOMOTIVE",
+    "MCD": "FAST_FOOD",
+    "NKE": "APPAREL",
+    "BMW.DE": "AUTOMOTIVE",
+    "DIS": "ENTERTAINMENT",
+    "SAP": "ENTERPRISE_SOFTWARE",
+    "PG": "CONSUMER_GOODS",
+
+    # --- ETFs (with specialism labels) ---
+    "ARKK": "ETF: INNOVATION_GROWTH",
+    "IWM": "ETF: SMALL_CAP",
+    "QQQ": "ETF: NASDAQ100_TECH",
+    "SMH": "ETF: SEMICONDUCTORS",
+    "SOXX": "ETF: SEMICONDUCTORS",
+    "SPY": "ETF: S&P500",
+
+    # --- MISC / HARD TO CLASSIFY ---
+    "CEG": "ENERGY_NUCLEAR",
+    "CSCO": "NETWORKING",
+    "DELL": "CLOUD_INFRASTRUCTURE",
+    "ENVX": "BATTERY_TECH",
+    "INOD": "AI_DATA_SERVICES",
+    "SNDK": "FLASH_MEMORY"  # legacy ticker, but included as requested
+}
+
+
+# -----------------------------------
+# GET SECTOR
+# -----------------------------------
+
+def get_sector(
+
+    symbol
+):
+
+    return SECTOR_MAP.get(
+
+        symbol,
+
+        "UNKNOWN"
+    )
