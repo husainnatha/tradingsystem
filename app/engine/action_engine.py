@@ -18,10 +18,6 @@ def build_actions(
 
     ):
 
-    print(
-
-        "\nBuilding portfolio actions...\n"
-    )
 
     position_lookup = (
 
