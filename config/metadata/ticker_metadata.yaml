@@ -1,0 +1,562 @@
+AAOI:
+  conviction: 0.9
+  quality: 0.65
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  themes:
+  - AI
+  - PHOTONICS
+  - NETWORKING
+AAPL:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Consumer Electronics
+  themes: []
+ADBE:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+AEHR:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Semiconductor Equipment & Materials
+  themes: []
+AI:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Infrastructure
+  themes: []
+ALAB:
+  conviction: 0.95
+  quality: 0.85
+  sector: TECHNOLOGY
+  sub_sector: AI_INFRASTRUCTURE
+  themes:
+  - AI
+  - DATA_CENTRES
+AMBA:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Semiconductor Equipment & Materials
+  themes: []
+AMD:
+  conviction: 0.9
+  quality: 0.9
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+  - AI
+AMZN:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Internet Retail
+  themes: []
+ANET:
+  conviction: 0.95
+  quality: 0.95
+  sector: TECHNOLOGY
+  sub_sector: AI_INFRASTRUCTURE
+  themes:
+  - AI
+  - NETWORKING
+  - DATA_CENTRES
+APP:
+  conviction: null
+  quality: null
+  sector: Communication Services
+  sub_sector: Advertising Agencies
+  themes: []
+ARKK:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+ARM:
+  conviction: 0.85
+  quality: 0.85
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+  - AI
+ASML:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Semiconductor Equipment & Materials
+  themes: []
+AVGO:
+  conviction: 0.95
+  quality: 1.0
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+  - AI
+  - NETWORKING
+BBAI:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Information Technology Services
+  themes: []
+BMW.DE:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Auto Manufacturers
+  themes: []
+CDNS:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+CEG:
+  conviction: null
+  quality: null
+  sector: Utilities
+  sub_sector: Utilities - Independent Power Producers
+  themes: []
+CRDO:
+  conviction: 0.9
+  quality: 0.85
+  sector: TECHNOLOGY
+  sub_sector: AI_INFRASTRUCTURE
+  themes:
+  - AI
+  - NETWORKING
+CRWD:
+  conviction: 0.95
+  quality: 0.95
+  sector: TECHNOLOGY
+  sub_sector: CYBERSECURITY
+  themes:
+  - CYBERSECURITY
+  - CLOUD
+CRWV:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Infrastructure
+  themes: []
+CSCO:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Communication Equipment
+  themes: []
+DDOG:
+  conviction: 0.85
+  quality: 0.9
+  sector: TECHNOLOGY
+  sub_sector: OBSERVABILITY
+  themes:
+  - AI
+  - CLOUD
+DELL:
+  conviction: 0.8
+  quality: 0.8
+  sector: TECHNOLOGY
+  sub_sector: AI_INFRASTRUCTURE
+  themes:
+  - AI
+  - DATA_CENTRES
+DIS:
+  conviction: null
+  quality: null
+  sector: Communication Services
+  sub_sector: Entertainment
+  themes: []
+DT:
+  sector: TECHNOLOGY
+  sub_sector: OBSERVABILITY
+  themes:
+  - AI
+ENVX:
+  conviction: null
+  quality: null
+  sector: Industrials
+  sub_sector: Electrical Equipment & Parts
+  themes: []
+ETN:
+  conviction: 0.9
+  quality: 0.95
+  sector: INDUSTRIALS
+  sub_sector: POWER_INFRASTRUCTURE
+  themes:
+  - ENERGY
+  - DATA_CENTRES
+FIVN:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Infrastructure
+  themes: []
+FTNT:
+  conviction: 0.8
+  quality: 0.9
+  sector: TECHNOLOGY
+  sub_sector: CYBERSECURITY
+  themes:
+  - CYBERSECURITY
+GOOG:
+  conviction: null
+  quality: null
+  sector: Communication Services
+  sub_sector: Internet Content & Information
+  themes: []
+HOOD:
+  conviction: null
+  quality: null
+  sector: Financial Services
+  sub_sector: Capital Markets
+  themes: []
+IBM:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Information Technology Services
+  themes: []
+INOD:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Information Technology Services
+  themes: []
+INTC:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Semiconductors
+  themes: []
+IONQ:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Computer Hardware
+  themes: []
+IWM:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+KLAC:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Semiconductor Equipment & Materials
+  themes: []
+LPTH:
+  conviction: 0.5
+  quality: 0.4
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  themes:
+  - PHOTONICS
+LWLG:
+  conviction: 0.7
+  quality: 0.35
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  themes:
+  - AI
+  - PHOTONICS
+MCD:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Restaurants
+  themes: []
+MDB:
+  conviction: 0.75
+  quality: 0.75
+  sector: TECHNOLOGY
+  sub_sector: DATA_PLATFORMS
+  themes:
+  - AI
+  - CLOUD
+META:
+  conviction: null
+  quality: null
+  sector: Communication Services
+  sub_sector: Internet Content & Information
+  themes: []
+MRVL:
+  conviction: 0.9
+  quality: 0.8
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+  - AI
+  - NETWORKING
+MSFT:
+  conviction: 1.0
+  quality: 1.0
+  sector: TECHNOLOGY
+  sub_sector: CLOUD
+  themes:
+  - AI
+  - CLOUD
+MU:
+  conviction: 0.85
+  quality: 0.85
+  sector: TECHNOLOGY
+  sub_sector: MEMORY
+  themes:
+  - AI
+NET:
+  conviction: 0.9
+  quality: 0.85
+  sector: TECHNOLOGY
+  sub_sector: CLOUD
+  themes:
+  - AI
+  - CYBERSECURITY
+NKE:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Footwear & Accessories
+  themes: []
+NOW:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+NVDA:
+  conviction: 1.0
+  quality: 1.0
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+  - AI
+  - DATA_CENTRES
+ORCL:
+  conviction: 0.85
+  quality: 0.9
+  sector: TECHNOLOGY
+  sub_sector: CLOUD
+  themes:
+  - AI
+  - CLOUD
+PANW:
+  conviction: 0.9
+  quality: 0.95
+  sector: TECHNOLOGY
+  sub_sector: CYBERSECURITY
+  themes:
+  - CYBERSECURITY
+  - CLOUD
+PATH:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Infrastructure
+  themes: []
+PG:
+  conviction: null
+  quality: null
+  sector: Consumer Defensive
+  sub_sector: Household & Personal Products
+  themes: []
+PLAB:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Semiconductor Equipment & Materials
+  themes: []
+POET:
+  conviction: 0.75
+  quality: 0.4
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  themes:
+  - AI
+  - PHOTONICS
+QLYS:
+  conviction: 0.7
+  quality: 0.9
+  sector: TECHNOLOGY
+  sub_sector: CYBERSECURITY
+  themes:
+  - CYBERSECURITY
+QQQ:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+ROK:
+  conviction: null
+  quality: null
+  sector: Industrials
+  sub_sector: Specialty Industrial Machinery
+  themes: []
+RXRX:
+  conviction: null
+  quality: null
+  sector: Healthcare
+  sub_sector: Biotechnology
+  themes: []
+S:
+  conviction: 0.75
+  quality: 0.7
+  sector: TECHNOLOGY
+  sub_sector: CYBERSECURITY
+  themes:
+  - CYBERSECURITY
+  - AI
+SAP:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+SCHW:
+  conviction: null
+  quality: null
+  sector: Financial Services
+  sub_sector: Capital Markets
+  themes: []
+SGE.L:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+SKYT:
+  conviction: 0.6
+  quality: 0.5
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  themes:
+  - AI
+  - PHOTONICS
+SMCI:
+  conviction: 0.85
+  quality: 0.7
+  sector: TECHNOLOGY
+  sub_sector: AI_INFRASTRUCTURE
+  themes:
+  - AI
+  - DATA_CENTRES
+SMH:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+SMR:
+  conviction: null
+  quality: null
+  sector: Industrials
+  sub_sector: Specialty Industrial Machinery
+  themes: []
+SNDK:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Computer Hardware
+  themes: []
+SNOW:
+  conviction: 0.8
+  quality: 0.75
+  sector: TECHNOLOGY
+  sub_sector: DATA_PLATFORMS
+  themes:
+  - AI
+  - CLOUD
+SNPS:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Infrastructure
+  themes: []
+SOUN:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+SOXX:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+SPY:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+SWKS:
+  conviction: 0.65
+  quality: 0.75
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+  - SEMICONDUCTORS
+SYM:
+  conviction: null
+  quality: null
+  sector: Industrials
+  sub_sector: Specialty Industrial Machinery
+  themes: []
+TEM:
+  conviction: null
+  quality: null
+  sector: Healthcare
+  sub_sector: Health Information Services
+  themes: []
+TSLA:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Auto Manufacturers
+  themes: []
+TSM:
+  conviction: 0.95
+  quality: 1.0
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+  - AI
+TWLO:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Infrastructure
+  themes: []
+VRT:
+  conviction: 0.95
+  quality: 0.95
+  sector: INDUSTRIALS
+  sub_sector: POWER_INFRASTRUCTURE
+  themes:
+  - AI
+  - DATA_CENTRES
+  - ENERGY
+WDAY:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+ZS:
+  conviction: 0.85
+  quality: 0.9
+  sector: TECHNOLOGY
+  sub_sector: CYBERSECURITY
+  themes:
+  - CYBERSECURITY
+  - CLOUD
