@@ -8,7 +8,7 @@ def test_generate_equities_with_metadata():
 
     # Paths
 
-    metadata_path = BASE_DIR / "config" / "metadata" / "core_macro_metadata.yaml"
+    metadata_path = BASE_DIR / "config" / "metadata" / "stock_metadata.yaml"
     output_path = BASE_DIR / "config" / "watchlists" / "equities_with_metadata.yaml"
 
     metadata = yaml.safe_load(metadata_path.read_text())
