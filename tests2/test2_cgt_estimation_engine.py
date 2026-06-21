@@ -33,7 +33,7 @@ def test_cgt_estimation_engine():
     },
 
     {
-        "symbol": "PLTR",
+        "symbol": "MSFT",
         "disposal_date": "2026-02-20",
         "tax_year": "2025/26",
         "quantity": 20,

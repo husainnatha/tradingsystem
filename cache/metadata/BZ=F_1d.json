@@ -2,6 +2,6 @@
     "ticker": "BZ=F",
     "interval": "1d",
     "source": "yfinance",
-    "rows": 504,
-    "last_updated": "2026-06-20T18:56:58.347375"
+    "rows": 503,
+    "last_updated": "2026-06-21T19:05:55.391359"
 }
