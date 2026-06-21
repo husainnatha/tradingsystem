@@ -1,4 +1,6 @@
 AAOI:
+  area: US_TECH
+  asset_type: STOCK
   conviction: 0.9
   quality: 0.65
   sector: TECHNOLOGY

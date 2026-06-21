@@ -1,6 +1,9 @@
 import yaml
 from pathlib import Path
 from collections import defaultdict
+from app.config.environment import (
+    BASE_DIR
+)
 
 def generate_sector_preferences(metadata_path):
     metadata = yaml.safe_load(Path(metadata_path).read_text())
@@ -40,6 +43,6 @@ def generate_sector_preferences(metadata_path):
 
 # Usage
 MACRO_SECTOR_PREFERENCES = generate_sector_preferences(
-    r"C:\Users\husainnatha\projects\tradingsystem\config\metadata\ticker_metadata.yaml"
+    BASE_DIR / "config" / "metadata" / "ticker_metadata.yaml"
 )
 print(MACRO_SECTOR_PREFERENCES)

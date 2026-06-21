@@ -25,11 +25,11 @@ from src.utils.market_data_accessor import (
 )
 
 from src.config.asset_metadata_loader import (
-    AssetMetadataLoader
+    CoreMacroMetadataLoader
 )
 
 metadata = (
-    AssetMetadataLoader
+    CoreMacroMetadataLoader
     .load()
 )
 # -----------------------------------

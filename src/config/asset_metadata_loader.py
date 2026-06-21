@@ -8,11 +8,10 @@ from app.config.environment import (
 import yaml
 
 
-class AssetMetadataLoader:
-
+class CoreMacroMetadataLoader:
     @staticmethod
     def load():
-        path = BASE_DIR / "config" / "metadata" / "asset_metadata.yaml"
+        path = BASE_DIR / "config" / "metadata" / "core_macro_metadata.yaml"
         with open(path, "r") as file:
             return yaml.safe_load(file)
 
@@ -27,6 +26,6 @@ class TickerLoader:
 class TickerMetadataLoader:
     @staticmethod
     def load():
-        path = BASE_DIR / "config" / "metadata" / "ticker_metadata.yaml"
+        path = BASE_DIR / "config" / "metadata" / "stock_metadata.yaml"
         with open(path, "r") as file:
             return yaml.safe_load(file)
