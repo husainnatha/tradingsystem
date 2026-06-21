@@ -1,13 +1,17 @@
 import yfinance as yf
 import yaml
 from pathlib import Path
+from app.config.environment import (
+    BASE_DIR
+)
+
 
 # Load your existing metadata
-metadata_path = Path("config/metadata/ticker_metadata.yaml")
+metadata_path = BASE_DIR / "config" / "metadata" / "stock_metadata.yaml"
 metadata = yaml.safe_load(metadata_path.read_text())
 
 # Load tickers
-tickers_path = Path("config/watchlists/equities.yaml")
+tickers_path = BASE_DIR / "config" / "watchlists" / "equities.yaml"
 tickers = yaml.safe_load(tickers_path.read_text())["tickers"]
 
 for ticker in tickers:
