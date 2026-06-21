@@ -6,8 +6,11 @@ from app.config.environment import (
 )
 
 # Paths
-metadata_path = Path(r"C:\Users\husainnatha\projects\tradingsystem\config\metadata\ticker_metadata.yaml")
-output_path = Path(r"C:\Users\husainnatha\projects\tradingsystem\config\watchlists\equities_with_metadata.yaml")
+
+metadata_path = BASE_DIR / "config" / "metadata" / "ticker_metadata.yaml"
+output_path = BASE_DIR / "config" / "watchlists" / "equities_with_metadata.yaml"
+# metadata_path = Path(r"C:\Users\husainnatha\projects\tradingsystem\config\metadata\ticker_metadata.yaml")
+# output_path = Path(r"C:\Users\husainnatha\projects\tradingsystem\config\watchlists\equities_with_metadata.yaml")
 
 # Load metadata
 metadata = yaml.safe_load(metadata_path.read_text())
