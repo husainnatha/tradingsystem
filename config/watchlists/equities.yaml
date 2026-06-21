@@ -15,6 +15,7 @@ tickers:
   - ASML
   - AVGO
   - BBAI
+  - BMW.DE
   - CDNS
   - CEG
   - CRDO
@@ -23,6 +24,7 @@ tickers:
   - CSCO
   - DDOG
   - DELL
+  - DIS
   - DT
   - ENVX
   - ETN
@@ -38,17 +40,20 @@ tickers:
   - KLAC
   - LPTH
   - LWLG
+  - MCD
   - MDB
   - META
   - MRVL
   - MSFT
   - MU
   - NET
+  - NKE
   - NOW
   - NVDA
   - ORCL
   - PANW
   - PATH
+  - PG
   - PLAB
   - POET
   - QLYS
@@ -56,6 +61,7 @@ tickers:
   - ROK
   - RXRX
   - S
+  - SAP
   - SCHW
   - SGE.L
   - SKYT
@@ -77,11 +83,3 @@ tickers:
   - VRT
   - WDAY
   - ZS
-  - MCD
-  - NKE
-  - BMW.DE
-  - DIS
-  - SAP
-  - PG
-  - PANW
-  

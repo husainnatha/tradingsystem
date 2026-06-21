@@ -10,3 +10,4 @@ pytest.ini
 *data/*
 *.xlsx*
 *.db
+cache/*

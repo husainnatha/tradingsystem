@@ -8,7 +8,7 @@ SECTOR_MAP = {
 
     "AMD": "AI_SEMICONDUCTORS",
 
-    "PLTR": "AI_SOFTWARE",
+    "NOW": "AI_SOFTWARE",
 
     "META": "DIGITAL_ADVERTISING",
 

@@ -14,7 +14,6 @@ MARKET_PRICES = {
     "TSLA": 260,
     "AMZN": 210,
     "GOOG": 190,
-    "PLTR": 70,
     "TEST": 30
 }
 
