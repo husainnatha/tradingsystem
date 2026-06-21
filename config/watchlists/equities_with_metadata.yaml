@@ -1,85 +1,85 @@
 tickers:
-- AAOI
-- AAPL
-- ADBE
-- AEHR
-- AI
-- ALAB
-- AMBA
-- AMD
-- AMZN
-- ANET
-- APP
-- ARKK
-- ARM
-- ASML
-- AVGO
-- BBAI
-- BMW.DE
-- CDNS
-- CEG
-- CRDO
-- CRWD
-- CRWV
-- CSCO
-- DDOG
-- DELL
-- DIS
-- DT
-- ENVX
-- ETN
-- FIVN
-- FTNT
-- GOOG
-- HOOD
-- IBM
-- INOD
-- INTC
-- IONQ
-- IWM
-- KLAC
-- LPTH
-- LWLG
-- MCD
-- MDB
-- META
-- MRVL
-- MSFT
-- MU
-- NET
-- NKE
-- NOW
-- NVDA
-- ORCL
-- PANW
-- PATH
-- PG
-- PLAB
-- POET
-- QLYS
-- QQQ
-- ROK
-- RXRX
-- S
-- SAP
-- SCHW
-- SGE.L
-- SKYT
-- SMCI
-- SMH
-- SMR
-- SNDK
-- SNOW
-- SNPS
-- SOUN
-- SOXX
-- SPY
-- SWKS
-- SYM
-- TEM
-- TSLA
-- TSM
-- TWLO
-- VRT
-- WDAY
-- ZS
+  - AAOI
+  - AAPL
+  - ADBE
+  - AEHR
+  - AI
+  - ALAB
+  - AMBA
+  - AMD
+  - AMZN
+  - ANET
+  - APP
+  - ARKK
+  - ARM
+  - ASML
+  - AVGO
+  - BBAI
+  - BMW.DE
+  - CDNS
+  - CEG
+  - CRDO
+  - CRWD
+  - CRWV
+  - CSCO
+  - DDOG
+  - DELL
+  - DIS
+  - DT
+  - ENVX
+  - ETN
+  - FIVN
+  - FTNT
+  - GOOG
+  - HOOD
+  - IBM
+  - INOD
+  - INTC
+  - IONQ
+  - IWM
+  - KLAC
+  - LPTH
+  - LWLG
+  - MCD
+  - MDB
+  - META
+  - MRVL
+  - MSFT
+  - MU
+  - NET
+  - NKE
+  - NOW
+  - NVDA
+  - ORCL
+  - PANW
+  - PATH
+  - PG
+  - PLAB
+  - POET
+  - QLYS
+  - QQQ
+  - ROK
+  - RXRX
+  - S
+  - SAP
+  - SCHW
+  - SGE.L
+  - SKYT
+  - SMCI
+  - SMH
+  - SMR
+  - SNDK
+  - SNOW
+  - SNPS
+  - SOUN
+  - SOXX
+  - SPY
+  - SWKS
+  - SYM
+  - TEM
+  - TSLA
+  - TSM
+  - TWLO
+  - VRT
+  - WDAY
+  - ZS
