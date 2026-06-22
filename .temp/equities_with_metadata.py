@@ -4,7 +4,7 @@ from app.config.environment import (BASE_DIR)
 
 # Paths
 
-metadata_path = BASE_DIR / "config" / "metadata" / "ticker_metadata.yaml"
+metadata_path = BASE_DIR / "config" / "metadata" / "stock_metadata.yaml"
 output_path = BASE_DIR / "config" / "watchlists" / "equities_with_metadata.yaml"
 
 # Load metadata
