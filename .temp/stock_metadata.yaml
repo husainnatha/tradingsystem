@@ -1,8 +1,7 @@
 AAOI:
   asset_type: STOCK
-  conviction: 0.7
-  quality: 0.68
-  role: HIGH_CONVICTION
+  conviction: 0.9
+  quality: 0.65
   sector: TECHNOLOGY
   sub_sector: OPTICAL_NETWORKING
   themes:
@@ -10,77 +9,59 @@ AAOI:
   - PHOTONICS
   - NETWORKING
 AAPL:
-  asset_type: STOCK
-  conviction: 0.415
-  quality: 0.542
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Consumer Electronics
   themes: []
 ADBE:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Application
   themes: []
 AEHR:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Semiconductor Equipment & Materials
   themes: []
 AI:
-  asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Infrastructure
   themes: []
 ALAB:
-  asset_type: STOCK
-  conviction: 0.795
-  quality: 0.775
-  role: HIGH_CONVICTION
+  conviction: 0.95
+  quality: 0.85
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
   themes:
   - AI
   - DATA_CENTRES
 AMBA:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Semiconductor Equipment & Materials
   themes: []
 AMD:
-  asset_type: STOCK
-  conviction: 0.825
-  quality: 0.825
-  role: HIGH_CONVICTION
+  conviction: 0.9
+  quality: 0.9
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
   themes:
   - AI
 AMZN:
-  asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Consumer Cyclical
   sub_sector: Internet Retail
   themes: []
 ANET:
-  asset_type: STOCK
-  conviction: 0.88
-  quality: 0.837
-  role: CORE
+  conviction: 0.95
+  quality: 0.95
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
   themes:
@@ -88,624 +69,478 @@ ANET:
   - NETWORKING
   - DATA_CENTRES
 APP:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Communication Services
   sub_sector: Advertising Agencies
   themes: []
 ARKK:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 ARM:
-  asset_type: STOCK
-  conviction: 0.825
-  quality: 0.825
-  role: HIGH_CONVICTION
+  conviction: 0.85
+  quality: 0.85
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
   themes:
   - AI
 ASML:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Semiconductor Equipment & Materials
   themes: []
 AVGO:
-  asset_type: STOCK
-  conviction: 0.91
-  quality: 0.888
-  role: CORE
+  conviction: 0.95
+  quality: 1.0
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
   themes:
   - AI
   - NETWORKING
 BBAI:
-  asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Information Technology Services
   themes: []
 BMW.DE:
-  asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Consumer Cyclical
   sub_sector: Auto Manufacturers
   themes: []
 CDNS:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Application
   themes: []
 CEG:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Utilities
   sub_sector: Utilities - Independent Power Producers
   themes: []
 CRDO:
-  asset_type: STOCK
-  conviction: 0.785
-  quality: 0.762
-  role: HIGH_CONVICTION
+  conviction: 0.9
+  quality: 0.85
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
   themes:
   - AI
   - NETWORKING
 CRWD:
-  asset_type: STOCK
-  conviction: 0.795
-  quality: 0.8
-  role: HIGH_CONVICTION
+  conviction: 0.95
+  quality: 0.95
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
   themes:
   - CYBERSECURITY
   - CLOUD
 CRWV:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Infrastructure
   themes: []
 CSCO:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Communication Equipment
   themes: []
 DDOG:
-  asset_type: STOCK
-  conviction: 0.585
-  quality: 0.763
-  role: HIGH_CONVICTION
+  conviction: 0.85
+  quality: 0.9
   sector: TECHNOLOGY
   sub_sector: OBSERVABILITY
   themes:
   - AI
   - CLOUD
 DELL:
-  asset_type: STOCK
-  conviction: 0.805
+  conviction: 0.8
   quality: 0.8
-  role: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
   themes:
   - AI
   - DATA_CENTRES
 DIS:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Communication Services
   sub_sector: Entertainment
   themes: []
 DT:
-  asset_type: STOCK
-  conviction: 0.46
-  quality: 0.662
-  role: SATELLITE
   sector: TECHNOLOGY
   sub_sector: OBSERVABILITY
   themes:
   - AI
 ENVX:
-  asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Industrials
   sub_sector: Electrical Equipment & Parts
   themes: []
 ETN:
-  asset_type: STOCK
-  conviction: 0.445
-  quality: 0.427
-  role: SATELLITE
+  conviction: 0.9
+  quality: 0.95
   sector: INDUSTRIALS
   sub_sector: POWER_INFRASTRUCTURE
   themes:
   - ENERGY
   - DATA_CENTRES
 FIVN:
-  asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Infrastructure
   themes: []
 FTNT:
-  asset_type: STOCK
-  conviction: 0.745
-  quality: 0.737
-  role: HIGH_CONVICTION
+  conviction: 0.8
+  quality: 0.9
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
   themes:
   - CYBERSECURITY
 GOOG:
-  asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Communication Services
   sub_sector: Internet Content & Information
   themes: []
 HOOD:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Financial Services
   sub_sector: Capital Markets
   themes: []
 IBM:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Information Technology Services
   themes: []
 INOD:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Information Technology Services
   themes: []
 INTC:
-  asset_type: STOCK
-  conviction: 0.745
-  quality: 0.725
-  role: HIGH_CONVICTION
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Semiconductors
   themes: []
 IONQ:
-  asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Computer Hardware
   themes: []
 IWM:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 KLAC:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Semiconductor Equipment & Materials
   themes: []
 LPTH:
-  asset_type: STOCK
-  conviction: 0.44
-  quality: 0.468
-  role: SPECULATIVE
+  conviction: 0.5
+  quality: 0.4
   sector: TECHNOLOGY
   sub_sector: OPTICAL_NETWORKING
   themes:
   - PHOTONICS
 LWLG:
-  asset_type: STOCK
-  conviction: 0.58
-  quality: 0.568
-  role: SATELLITE
+  conviction: 0.7
+  quality: 0.35
   sector: TECHNOLOGY
   sub_sector: OPTICAL_NETWORKING
   themes:
   - AI
   - PHOTONICS
 MCD:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Consumer Cyclical
   sub_sector: Restaurants
   themes: []
 MDB:
-  asset_type: STOCK
-  conviction: 0.77
-  quality: 0.7
-  role: HIGH_CONVICTION
+  conviction: 0.75
+  quality: 0.75
   sector: TECHNOLOGY
   sub_sector: DATA_PLATFORMS
   themes:
   - AI
   - CLOUD
 META:
-  asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Communication Services
   sub_sector: Internet Content & Information
   themes: []
 MRVL:
-  asset_type: STOCK
   conviction: 0.9
-  quality: 0.863
-  role: CORE
+  quality: 0.8
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
   themes:
   - AI
   - NETWORKING
 MSFT:
-  asset_type: STOCK
-  conviction: 0.87
-  quality: 0.863
-  role: CORE
+  conviction: 1.0
+  quality: 1.0
   sector: TECHNOLOGY
   sub_sector: CLOUD
   themes:
   - AI
   - CLOUD
 MU:
-  asset_type: STOCK
-  conviction: 0.495
-  quality: 0.515
-  role: SATELLITE
+  conviction: 0.85
+  quality: 0.85
   sector: TECHNOLOGY
   sub_sector: MEMORY
   themes:
   - AI
 NET:
-  asset_type: STOCK
-  conviction: 0.805
-  quality: 0.812
-  role: HIGH_CONVICTION
+  conviction: 0.9
+  quality: 0.85
   sector: TECHNOLOGY
   sub_sector: CLOUD
   themes:
   - AI
   - CYBERSECURITY
 NKE:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Consumer Cyclical
   sub_sector: Footwear & Accessories
   themes: []
 NOW:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Application
   themes: []
 NVDA:
-  asset_type: STOCK
-  conviction: 0.92
-  quality: 0.9
-  role: CORE
+  conviction: 1.0
+  quality: 1.0
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
   themes:
   - AI
   - DATA_CENTRES
 ORCL:
-  asset_type: STOCK
-  conviction: 0.86
-  quality: 0.838
-  role: CORE
+  conviction: 0.85
+  quality: 0.9
   sector: TECHNOLOGY
   sub_sector: CLOUD
   themes:
   - AI
   - CLOUD
 PANW:
-  asset_type: STOCK
-  conviction: 0.805
-  quality: 0.825
-  role: HIGH_CONVICTION
+  conviction: 0.9
+  quality: 0.95
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
   themes:
   - CYBERSECURITY
   - CLOUD
 PATH:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Infrastructure
   themes: []
 PG:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Consumer Defensive
   sub_sector: Household & Personal Products
   themes: []
 PLAB:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Semiconductor Equipment & Materials
   themes: []
 POET:
-  asset_type: STOCK
-  conviction: 0.595
-  quality: 0.605
-  role: SATELLITE
+  conviction: 0.75
+  quality: 0.4
   sector: TECHNOLOGY
   sub_sector: OPTICAL_NETWORKING
   themes:
   - AI
   - PHOTONICS
 QLYS:
-  asset_type: STOCK
-  conviction: 0.655
-  quality: 0.662
-  role: SATELLITE
+  conviction: 0.7
+  quality: 0.9
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
   themes:
   - CYBERSECURITY
 QQQ:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 ROK:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Industrials
   sub_sector: Specialty Industrial Machinery
   themes: []
 RXRX:
-  asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Healthcare
   sub_sector: Biotechnology
   themes: []
 S:
-  asset_type: STOCK
-  conviction: 0.795
-  quality: 0.762
-  role: HIGH_CONVICTION
+  conviction: 0.75
+  quality: 0.7
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
   themes:
   - CYBERSECURITY
   - AI
 SAP:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Application
   themes: []
 SCHW:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Financial Services
   sub_sector: Capital Markets
   themes: []
 SGE.L:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Application
   themes: []
 SKYT:
-  asset_type: STOCK
-  conviction: 0.58
-  quality: 0.568
-  role: SATELLITE
+  conviction: 0.6
+  quality: 0.5
   sector: TECHNOLOGY
   sub_sector: OPTICAL_NETWORKING
   themes:
   - AI
   - PHOTONICS
 SMCI:
-  asset_type: STOCK
-  conviction: 0.78
-  quality: 0.738
-  role: HIGH_CONVICTION
+  conviction: 0.85
+  quality: 0.7
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
   themes:
   - AI
   - DATA_CENTRES
 SMH:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 SMR:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Industrials
   sub_sector: Specialty Industrial Machinery
   themes: []
 SNDK:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Computer Hardware
   themes: []
 SNOW:
-  asset_type: STOCK
-  conviction: 0.785
-  quality: 0.738
-  role: HIGH_CONVICTION
+  conviction: 0.8
+  quality: 0.75
   sector: TECHNOLOGY
   sub_sector: DATA_PLATFORMS
   themes:
   - AI
   - CLOUD
 SNPS:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Infrastructure
   themes: []
 SOUN:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Application
   themes: []
 SOXX:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 SPY:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 SWKS:
-  asset_type: STOCK
-  conviction: 0.67
-  quality: 0.675
-  role: SATELLITE
+  conviction: 0.65
+  quality: 0.75
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
   themes:
   - SEMICONDUCTORS
 SYM:
-  asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Industrials
   sub_sector: Specialty Industrial Machinery
   themes: []
 TEM:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Healthcare
   sub_sector: Health Information Services
   themes: []
 TSLA:
-  asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
-  role: SATELLITE
+  conviction: null
+  quality: null
   sector: Consumer Cyclical
   sub_sector: Auto Manufacturers
   themes: []
 TSM:
-  asset_type: STOCK
-  conviction: 0.88
-  quality: 0.85
-  role: CORE
+  conviction: 0.95
+  quality: 1.0
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
   themes:
   - AI
 TWLO:
-  asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Infrastructure
   themes: []
 VRT:
-  asset_type: STOCK
-  conviction: 0.525
-  quality: 0.528
-  role: SATELLITE
+  conviction: 0.95
+  quality: 0.95
   sector: INDUSTRIALS
   sub_sector: POWER_INFRASTRUCTURE
   themes:
@@ -713,18 +548,14 @@ VRT:
   - DATA_CENTRES
   - ENERGY
 WDAY:
-  asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: Technology
   sub_sector: Software - Application
   themes: []
 ZS:
-  asset_type: STOCK
-  conviction: 0.78
-  quality: 0.762
-  role: HIGH_CONVICTION
+  conviction: 0.85
+  quality: 0.9
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
   themes:
