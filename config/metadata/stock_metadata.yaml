@@ -1,732 +1,1424 @@
 AAOI:
   asset_type: STOCK
-  conviction: 0.7
-  quality: 0.68
+  conviction: 0.686
+  inferred_themes:
+  - AUTOMATION
+  - DATA_CENTRES
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.69
+  market_cap_style: LARGE_CAPS
+  quality: 0.788
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: OPTICAL_NETWORKING
+  theme_count: 4
   themes:
   - AI
-  - PHOTONICS
+  - CLOUD
   - NETWORKING
+  - PHOTONICS
 AAPL:
   asset_type: STOCK
-  conviction: 0.415
-  quality: 0.542
+  conviction: 0.436
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.479
+  market_cap_style: LARGE_CAPS
+  quality: 0.668
   role: SATELLITE
-  sector: Technology
-  sub_sector: Consumer Electronics
-  themes: []
+  role_category: SATELLITE
+  sector: TECHNOLOGY
+  sub_sector: CONSUMER_ELECTRONICS
+  theme_count: 2
+  themes:
+  - CLOUD
+  - CONSUMER
 ADBE:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.349
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Application
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___APPLICATION
+  theme_count: 1
+  themes:
+  - CLOUD
 AEHR:
   asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
+  conviction: 0.421
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.524
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Semiconductor Equipment & Materials
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTOR_EQUIPMENT_&_MATERIALS
+  theme_count: 3
+  themes:
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
 AI:
   asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
+  conviction: 0.333
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.271
+  market_cap_style: LARGE_CAPS
+  quality: 0.519
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Infrastructure
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___INFRASTRUCTURE
+  theme_count: 1
+  themes:
+  - CLOUD
 ALAB:
   asset_type: STOCK
-  conviction: 0.795
-  quality: 0.775
+  conviction: 0.664
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.785
+  market_cap_style: LARGE_CAPS
+  quality: 0.879
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
+  theme_count: 3
   themes:
   - AI
+  - CLOUD
   - DATA_CENTRES
 AMBA:
   asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
+  conviction: 0.421
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.524
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Semiconductor Equipment & Materials
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTOR_EQUIPMENT_&_MATERIALS
+  theme_count: 3
+  themes:
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
 AMD:
   asset_type: STOCK
-  conviction: 0.825
-  quality: 0.825
-  role: HIGH_CONVICTION
+  conviction: 0.738
+  inferred_themes:
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.825
+  market_cap_style: LARGE_CAPS
+  quality: 0.965
+  role: CORE
+  role_category: CORE
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
+  theme_count: 4
   themes:
   - AI
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
 AMZN:
   asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
-  role: SATELLITE
-  sector: Consumer Cyclical
-  sub_sector: Internet Retail
-  themes: []
-ANET:
-  asset_type: STOCK
-  conviction: 0.88
-  quality: 0.837
-  role: CORE
-  sector: TECHNOLOGY
-  sub_sector: AI_INFRASTRUCTURE
+  conviction: 0.362
+  inferred_themes: []
+  innovation_score: 0.415
+  market_cap_style: LARGE_CAPS
+  quality: 0.548
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: CONSUMER_CYCLICAL
+  sub_sector: INTERNET_RETAIL
+  theme_count: 1
   themes:
   - AI
-  - NETWORKING
+ANET:
+  asset_type: STOCK
+  conviction: 0.738
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.859
+  market_cap_style: LARGE_CAPS
+  quality: 0.894
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: AI_INFRASTRUCTURE
+  theme_count: 4
+  themes:
+  - AI
+  - CLOUD
   - DATA_CENTRES
+  - NETWORKING
 APP:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.325
+  inferred_themes: []
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.588
   role: SPECULATIVE
-  sector: Communication Services
-  sub_sector: Advertising Agencies
+  role_category: SPECULATIVE
+  sector: COMMUNICATION_SERVICES
+  sub_sector: ADVERTISING_AGENCIES
+  theme_count: 0
   themes: []
 ARKK:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 ARM:
   asset_type: STOCK
-  conviction: 0.825
-  quality: 0.825
-  role: HIGH_CONVICTION
+  conviction: 0.738
+  inferred_themes:
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.825
+  market_cap_style: LARGE_CAPS
+  quality: 0.965
+  role: CORE
+  role_category: CORE
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
+  theme_count: 4
   themes:
   - AI
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
 ASML:
   asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
-  sector: Technology
-  sub_sector: Semiconductor Equipment & Materials
-  themes: []
+  conviction: 0.442
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.398
+  market_cap_style: LARGE_CAPS
+  quality: 0.545
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTOR_EQUIPMENT_&_MATERIALS
+  theme_count: 3
+  themes:
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
 AVGO:
   asset_type: STOCK
-  conviction: 0.91
-  quality: 0.888
+  conviction: 0.812
+  inferred_themes:
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.899
+  market_cap_style: LARGE_CAPS
+  quality: 0.98
   role: CORE
+  role_category: CORE
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
+  theme_count: 5
   themes:
   - AI
+  - CLOUD
+  - INNOVATION
   - NETWORKING
+  - SEMICONDUCTORS
 BBAI:
   asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
+  conviction: 0.333
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.271
+  market_cap_style: LARGE_CAPS
+  quality: 0.589
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Information Technology Services
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: INFORMATION_TECHNOLOGY_SERVICES
+  theme_count: 1
+  themes:
+  - CLOUD
 BMW.DE:
   asset_type: STOCK
   conviction: 0.32
-  quality: 0.328
+  inferred_themes:
+  - AUTONOMY
+  - ROBOTICS
+  - SMALL_CAPS
+  innovation_score: 0.324
+  market_cap_style: SMALL_CAPS
+  quality: 0.522
   role: SPECULATIVE
-  sector: Consumer Cyclical
-  sub_sector: Auto Manufacturers
+  role_category: SPECULATIVE
+  sector: CONSUMER_CYCLICAL
+  sub_sector: AUTO_MANUFACTURERS
+  theme_count: 0
   themes: []
 CDNS:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.349
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Application
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___APPLICATION
+  theme_count: 1
+  themes:
+  - CLOUD
 CEG:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.325
+  inferred_themes: []
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
   role: SPECULATIVE
-  sector: Utilities
-  sub_sector: Utilities - Independent Power Producers
+  role_category: SPECULATIVE
+  sector: UTILITIES
+  sub_sector: UTILITIES___INDEPENDENT_POWER_PRODUCERS
+  theme_count: 0
   themes: []
 CRDO:
   asset_type: STOCK
-  conviction: 0.785
-  quality: 0.762
+  conviction: 0.644
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.774
+  market_cap_style: LARGE_CAPS
+  quality: 0.877
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
+  theme_count: 3
   themes:
   - AI
+  - CLOUD
   - NETWORKING
 CRWD:
   asset_type: STOCK
-  conviction: 0.795
-  quality: 0.8
+  conviction: 0.573
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - DEFENSIVE
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.798
+  market_cap_style: LARGE_CAPS
+  quality: 0.93
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
+  theme_count: 2
   themes:
-  - CYBERSECURITY
   - CLOUD
+  - CYBERSECURITY
 CRWV:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.349
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Infrastructure
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___INFRASTRUCTURE
+  theme_count: 1
+  themes:
+  - CLOUD
 CSCO:
   asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
-  sector: Technology
-  sub_sector: Communication Equipment
-  themes: []
+  conviction: 0.359
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.398
+  market_cap_style: LARGE_CAPS
+  quality: 0.545
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: COMMUNICATION_EQUIPMENT
+  theme_count: 1
+  themes:
+  - CLOUD
 DDOG:
   asset_type: STOCK
-  conviction: 0.585
-  quality: 0.763
+  conviction: 0.565
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.674
+  market_cap_style: LARGE_CAPS
+  quality: 0.815
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: OBSERVABILITY
+  theme_count: 2
   themes:
   - AI
   - CLOUD
 DELL:
   asset_type: STOCK
-  conviction: 0.805
-  quality: 0.8
+  conviction: 0.667
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.802
+  market_cap_style: LARGE_CAPS
+  quality: 0.883
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: AI_INFRASTRUCTURE
-  themes:
-  - AI
-  - DATA_CENTRES
-DIS:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
-  sector: Communication Services
-  sub_sector: Entertainment
-  themes: []
-DT:
-  asset_type: STOCK
-  conviction: 0.46
-  quality: 0.662
-  role: SATELLITE
-  sector: TECHNOLOGY
-  sub_sector: OBSERVABILITY
-  themes:
-  - AI
-ENVX:
-  asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
-  role: SPECULATIVE
-  sector: Industrials
-  sub_sector: Electrical Equipment & Parts
-  themes: []
-ETN:
-  asset_type: STOCK
-  conviction: 0.445
-  quality: 0.427
-  role: SATELLITE
-  sector: INDUSTRIALS
-  sub_sector: POWER_INFRASTRUCTURE
-  themes:
-  - ENERGY
-  - DATA_CENTRES
-FIVN:
-  asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
-  role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Infrastructure
-  themes: []
-FTNT:
-  asset_type: STOCK
-  conviction: 0.745
-  quality: 0.737
-  role: HIGH_CONVICTION
-  sector: TECHNOLOGY
-  sub_sector: CYBERSECURITY
-  themes:
-  - CYBERSECURITY
-GOOG:
-  asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
-  role: SATELLITE
-  sector: Communication Services
-  sub_sector: Internet Content & Information
-  themes: []
-HOOD:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
-  sector: Financial Services
-  sub_sector: Capital Markets
-  themes: []
-IBM:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
-  sector: Technology
-  sub_sector: Information Technology Services
-  themes: []
-INOD:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
-  sector: Technology
-  sub_sector: Information Technology Services
-  themes: []
-INTC:
-  asset_type: STOCK
-  conviction: 0.745
-  quality: 0.725
-  role: HIGH_CONVICTION
-  sector: Technology
-  sub_sector: Semiconductors
-  themes: []
-IONQ:
-  asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
-  role: SPECULATIVE
-  sector: Technology
-  sub_sector: Computer Hardware
-  themes: []
-IWM:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
-  sector: UNKNOWN
-  sub_sector: UNKNOWN
-  themes: []
-KLAC:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
-  sector: Technology
-  sub_sector: Semiconductor Equipment & Materials
-  themes: []
-LPTH:
-  asset_type: STOCK
-  conviction: 0.44
-  quality: 0.468
-  role: SPECULATIVE
-  sector: TECHNOLOGY
-  sub_sector: OPTICAL_NETWORKING
-  themes:
-  - PHOTONICS
-LWLG:
-  asset_type: STOCK
-  conviction: 0.58
-  quality: 0.568
-  role: SATELLITE
-  sector: TECHNOLOGY
-  sub_sector: OPTICAL_NETWORKING
-  themes:
-  - AI
-  - PHOTONICS
-MCD:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
-  sector: Consumer Cyclical
-  sub_sector: Restaurants
-  themes: []
-MDB:
-  asset_type: STOCK
-  conviction: 0.77
-  quality: 0.7
-  role: HIGH_CONVICTION
-  sector: TECHNOLOGY
-  sub_sector: DATA_PLATFORMS
+  theme_count: 3
   themes:
   - AI
   - CLOUD
+  - DATA_CENTRES
+DIS:
+  asset_type: STOCK
+  conviction: 0.349
+  inferred_themes:
+  - ENTERTAINMENT
+  - STREAMING
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: COMMUNICATION_SERVICES
+  sub_sector: ENTERTAINMENT
+  theme_count: 1
+  themes:
+  - AI
+DT:
+  asset_type: STOCK
+  conviction: 0.505
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.561
+  market_cap_style: LARGE_CAPS
+  quality: 0.792
+  role: SATELLITE
+  role_category: SATELLITE
+  sector: TECHNOLOGY
+  sub_sector: OBSERVABILITY
+  theme_count: 2
+  themes:
+  - AI
+  - CLOUD
+ENVX:
+  asset_type: STOCK
+  conviction: 0.309
+  inferred_themes: []
+  innovation_score: 0.271
+  market_cap_style: LARGE_CAPS
+  quality: 0.519
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: INDUSTRIALS
+  sub_sector: ELECTRICAL_EQUIPMENT_&_PARTS
+  theme_count: 0
+  themes: []
+ETN:
+  asset_type: STOCK
+  conviction: 0.428
+  inferred_themes: []
+  innovation_score: 0.436
+  market_cap_style: LARGE_CAPS
+  quality: 0.72
+  role: SATELLITE
+  role_category: SATELLITE
+  sector: INDUSTRIALS
+  sub_sector: POWER_INFRASTRUCTURE
+  theme_count: 2
+  themes:
+  - DATA_CENTRES
+  - ENERGY
+FIVN:
+  asset_type: STOCK
+  conviction: 0.333
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.271
+  market_cap_style: LARGE_CAPS
+  quality: 0.519
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___INFRASTRUCTURE
+  theme_count: 1
+  themes:
+  - CLOUD
+FTNT:
+  asset_type: STOCK
+  conviction: 0.561
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - DEFENSIVE
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.741
+  market_cap_style: LARGE_CAPS
+  quality: 0.918
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: CYBERSECURITY
+  theme_count: 2
+  themes:
+  - CLOUD
+  - CYBERSECURITY
+GOOG:
+  asset_type: STOCK
+  conviction: 0.376
+  inferred_themes: []
+  innovation_score: 0.415
+  market_cap_style: LARGE_CAPS
+  quality: 0.71
+  role: SATELLITE
+  role_category: SATELLITE
+  sector: COMMUNICATION_SERVICES
+  sub_sector: INTERNET_CONTENT_&_INFORMATION
+  theme_count: 0
+  themes: []
+HOOD:
+  asset_type: STOCK
+  conviction: 0.325
+  inferred_themes: []
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.625
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: FINANCIAL_SERVICES
+  sub_sector: CAPITAL_MARKETS
+  theme_count: 0
+  themes: []
+IBM:
+  asset_type: STOCK
+  conviction: 0.359
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.398
+  market_cap_style: LARGE_CAPS
+  quality: 0.615
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: INFORMATION_TECHNOLOGY_SERVICES
+  theme_count: 1
+  themes:
+  - CLOUD
+INOD:
+  asset_type: STOCK
+  conviction: 0.338
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.594
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: INFORMATION_TECHNOLOGY_SERVICES
+  theme_count: 1
+  themes:
+  - CLOUD
+INTC:
+  asset_type: STOCK
+  conviction: 0.584
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.735
+  market_cap_style: LARGE_CAPS
+  quality: 0.947
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  theme_count: 3
+  themes:
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
+IONQ:
+  asset_type: STOCK
+  conviction: 0.344
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.324
+  market_cap_style: LARGE_CAPS
+  quality: 0.53
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: COMPUTER_HARDWARE
+  theme_count: 1
+  themes:
+  - CLOUD
+IWM:
+  asset_type: STOCK
+  conviction: 0.311
+  inferred_themes: []
+  innovation_score: 0.28
+  market_cap_style: LARGE_CAPS
+  quality: 0.521
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  theme_count: 0
+  themes: []
+KLAC:
+  asset_type: STOCK
+  conviction: 0.442
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.398
+  market_cap_style: LARGE_CAPS
+  quality: 0.545
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTOR_EQUIPMENT_&_MATERIALS
+  theme_count: 3
+  themes:
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
+LPTH:
+  asset_type: STOCK
+  conviction: 0.49
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - DATA_CENTRES
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.454
+  market_cap_style: LARGE_CAPS
+  quality: 0.741
+  role: SATELLITE
+  role_category: SATELLITE
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  theme_count: 3
+  themes:
+  - CLOUD
+  - NETWORKING
+  - PHOTONICS
+LWLG:
+  asset_type: STOCK
+  conviction: 0.663
+  inferred_themes:
+  - AUTOMATION
+  - DATA_CENTRES
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.574
+  market_cap_style: LARGE_CAPS
+  quality: 0.765
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  theme_count: 4
+  themes:
+  - AI
+  - CLOUD
+  - NETWORKING
+  - PHOTONICS
+MCD:
+  asset_type: STOCK
+  conviction: 0.325
+  inferred_themes: []
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.57
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: CONSUMER_CYCLICAL
+  sub_sector: RESTAURANTS
+  theme_count: 0
+  themes: []
+MDB:
+  asset_type: STOCK
+  conviction: 0.654
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.735
+  market_cap_style: LARGE_CAPS
+  quality: 0.804
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: DATA_PLATFORMS
+  theme_count: 3
+  themes:
+  - AI
+  - CLOUD
+  - DATA_CENTRES
 META:
   asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
+  conviction: 0.376
+  inferred_themes: []
+  innovation_score: 0.415
+  market_cap_style: LARGE_CAPS
+  quality: 0.71
   role: SATELLITE
-  sector: Communication Services
-  sub_sector: Internet Content & Information
+  role_category: SATELLITE
+  sector: COMMUNICATION_SERVICES
+  sub_sector: INTERNET_CONTENT_&_INFORMATION
+  theme_count: 0
   themes: []
 MRVL:
   asset_type: STOCK
-  conviction: 0.9
-  quality: 0.863
+  conviction: 0.809
+  inferred_themes:
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.881
+  market_cap_style: LARGE_CAPS
+  quality: 0.976
   role: CORE
+  role_category: CORE
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
+  theme_count: 5
   themes:
   - AI
+  - CLOUD
+  - INNOVATION
   - NETWORKING
+  - SEMICONDUCTORS
 MSFT:
   asset_type: STOCK
-  conviction: 0.87
-  quality: 0.863
-  role: CORE
+  conviction: 0.604
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.867
+  market_cap_style: LARGE_CAPS
+  quality: 0.913
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CLOUD
+  theme_count: 2
   themes:
   - AI
   - CLOUD
 MU:
   asset_type: STOCK
-  conviction: 0.495
-  quality: 0.515
+  conviction: 0.494
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.505
+  market_cap_style: LARGE_CAPS
+  quality: 0.764
   role: SATELLITE
+  role_category: SATELLITE
   sector: TECHNOLOGY
   sub_sector: MEMORY
+  theme_count: 2
   themes:
   - AI
+  - CLOUD
 NET:
   asset_type: STOCK
-  conviction: 0.805
-  quality: 0.812
+  conviction: 0.686
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.808
+  market_cap_style: LARGE_CAPS
+  quality: 0.902
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CLOUD
+  theme_count: 3
   themes:
   - AI
+  - CLOUD
   - CYBERSECURITY
 NKE:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.325
+  inferred_themes: []
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
   role: SPECULATIVE
-  sector: Consumer Cyclical
-  sub_sector: Footwear & Accessories
+  role_category: SPECULATIVE
+  sector: CONSUMER_CYCLICAL
+  sub_sector: FOOTWEAR_&_ACCESSORIES
+  theme_count: 0
   themes: []
 NOW:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.349
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Application
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___APPLICATION
+  theme_count: 1
+  themes:
+  - CLOUD
 NVDA:
   asset_type: STOCK
-  conviction: 0.92
-  quality: 0.9
+  conviction: 0.832
+  inferred_themes:
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.91
+  market_cap_style: LARGE_CAPS
+  quality: 0.982
   role: CORE
+  role_category: CORE
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
+  theme_count: 5
   themes:
   - AI
+  - CLOUD
   - DATA_CENTRES
+  - INNOVATION
+  - SEMICONDUCTORS
 ORCL:
   asset_type: STOCK
-  conviction: 0.86
-  quality: 0.838
-  role: CORE
+  conviction: 0.6
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.849
+  market_cap_style: LARGE_CAPS
+  quality: 0.91
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CLOUD
+  theme_count: 2
   themes:
   - AI
   - CLOUD
 PANW:
   asset_type: STOCK
-  conviction: 0.805
-  quality: 0.825
+  conviction: 0.576
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - DEFENSIVE
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.815
+  market_cap_style: LARGE_CAPS
+  quality: 0.933
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
+  theme_count: 2
   themes:
-  - CYBERSECURITY
   - CLOUD
+  - CYBERSECURITY
 PATH:
   asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
+  conviction: 0.338
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.524
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Infrastructure
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___INFRASTRUCTURE
+  theme_count: 1
+  themes:
+  - CLOUD
 PG:
   asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
-  sector: Consumer Defensive
-  sub_sector: Household & Personal Products
+  conviction: 0.335
+  inferred_themes: []
+  innovation_score: 0.398
+  market_cap_style: LARGE_CAPS
+  quality: 0.597
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: CONSUMER_DEFENSIVE
+  sub_sector: HOUSEHOLD_&_PERSONAL_PRODUCTS
+  theme_count: 0
   themes: []
 PLAB:
   asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
+  conviction: 0.421
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.524
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Semiconductor Equipment & Materials
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTOR_EQUIPMENT_&_MATERIALS
+  theme_count: 3
+  themes:
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
 POET:
   asset_type: STOCK
-  conviction: 0.595
-  quality: 0.605
-  role: SATELLITE
+  conviction: 0.668
+  inferred_themes:
+  - AUTOMATION
+  - DATA_CENTRES
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.6
+  market_cap_style: LARGE_CAPS
+  quality: 0.77
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: OPTICAL_NETWORKING
+  theme_count: 4
   themes:
   - AI
+  - CLOUD
+  - NETWORKING
   - PHOTONICS
 QLYS:
   asset_type: STOCK
-  conviction: 0.655
-  quality: 0.662
-  role: SATELLITE
+  conviction: 0.545
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - DEFENSIVE
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.659
+  market_cap_style: LARGE_CAPS
+  quality: 0.902
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
+  theme_count: 2
   themes:
+  - CLOUD
   - CYBERSECURITY
 QQQ:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 ROK:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.325
+  inferred_themes: []
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.655
   role: SPECULATIVE
-  sector: Industrials
-  sub_sector: Specialty Industrial Machinery
+  role_category: SPECULATIVE
+  sector: INDUSTRIALS
+  sub_sector: SPECIALTY_INDUSTRIAL_MACHINERY
+  theme_count: 0
   themes: []
 RXRX:
   asset_type: STOCK
-  conviction: 0.29
-  quality: 0.253
+  conviction: 0.309
+  inferred_themes: []
+  innovation_score: 0.271
+  market_cap_style: LARGE_CAPS
+  quality: 0.652
   role: SPECULATIVE
-  sector: Healthcare
-  sub_sector: Biotechnology
+  role_category: SPECULATIVE
+  sector: HEALTHCARE
+  sub_sector: BIOTECHNOLOGY
+  theme_count: 0
   themes: []
 S:
   asset_type: STOCK
-  conviction: 0.795
-  quality: 0.762
+  conviction: 0.68
+  inferred_themes:
+  - AUTOMATION
+  - DEFENSIVE
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.778
+  market_cap_style: LARGE_CAPS
+  quality: 0.926
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
-  themes:
-  - CYBERSECURITY
-  - AI
-SAP:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Application
-  themes: []
-SCHW:
-  asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
-  role: SPECULATIVE
-  sector: Financial Services
-  sub_sector: Capital Markets
-  themes: []
-SGE.L:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Application
-  themes: []
-SKYT:
-  asset_type: STOCK
-  conviction: 0.58
-  quality: 0.568
-  role: SATELLITE
-  sector: TECHNOLOGY
-  sub_sector: OPTICAL_NETWORKING
-  themes:
-  - AI
-  - PHOTONICS
-SMCI:
-  asset_type: STOCK
-  conviction: 0.78
-  quality: 0.738
-  role: HIGH_CONVICTION
-  sector: TECHNOLOGY
-  sub_sector: AI_INFRASTRUCTURE
-  themes:
-  - AI
-  - DATA_CENTRES
-SMH:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
-  sector: UNKNOWN
-  sub_sector: UNKNOWN
-  themes: []
-SMR:
-  asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
-  role: SPECULATIVE
-  sector: Industrials
-  sub_sector: Specialty Industrial Machinery
-  themes: []
-SNDK:
-  asset_type: STOCK
-  conviction: 0.405
-  quality: 0.39
-  role: SATELLITE
-  sector: Technology
-  sub_sector: Computer Hardware
-  themes: []
-SNOW:
-  asset_type: STOCK
-  conviction: 0.785
-  quality: 0.738
-  role: HIGH_CONVICTION
-  sector: TECHNOLOGY
-  sub_sector: DATA_PLATFORMS
+  theme_count: 3
   themes:
   - AI
   - CLOUD
-SNPS:
+  - CYBERSECURITY
+SAP:
   asset_type: STOCK
-  conviction: 0.335
-  quality: 0.365
+  conviction: 0.349
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Infrastructure
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___APPLICATION
+  theme_count: 1
+  themes:
+  - CLOUD
+SCHW:
+  asset_type: STOCK
+  conviction: 0.325
+  inferred_themes: []
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.625
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: FINANCIAL_SERVICES
+  sub_sector: CAPITAL_MARKETS
+  theme_count: 0
   themes: []
-SOUN:
+SGE.L:
   asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
+  conviction: 0.338
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  - SMALL_CAPS
+  innovation_score: 0.297
+  market_cap_style: SMALL_CAPS
+  quality: 0.464
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Application
-  themes: []
-SOXX:
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___APPLICATION
+  theme_count: 1
+  themes:
+  - CLOUD
+SKYT:
   asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
+  conviction: 0.663
+  inferred_themes:
+  - AUTOMATION
+  - DATA_CENTRES
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.574
+  market_cap_style: LARGE_CAPS
+  quality: 0.765
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: OPTICAL_NETWORKING
+  theme_count: 4
+  themes:
+  - AI
+  - CLOUD
+  - NETWORKING
+  - PHOTONICS
+SMCI:
+  asset_type: STOCK
+  conviction: 0.659
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.759
+  market_cap_style: LARGE_CAPS
+  quality: 0.874
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: AI_INFRASTRUCTURE
+  theme_count: 3
+  themes:
+  - AI
+  - CLOUD
+  - DATA_CENTRES
+SMH:
+  asset_type: STOCK
+  conviction: 0.311
+  inferred_themes: []
+  innovation_score: 0.28
+  market_cap_style: LARGE_CAPS
+  quality: 0.521
   role: SPECULATIVE
+  role_category: SPECULATIVE
   sector: UNKNOWN
   sub_sector: UNKNOWN
+  theme_count: 0
+  themes: []
+SMR:
+  asset_type: STOCK
+  conviction: 0.314
+  inferred_themes: []
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.644
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: INDUSTRIALS
+  sub_sector: SPECIALTY_INDUSTRIAL_MACHINERY
+  theme_count: 0
+  themes: []
+SNDK:
+  asset_type: STOCK
+  conviction: 0.359
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.398
+  market_cap_style: LARGE_CAPS
+  quality: 0.545
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: COMPUTER_HARDWARE
+  theme_count: 1
+  themes:
+  - CLOUD
+SNOW:
+  asset_type: STOCK
+  conviction: 0.659
+  inferred_themes:
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.762
+  market_cap_style: LARGE_CAPS
+  quality: 0.81
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
+  sector: TECHNOLOGY
+  sub_sector: DATA_PLATFORMS
+  theme_count: 3
+  themes:
+  - AI
+  - CLOUD
+  - DATA_CENTRES
+SNPS:
+  asset_type: STOCK
+  conviction: 0.349
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.35
+  market_cap_style: LARGE_CAPS
+  quality: 0.535
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___INFRASTRUCTURE
+  theme_count: 1
+  themes:
+  - CLOUD
+SOUN:
+  asset_type: STOCK
+  conviction: 0.338
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.524
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___APPLICATION
+  theme_count: 1
+  themes:
+  - CLOUD
+SOXX:
+  asset_type: STOCK
+  conviction: 0.311
+  inferred_themes: []
+  innovation_score: 0.28
+  market_cap_style: LARGE_CAPS
+  quality: 0.521
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  theme_count: 0
   themes: []
 SPY:
-  asset_type: STOCK
-  conviction: 0.295
-  quality: 0.265
-  role: SPECULATIVE
+  conviction: null
+  quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
   themes: []
 SWKS:
   asset_type: STOCK
-  conviction: 0.67
-  quality: 0.675
-  role: SATELLITE
+  conviction: 0.572
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.673
+  market_cap_style: LARGE_CAPS
+  quality: 0.935
+  role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
+  theme_count: 3
   themes:
+  - CLOUD
+  - INNOVATION
   - SEMICONDUCTORS
 SYM:
   asset_type: STOCK
   conviction: 0.32
-  quality: 0.328
+  inferred_themes: []
+  innovation_score: 0.324
+  market_cap_style: LARGE_CAPS
+  quality: 0.65
   role: SPECULATIVE
-  sector: Industrials
-  sub_sector: Specialty Industrial Machinery
+  role_category: SPECULATIVE
+  sector: INDUSTRIALS
+  sub_sector: SPECIALTY_INDUSTRIAL_MACHINERY
+  theme_count: 0
   themes: []
 TEM:
   asset_type: STOCK
-  conviction: 0.305
-  quality: 0.29
+  conviction: 0.314
+  inferred_themes: []
+  innovation_score: 0.297
+  market_cap_style: LARGE_CAPS
+  quality: 0.594
   role: SPECULATIVE
-  sector: Healthcare
-  sub_sector: Health Information Services
+  role_category: SPECULATIVE
+  sector: HEALTHCARE
+  sub_sector: HEALTH_INFORMATION_SERVICES
+  theme_count: 0
   themes: []
 TSLA:
   asset_type: STOCK
-  conviction: 0.415
-  quality: 0.415
-  role: SATELLITE
-  sector: Consumer Cyclical
-  sub_sector: Auto Manufacturers
+  conviction: 0.338
+  inferred_themes:
+  - AUTONOMY
+  - ROBOTICS
+  innovation_score: 0.415
+  market_cap_style: LARGE_CAPS
+  quality: 0.601
+  role: SPECULATIVE
+  role_category: SPECULATIVE
+  sector: CONSUMER_CYCLICAL
+  sub_sector: AUTO_MANUFACTURERS
+  theme_count: 0
   themes: []
 TSM:
   asset_type: STOCK
-  conviction: 0.88
-  quality: 0.85
+  conviction: 0.746
+  inferred_themes:
+  - AUTOMATION
+  - MARKET
+  innovation_score: 0.865
+  market_cap_style: LARGE_CAPS
+  quality: 0.973
   role: CORE
+  role_category: CORE
   sector: TECHNOLOGY
   sub_sector: SEMICONDUCTORS
+  theme_count: 4
   themes:
   - AI
+  - CLOUD
+  - INNOVATION
+  - SEMICONDUCTORS
 TWLO:
   asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
+  conviction: 0.344
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.324
+  market_cap_style: LARGE_CAPS
+  quality: 0.53
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Infrastructure
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___INFRASTRUCTURE
+  theme_count: 1
+  themes:
+  - CLOUD
 VRT:
   asset_type: STOCK
-  conviction: 0.525
-  quality: 0.528
+  conviction: 0.54
+  inferred_themes: []
+  innovation_score: 0.526
+  market_cap_style: LARGE_CAPS
+  quality: 0.738
   role: SATELLITE
+  role_category: SATELLITE
   sector: INDUSTRIALS
   sub_sector: POWER_INFRASTRUCTURE
+  theme_count: 3
   themes:
   - AI
   - DATA_CENTRES
   - ENERGY
 WDAY:
   asset_type: STOCK
-  conviction: 0.32
-  quality: 0.328
+  conviction: 0.344
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.324
+  market_cap_style: LARGE_CAPS
+  quality: 0.53
   role: SPECULATIVE
-  sector: Technology
-  sub_sector: Software - Application
-  themes: []
+  role_category: SPECULATIVE
+  sector: TECHNOLOGY
+  sub_sector: SOFTWARE___APPLICATION
+  theme_count: 1
+  themes:
+  - CLOUD
 ZS:
   asset_type: STOCK
-  conviction: 0.78
-  quality: 0.762
+  conviction: 0.567
+  inferred_themes:
+  - AI
+  - AUTOMATION
+  - DEFENSIVE
+  - INNOVATION
+  - MARKET
+  innovation_score: 0.771
+  market_cap_style: LARGE_CAPS
+  quality: 0.924
   role: HIGH_CONVICTION
+  role_category: HIGH_CONVICTION
   sector: TECHNOLOGY
   sub_sector: CYBERSECURITY
+  theme_count: 2
   themes:
-  - CYBERSECURITY
   - CLOUD
+  - CYBERSECURITY

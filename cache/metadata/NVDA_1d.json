@@ -2,6 +2,6 @@
     "ticker": "NVDA",
     "interval": "1d",
     "source": "yfinance",
-    "rows": 501,
-    "last_updated": "2026-06-22T22:08:22.878183"
+    "rows": 3,
+    "last_updated": "2026-06-23T20:25:01.205846"
 }

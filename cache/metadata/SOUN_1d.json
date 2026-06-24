@@ -2,6 +2,6 @@
     "ticker": "SOUN",
     "interval": "1d",
     "source": "yfinance",
-    "rows": 501,
-    "last_updated": "2026-06-22T22:08:23.146853"
+    "rows": 0,
+    "last_updated": "2026-06-23T19:58:35.012292"
 }

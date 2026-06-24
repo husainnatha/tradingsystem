@@ -23,3 +23,5 @@ tradingsystem\data\exports\prod-portfolio_intelligence.xlsx
 # testing ...
 python -m pytest tests/test_recommendation_mapper.py -v
 
+# run scripts
+python scripts/generate_metadata.py

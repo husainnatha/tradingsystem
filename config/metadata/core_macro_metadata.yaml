@@ -1,12 +1,11 @@
 ^VIX:
-    asset_type: VOLATILITY
-    category: INDEX
-    macro_factor: RISK
-    regime_behavior: RISK_OFF
-    market_role: INDICATOR
-    sensitivity: NEGATIVE_TO_EQUITIES
-    description: "Volatility index measuring market fear"
-
+  asset_type: VOLATILITY
+  category: INDEX
+  macro_factor: RISK
+  regime_behavior: RISK_OFF
+  market_role: INDICATOR
+  sensitivity: NEGATIVE_TO_EQUITIES
+  description: "Volatility index measuring market fear"
 DX-Y.NYB:
   asset_type: CURRENCY
   category: FX
@@ -15,7 +14,6 @@ DX-Y.NYB:
   market_role: INDICATOR
   sensitivity: NEGATIVE_FOR_COMMODITIES
   description: "US Dollar Index"
-
 GC=F:
   asset_type: METAL
   category: COMMODITY
@@ -24,7 +22,6 @@ GC=F:
   market_role: TRADEABLE
   sensitivity: NEGATIVE_TO_REAL_RATES
   description: "Gold futures"
-
 SI=F:
   asset_type: METAL
   category: COMMODITY
@@ -33,7 +30,6 @@ SI=F:
   market_role: TRADEABLE
   sensitivity: NEGATIVE_TO_REAL_RATES
   description: "Silver futures"
-
 HG=F:
   asset_type: INDUSTRIAL_METAL
   category: COMMODITY
@@ -42,7 +38,6 @@ HG=F:
   market_role: TRADEABLE
   sensitivity: POSITIVE_TO_CHINA_GROWTH
   description: "Copper futures"
-
 CL=F:
   asset_type: ENERGY
   category: COMMODITY
@@ -51,7 +46,6 @@ CL=F:
   market_role: TRADEABLE
   sensitivity: POSITIVE_TO_GROWTH
   description: "WTI Crude Oil"
-
 BZ=F:
   asset_type: ENERGY
   category: COMMODITY
@@ -60,7 +54,6 @@ BZ=F:
   market_role: TRADEABLE
   sensitivity: POSITIVE_TO_GROWTH
   description: "Brent Crude Oil"
-
 NG=F:
   asset_type: ENERGY
   category: COMMODITY
@@ -69,7 +62,6 @@ NG=F:
   market_role: TRADEABLE
   sensitivity: HIGH_VOLATILITY
   description: "Natural Gas futures"
-
 ZC=F:
   asset_type: AGRICULTURE
   category: COMMODITY
@@ -78,7 +70,6 @@ ZC=F:
   market_role: TRADEABLE
   sensitivity: WEATHER_AND_SUPPLY_SHOCKS
   description: "Corn futures"
-
 ZW=F:
   asset_type: AGRICULTURE
   category: COMMODITY
@@ -87,7 +78,6 @@ ZW=F:
   market_role: TRADEABLE
   sensitivity: WEATHER_AND_SUPPLY_SHOCKS
   description: "Wheat futures"
-
 ZS=F:
   asset_type: AGRICULTURE
   category: COMMODITY
@@ -96,7 +86,6 @@ ZS=F:
   market_role: TRADEABLE
   sensitivity: WEATHER_AND_SUPPLY_SHOCKS
   description: "Soybean futures"
-
 BTC-USD:
   asset_type: CRYPTO
   category: DIGITAL_ASSET
@@ -105,7 +94,6 @@ BTC-USD:
   market_role: INDICATOR
   sensitivity: POSITIVE_TO_LIQUIDITY
   description: "Bitcoin spot price"
-
 TLT:
   asset_type: BOND
   category: ETF

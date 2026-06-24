@@ -8,5 +8,5 @@ def test_watchlist_loader():
         "equities"
     )
 
-    assert len(tickers) > 0
+    assert len(tickers) > 1
 

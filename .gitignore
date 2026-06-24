@@ -7,7 +7,5 @@ __pycache__/
 pytest.ini
 *dashboard/
 *.csv
-*data/*
 *.xlsx*
 *.db
-cache/*

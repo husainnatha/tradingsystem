@@ -1,0 +1,7 @@
+{
+    "ticker": "TLT",
+    "interval": "1d",
+    "source": "yfinance",
+    "rows": 500,
+    "last_updated": "2026-06-23T19:57:15.155226"
+}
