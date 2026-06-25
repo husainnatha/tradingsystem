@@ -1,0 +1,186 @@
+ARKK:
+  asset_type: ETF
+  sector: INNOVATION
+  sub_sector: DISRUPTIVE_TECH
+  themes:
+    - AI
+    - ROBOTICS
+    - GENOMICS
+    - AUTOMATION
+    - NEXT_GEN_INTERNET
+  conviction: null
+  quality: null
+  role: ETF
+
+IWM:
+  asset_type: ETF
+  sector: US_EQUITIES
+  sub_sector: SMALL_CAP
+  themes:
+    - US_SMALL_CAP
+    - RISK_ON
+  conviction: null
+  quality: null
+  role: ETF
+
+QQQ:
+  asset_type: ETF
+  sector: US_TECH
+  sub_sector: LARGE_CAP_TECH
+  themes:
+    - MEGACAP_TECH
+    - GROWTH
+  conviction: null
+  quality: null
+  role: ETF
+
+SMH:
+  asset_type: ETF
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+    - SEMICONDUCTORS
+    - AI
+    - DATA_CENTRES
+  conviction: null
+  quality: null
+  role: ETF
+
+SOXX:
+  asset_type: ETF
+  sector: TECHNOLOGY
+  sub_sector: SEMICONDUCTORS
+  themes:
+    - SEMICONDUCTORS
+    - CHIP_MANUFACTURING
+    - AI
+  conviction: null
+  quality: null
+  role: ETF
+
+SPY:
+  asset_type: ETF
+  sector: US_EQUITIES
+  sub_sector: LARGE_CAP
+  themes:
+    - US_MARKET
+    - S&P500
+    - BROAD_MARKET
+  conviction: null
+  quality: null
+  role: ETF
+
+VOO:
+  asset_type: ETF
+  sector: US_EQUITIES
+  sub_sector: LARGE_CAP
+  themes:
+    - US_MARKET
+    - S&P500
+    - BROAD_MARKET
+  conviction: null
+  quality: null
+  role: ETF
+
+VT:
+  asset_type: ETF
+  sector: GLOBAL_EQUITIES
+  sub_sector: WORLD_MARKET
+  themes:
+    - GLOBAL
+    - DIVERSIFIED
+    - BROAD_MARKET
+  conviction: null
+  quality: null
+  role: ETF
+
+EEM:
+  asset_type: ETF
+  sector: EMERGING_MARKETS
+  sub_sector: BROAD_EM
+  themes:
+    - EM
+    - GLOBAL_GROWTH
+  conviction: null
+  quality: null
+  role: ETF
+
+TLT:
+  asset_type: ETF
+  sector: FIXED_INCOME
+  sub_sector: LONG_DURATION_TREASURY
+  themes:
+    - DURATION
+    - RISK_OFF
+    - BOND_MARKET
+  conviction: null
+  quality: null
+  role: ETF
+
+HYG:
+  asset_type: ETF
+  sector: FIXED_INCOME
+  sub_sector: HIGH_YIELD
+  themes:
+    - CREDIT
+    - RISK_ON
+  conviction: null
+  quality: null
+  role: ETF
+
+GLD:
+  asset_type: ETF
+  sector: COMMODITIES
+  sub_sector: PRECIOUS_METALS
+  themes:
+    - GOLD
+    - INFLATION_HEDGE
+    - RISK_OFF
+  conviction: null
+  quality: null
+  role: ETF
+
+XLE:
+  asset_type: ETF
+  sector: ENERGY
+  sub_sector: OIL_GAS
+  themes:
+    - ENERGY
+    - COMMODITIES
+    - INFLATION
+  conviction: null
+  quality: null
+  role: ETF
+
+XLK:
+  asset_type: ETF
+  sector: TECHNOLOGY
+  sub_sector: LARGE_CAP_TECH
+  themes:
+    - TECH
+    - GROWTH
+  conviction: null
+  quality: null
+  role: ETF
+
+XLF:
+  asset_type: ETF
+  sector: FINANCIALS
+  sub_sector: BANKING
+  themes:
+    - BANKS
+    - FINANCIALS
+  conviction: null
+  quality: null
+  role: ETF
+
+XLU:
+  asset_type: ETF
+  sector: UTILITIES
+  sub_sector: DEFENSIVE
+  themes:
+    - DEFENSIVE
+    - RISK_OFF
+  conviction: null
+  quality: null
+  role: ETF
