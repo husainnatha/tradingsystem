@@ -1,0 +1,7 @@
+{
+    "ticker": "I",
+    "interval": "1d",
+    "source": "yfinance",
+    "rows": 0,
+    "last_updated": "2026-06-25T21:23:33.954284"
+}

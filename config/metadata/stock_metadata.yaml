@@ -1,3 +1,9 @@
+A:
+  conviction: null
+  quality: null
+  sector: Healthcare
+  sub_sector: Diagnostics & Research
+  themes: []
 AAOI:
   asset_type: STOCK
   conviction: 0.686
@@ -261,6 +267,12 @@ AVGO:
   - INNOVATION
   - NETWORKING
   - SEMICONDUCTORS
+B:
+  conviction: null
+  quality: null
+  sector: Basic Materials
+  sub_sector: Gold
+  themes: []
 BBAI:
   asset_type: STOCK
   conviction: 0.333
@@ -294,6 +306,12 @@ BMW.DE:
   sector: CONSUMER_CYCLICAL
   sub_sector: AUTO_MANUFACTURERS
   theme_count: 0
+  themes: []
+C:
+  conviction: null
+  quality: null
+  sector: Financial Services
+  sub_sector: Banks - Diversified
   themes: []
 CDNS:
   asset_type: STOCK
@@ -401,6 +419,12 @@ CSCO:
   theme_count: 1
   themes:
   - CLOUD
+D:
+  conviction: null
+  quality: null
+  sector: Utilities
+  sub_sector: Utilities - Regulated Electric
+  themes: []
 DDOG:
   asset_type: STOCK
   conviction: 0.565
@@ -472,6 +496,12 @@ DT:
   themes:
   - AI
   - CLOUD
+E:
+  conviction: null
+  quality: null
+  sector: Energy
+  sub_sector: Oil & Gas Integrated
+  themes: []
 ENVX:
   asset_type: STOCK
   conviction: 0.309
@@ -500,6 +530,12 @@ ETN:
   themes:
   - DATA_CENTRES
   - ENERGY
+F:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Auto Manufacturers
+  themes: []
 FIVN:
   asset_type: STOCK
   conviction: 0.333
@@ -538,6 +574,12 @@ FTNT:
   themes:
   - CLOUD
   - CYBERSECURITY
+G:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Information Technology Services
+  themes: []
 GOOG:
   asset_type: STOCK
   conviction: 0.376
@@ -551,6 +593,12 @@ GOOG:
   sub_sector: INTERNET_CONTENT_&_INFORMATION
   theme_count: 0
   themes: []
+H:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Lodging
+  themes: []
 HOOD:
   asset_type: STOCK
   conviction: 0.325
@@ -563,6 +611,12 @@ HOOD:
   sector: FINANCIAL_SERVICES
   sub_sector: CAPITAL_MARKETS
   theme_count: 0
+  themes: []
+I:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
   themes: []
 IBM:
   asset_type: STOCK
@@ -650,6 +704,12 @@ IWM:
   sub_sector: UNKNOWN
   theme_count: 0
   themes: []
+K:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
 KLAC:
   asset_type: STOCK
   conviction: 0.442
@@ -669,6 +729,12 @@ KLAC:
   - CLOUD
   - INNOVATION
   - SEMICONDUCTORS
+L:
+  conviction: null
+  quality: null
+  sector: Financial Services
+  sub_sector: Insurance - Property & Casualty
+  themes: []
 LPTH:
   asset_type: STOCK
   conviction: 0.49
@@ -711,6 +777,12 @@ LWLG:
   - CLOUD
   - NETWORKING
   - PHOTONICS
+M:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Department Stores
+  themes: []
 MCD:
   asset_type: STOCK
   conviction: 0.325
@@ -812,6 +884,12 @@ MU:
   themes:
   - AI
   - CLOUD
+N:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
 NET:
   asset_type: STOCK
   conviction: 0.686
@@ -882,6 +960,12 @@ NVDA:
   - DATA_CENTRES
   - INNOVATION
   - SEMICONDUCTORS
+O:
+  conviction: null
+  quality: null
+  sector: Real Estate
+  sub_sector: REIT - Retail
+  themes: []
 ORCL:
   asset_type: STOCK
   conviction: 0.6
@@ -900,6 +984,12 @@ ORCL:
   themes:
   - AI
   - CLOUD
+P:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Computer Hardware
+  themes: []
 PANW:
   asset_type: STOCK
   conviction: 0.576
@@ -991,6 +1081,12 @@ POET:
   - CLOUD
   - NETWORKING
   - PHOTONICS
+Q:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Semiconductor Equipment & Materials
+  themes: []
 QLYS:
   asset_type: STOCK
   conviction: 0.545
@@ -1016,6 +1112,12 @@ QQQ:
   quality: null
   sector: UNKNOWN
   sub_sector: UNKNOWN
+  themes: []
+R:
+  conviction: null
+  quality: null
+  sector: Industrials
+  sub_sector: Rental & Leasing Services
   themes: []
 ROK:
   asset_type: STOCK
@@ -1303,6 +1405,12 @@ SYM:
   sub_sector: SPECIALTY_INDUSTRIAL_MACHINERY
   theme_count: 0
   themes: []
+T:
+  conviction: null
+  quality: null
+  sector: Communication Services
+  sub_sector: Telecom Services
+  themes: []
 TEM:
   asset_type: STOCK
   conviction: 0.314
@@ -1368,6 +1476,18 @@ TWLO:
   theme_count: 1
   themes:
   - CLOUD
+U:
+  conviction: null
+  quality: null
+  sector: Technology
+  sub_sector: Software - Application
+  themes: []
+V:
+  conviction: null
+  quality: null
+  sector: Financial Services
+  sub_sector: Credit Services
+  themes: []
 VRT:
   asset_type: STOCK
   conviction: 0.54
@@ -1384,6 +1504,12 @@ VRT:
   - AI
   - DATA_CENTRES
   - ENERGY
+W:
+  conviction: null
+  quality: null
+  sector: Consumer Cyclical
+  sub_sector: Internet Retail
+  themes: []
 WDAY:
   asset_type: STOCK
   conviction: 0.344
@@ -1402,6 +1528,24 @@ WDAY:
   theme_count: 1
   themes:
   - CLOUD
+X:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+Y:
+  conviction: null
+  quality: null
+  sector: UNKNOWN
+  sub_sector: UNKNOWN
+  themes: []
+Z:
+  conviction: null
+  quality: null
+  sector: Communication Services
+  sub_sector: Internet Content & Information
+  themes: []
 ZS:
   asset_type: STOCK
   conviction: 0.567
