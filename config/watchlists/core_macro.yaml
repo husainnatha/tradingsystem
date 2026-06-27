@@ -3,7 +3,12 @@ tickers:
   - DX-Y.NYB
   - GC=F
   - SI=F
+  - HG=F
   - CL=F
   - BZ=F
   - NG=F
-  - HG=F
+  - ZC=F
+  - ZW=F
+  - ZS=F
+  - BTC-USD
+  - TLT

@@ -10,11 +10,11 @@ tickers:
   - AMZN
   - ANET
   - APP
-  - ARKK
   - ARM
   - ASML
   - AVGO
   - BBAI
+  - BMW.DE
   - CDNS
   - CEG
   - CRDO
@@ -23,6 +23,7 @@ tickers:
   - CSCO
   - DDOG
   - DELL
+  - DIS
   - DT
   - ENVX
   - ETN
@@ -34,54 +35,44 @@ tickers:
   - INOD
   - INTC
   - IONQ
-  - IWM
   - KLAC
   - LPTH
   - LWLG
+  - MCD
   - MDB
   - META
   - MRVL
   - MSFT
   - MU
   - NET
+  - NKE
   - NOW
   - NVDA
   - ORCL
   - PANW
   - PATH
+  - PG
   - PLAB
   - POET
   - QLYS
-  - QQQ
   - ROK
   - RXRX
   - S
+  - SAP
   - SCHW
   - SGE.L
   - SKYT
   - SMCI
-  - SMH
   - SMR
-  - SNDK
   - SNOW
   - SNPS
   - SOUN
-  - SOXX
-  - SPY
   - SWKS
   - SYM
-  - TEM
   - TSLA
   - TSM
   - TWLO
   - VRT
   - WDAY
+  - WDC
   - ZS
-  - MCD
-  - NKE
-  - BMW.DE
-  - DIS
-  - SAP
-  - PG
-  - PANW
-  

@@ -1,0 +1,7 @@
+{
+    "ticker": "ZS=F",
+    "interval": "1d",
+    "source": "yfinance",
+    "rows": 503,
+    "last_updated": "2026-06-27T00:06:06.895171"
+}

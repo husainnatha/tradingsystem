@@ -12,6 +12,8 @@ class AssetMetadataLoader:
 
             Path("config")
 
+            / "asset_data_dict"
+
             / "asset_metadata.yaml"
         )
 

@@ -8,7 +8,7 @@ def test_default_environment_is_prod():
 
     os.environ.pop(
         "APP_ENV",
-        None
+        "dev"
     )
 
     config = (

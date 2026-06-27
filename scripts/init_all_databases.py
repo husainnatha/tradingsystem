@@ -35,7 +35,7 @@ for env in environments:
 
             os.environ("APP_ENV")
 
-            or "test"
+            or "dev"
         )
 
     # -----------------------------------

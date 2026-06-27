@@ -47,11 +47,6 @@ def get_portfolio_valuation():
             .get_price(symbol)
         )
 
-        current_price_usd = (
-
-            PriceCacheService
-            .get_price(symbol)
-            )
 
         price_available = True
 
