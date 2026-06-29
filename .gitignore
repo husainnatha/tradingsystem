@@ -9,4 +9,6 @@ pytest.ini
 *.csv
 *data/*
 *.xlsx*
-*.db
+cache/raw
+cache/processed
+cache/metadata
