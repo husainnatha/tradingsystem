@@ -2,6 +2,6 @@
     "ticker": "TWLO",
     "interval": "1d",
     "source": "yfinance",
-    "rows": 501,
-    "last_updated": "2026-06-27T00:07:30.144636"
+    "rows": 124,
+    "last_updated": "2026-06-28T19:33:46.852122"
 }

@@ -97,13 +97,6 @@ class ExportIntelligenceReportPipeline():
 
                 build_risk_engine(
 
-                    symbols=list(
-
-                        market_context
-                        .get_all()
-                        .keys()
-                    ),
-
                     verbose=False
                 )
             )

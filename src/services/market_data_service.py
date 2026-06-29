@@ -23,6 +23,22 @@ class MarketDataService:
         period: str = "2y",
         interval: str = "1d"
     ):
+        
+        processed = ProcessedCacheManager.load(
+            ticker=ticker,
+            interval=interval
+        )
+
+        if (
+            processed is not None
+            and
+            ProcessedCacheManager.is_cache_fresh(
+                ticker,
+                interval
+            )
+        ):
+
+            return processed
 
         df = self.loader.load(
             ticker=ticker,
@@ -30,24 +46,40 @@ class MarketDataService:
             interval=interval
         )
 
-        df = (
-            TechnicalIndicatorService
-            .apply_all(df)
-        )
+        df = TechnicalIndicatorService.apply_all(df)
 
-        processed_path = (
-            ProcessedCacheManager
-            .get_processed_path(
-                ticker,
-                interval
-            )
+        ProcessedCacheManager.save(
+            ticker=ticker,
+            interval=interval,
+            df=df
         )
-
-        processed_path.parent.mkdir(
-            parents=True,
-            exist_ok=True
-        )
-
-        df.to_parquet(processed_path)
 
         return df
+
+        # df = self.loader.load(
+        #     ticker=ticker,
+        #     period=period,
+        #     interval=interval
+        # )
+
+        # df = (
+        #     TechnicalIndicatorService
+        #     .apply_all(df)
+        # )
+
+        # processed_path = (
+        #     ProcessedCacheManager
+        #     .get_processed_path(
+        #         ticker,
+        #         interval
+        #     )
+        # )
+
+        # processed_path.parent.mkdir(
+        #     parents=True,
+        #     exist_ok=True
+        # )
+
+        # df.to_parquet(processed_path)
+
+        # return df

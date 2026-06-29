@@ -6,8 +6,8 @@ from app.engine.scoring_engine import compute_conviction_and_quality
 
 
 def run_scoring_service(input_file: str, output_file: str):
-    #input_file = "config/asset_data/stock_metadata.yaml" 
-    #output_file = "config/asset_data/stock_metadata_processed.yaml"
+    input_file = "config/asset_data/stock_metadata.yaml" 
+    output_file = "config/asset_data/stock_metadata_processed.yaml"
     input_path = Path(input_file)
     output_path = Path(output_file)
 

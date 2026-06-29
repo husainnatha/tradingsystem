@@ -1,19 +1,14 @@
 import pandas as pd
 import yfinance as yf
 
-from src.pipelines.market_pipeline import (
-    MarketPipeline
-)
-
-from src.utils.dataframe_utils import(
-    DataFrameUtils
-)
 
 # -----------------------------------
 # BUILD RISK ENGINE
 # -----------------------------------
 
 def build_risk_engine(
+
+    symbols,
 
     verbose=True
 ):
@@ -24,43 +19,37 @@ def build_risk_engine(
 
             "\nBuilding risk intelligence...\n"
         )
-    
-    pipeline = MarketPipeline()
-
-    market_context = (
-        pipeline.run_watchlist(
-            "equities",
-            "6mo"
-        )
-    )
-
-    symbols = (
-
-        market_context
-
-        .get_tickers()
-    )
 
     rows = []
+
+    symbols_string = " ".join(
+
+        symbols
+    )
+
+    data = yf.download(
+
+        symbols_string,
+
+        period="6mo",
+
+        group_by="ticker",
+
+        progress=False
+    )
 
     for symbol in symbols:
 
         try:
 
-            df = market_context.get_dataset(symbol)
+            prices = (
 
-            # print(type(df))
-            # print(df.columns)
-
-            prices = DataFrameUtils.get_close_series(df)
-
-            # print(type(prices))
-            # print(prices.head())
-
-            # prices = (
-            #     market_context
-            #     .get_dataset(symbol)["Close"]
-            # )
+                data[
+                    symbol
+                ][
+                    "Close"
+                ]
+            )
 
             returns = (
 

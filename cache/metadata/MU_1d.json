@@ -2,6 +2,6 @@
     "ticker": "MU",
     "interval": "1d",
     "source": "yfinance",
-    "rows": 501,
-    "last_updated": "2026-06-27T00:07:29.883004"
+    "rows": 124,
+    "last_updated": "2026-06-28T19:33:46.600234"
 }

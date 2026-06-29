@@ -12,3 +12,7 @@ def test_market_data_loader():
     )
 
     assert len(df) > 0
+
+    print(type(df))
+    print(df.columns)
+    print(df.head())

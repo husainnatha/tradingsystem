@@ -66,7 +66,6 @@ def test_transition_engine():
     risk_intelligence_df = (
 
         build_risk_engine(
-            symbols=symbols,
             verbose=False
         )
     )

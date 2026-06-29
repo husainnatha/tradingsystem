@@ -50,8 +50,6 @@ class PositionSizingPipeline:
 
             build_risk_engine(
 
-                symbols=symbols,
-
                 verbose=False
             )
         )

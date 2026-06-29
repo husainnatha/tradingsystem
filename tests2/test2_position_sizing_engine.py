@@ -38,7 +38,7 @@ def test_position_sizing_engine():
     risk_intelligence_df = (
 
         build_risk_engine(
-            symbols
+
         )
     )
 

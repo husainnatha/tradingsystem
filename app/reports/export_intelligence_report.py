@@ -321,8 +321,6 @@ def export_intelligence_report(
 
         build_risk_engine(
 
-            symbols=symbols,
-
             verbose=True
         )
 

@@ -11,7 +11,8 @@ def test_market_pipeline():
     market_context = (
 
         pipeline.run_watchlist(
-            "equities"
+            "equities",
+            "6mo"
         )
     )
 

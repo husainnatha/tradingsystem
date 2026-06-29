@@ -91,13 +91,6 @@ def test_export_intelligence_report ():
 
             build_risk_engine(
 
-                symbols=list(
-
-                    market_context
-                    .get_all()
-                    .keys()
-                ),
-
                 verbose=False
             )
         )

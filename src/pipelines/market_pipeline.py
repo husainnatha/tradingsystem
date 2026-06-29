@@ -10,9 +10,6 @@ from src.models.market_context import (
     MarketContext
 )
 
-from src.config.environment_loader import (
-    EnvironmentLoader
-)
 
 class MarketPipeline:
 
