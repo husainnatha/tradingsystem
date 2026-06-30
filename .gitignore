@@ -12,3 +12,4 @@ pytest.ini
 cache/raw
 cache/processed
 cache/metadata
+data/tax_state/tax_state.csv
