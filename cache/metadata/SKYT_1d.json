@@ -1,7 +1,0 @@
-{
-    "ticker": "SKYT",
-    "interval": "1d",
-    "source": "yfinance",
-    "rows": 124,
-    "last_updated": "2026-06-28T19:33:46.762630"
-}

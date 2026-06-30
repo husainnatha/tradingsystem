@@ -1,7 +1,0 @@
-{
-    "ticker": "SPY",
-    "interval": "1d",
-    "source": "yfinance",
-    "rows": 501,
-    "last_updated": "2026-06-25T21:33:00.091285"
-}

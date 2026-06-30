@@ -1,7 +1,0 @@
-{
-    "ticker": "BTC-USD",
-    "interval": "1d",
-    "source": "yfinance",
-    "rows": 731,
-    "last_updated": "2026-06-29T10:35:14.946691"
-}
